@@ -5,6 +5,7 @@ const output2 = document.querySelector("#output2");
 const output3 = document.querySelector("#output3");
 const output4 = document.querySelector("#output4");
 const output5 = document.querySelector("#output5");
+const output6 = document.querySelector("#output6");
 const btn = document.querySelector("#btn");
 const error = document.querySelector("#error-msg");
 
@@ -112,6 +113,22 @@ function CA2(Ca1){
     
 }
 //________________________________________________________________________________________
+function EX2(Bss_original){
+    let decNo = 0;
+
+    let binArr = Bss_original;
+    binArr=binArr.split('').reverse();
+
+    binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0); 
+
+    decNo=decNo - Math.pow(2, (binArr.length)-1)
+
+  
+    output6.value = "Ex2: "+ Bss_original + "   Decimal: " + decNo.toString()  ;
+    output6.style.cursor = 'text';
+   
+}
+//________________________________________________________________________________________
 
 function SacarDatos(numero) {
     const regEx = /^[0-1]+$/;
@@ -125,6 +142,7 @@ function SacarDatos(numero) {
         Bss = Bss.toString() ;
         
         Bss = Bss.replace(/\s|[,]/g,''); 
+        Bss_original = Bss;
         let Ca1 = 0 ;
 
         if (Bss[0] == 1) {
@@ -132,6 +150,7 @@ function SacarDatos(numero) {
             BCS(binArr,Bss);
             Ca1=CA1(Bss);
             CA2(Ca1);
+            EX2(Bss_original);
         }
         else{
             
@@ -149,6 +168,8 @@ function SacarDatos(numero) {
             
             output5.value = "Ca2: "+ Bss + "   Decimal: " + decNo.toString()  ;
             output5.style.cursor = 'text';
+            EX2(Bss_original);
+
         }
         
     }
