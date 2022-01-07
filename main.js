@@ -95,8 +95,7 @@ function CA2(Ca1){
     Ca1 = valor[0];
     tamanio = valor[1];
     
-    console.log(Ca1);
-    console.log(tamanio);
+
 
     Ca1_Mostrar = Ca1.toString();
     Ca1_Mostrar = Ca1_Mostrar.replace(/\s|[,]/g,''); 
@@ -105,7 +104,7 @@ function CA2(Ca1){
 
     Ca1 = Array.from(Ca1_Mostrar).reverse();
     
-    console.log(Ca1);
+
     Ca1.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
 
     
@@ -130,6 +129,28 @@ function EX2(Bss_original){
    
 }
 
+//________________________________________________________________________________________
+function CA1(Bcs){
+    let decNo = 0;
+
+    Bcs = Bcs.replace(/\s|[1]/g,'2'); 
+    Bcs = Bcs.replace(/\s|[0]/g,'1');
+    Bcs = Bcs.replace(/\s|[2]/g,'0'); 
+
+    let Ca1_Mostrar = Bcs;
+
+    Bcs=Array.from(Bcs).reverse();
+
+    Bcs.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
+
+    output4.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
+    output4.style.cursor = 'text';
+
+    Number(Ca1_Mostrar);
+
+    return Ca1_Mostrar;
+
+}
 //________________________________________________________________________________________
 
 function SacarDatos(numero) {
@@ -214,6 +235,8 @@ function SacarDatos(numero) {
             //decNo=decNo + Math.pow(2, (numero.length))
             output6.value = "Ex2: 1"+ numero + "   Decimal: " + decNo.toString()  ;
             output6.style.cursor = 'text';
+            output7.value = "BSS: "+ (numero.length) +', BCS: ' + (numero.length + 1)+', CA1: ' + (numero.length + 1)+', CA2: ' + (numero.length + 1)+', EX2: ' + (numero.length + 1)   ;
+            output7.style.cursor = 'text';
             
 
         }
@@ -222,15 +245,20 @@ function SacarDatos(numero) {
             output2.value = "BSS: No tiene Representacion :,("  ;
             output2.style.cursor = 'text';
             BCS(decArr,numero);
+            
             Ca1=CA1(numero);
             CA2(Ca1);
             let decNo = 0;
             
             decNo =  ((Math.pow(2, (numero.length))*-1)-  (nroDecimal))*-1;
-            console.log(decNo);
-            
-            console.log(convertToBinary (decNo));
-            output6.value = "Ex2: "+ convertToBinary (decNo) + "   Decimal: " + nroDecimal.toString()  ;
+
+            decNo = convertToBinary (decNo);
+       
+
+            decNo=decNo.slice(1);
+    
+
+            output6.value = "Ex2: 0"+ decNo + "   Decimal: " + nroDecimal.toString()  ;
             output6.style.cursor = 'text';
         }
 
@@ -270,7 +298,7 @@ function DecimalABinario(nro){
             nro = '1' + nro;
         }
         
-        console.log('nro Raro: '+nro);
+        
     }
     return nro;
     
