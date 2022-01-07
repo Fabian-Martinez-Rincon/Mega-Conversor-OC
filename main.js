@@ -128,6 +128,7 @@ function EX2(Bss_original){
     output6.style.cursor = 'text';
    
 }
+
 //________________________________________________________________________________________
 
 function SacarDatos(numero) {
@@ -193,24 +194,38 @@ function SacarDatos(numero) {
 
 
 
-        output2.value = "BSS: 0"+ numero + "   Decimal: " + decNo.toString()  ;
-        output2.style.cursor = 'text';
+        
 
         if (nroDecimal > 0){
+            output2.value = "BSS: "+ numero + "   Decimal: " + decNo.toString()  ;
+            output2.style.cursor = 'text';
             output3.value = "BCS: 0"+ numero + "   Decimal: " + decNo.toString()  ;
             output3.style.cursor = 'text';
             output4.value = "Ca1: 0"+ numero + "   Decimal: " + decNo.toString()  ;
             output4.style.cursor = 'text';
             output5.value = "Ca2: 0"+ numero + "   Decimal: " + decNo.toString()  ;
             output5.style.cursor = 'text';
+            //decNo=decNo + Math.pow(2, (numero.length))
+            output6.value = "Ex2: 1"+ numero + "   Decimal: " + decNo.toString()  ;
+            output6.style.cursor = 'text';
+            
 
         }
         else
         {
-            BSS(decArr,numero);
+            output2.value = "BSS: No tiene Representacion :,("  ;
+            output2.style.cursor = 'text';
             BCS(decArr,numero);
             Ca1=CA1(numero);
             CA2(Ca1);
+            let decNo = 0;
+            
+            decNo =  ((Math.pow(2, (numero.length))*-1)-  (nroDecimal))*-1;
+            console.log(decNo);
+            
+            console.log(convertToBinary (decNo));
+            output6.value = "Ex2: "+ convertToBinary (decNo) + "   Decimal: " + nroDecimal.toString()  ;
+            output6.style.cursor = 'text';
         }
 
     }
@@ -226,7 +241,7 @@ function convertToBinary (number) {
     };
     return '';
 }
-
+//________________________________________________________________________________________
 function DecimalABinario(nro){
     const regEx = /^[0-1-2-3-4-5-6-7-8-9]+$/;
     let nroDecimal = input_decimal.value.split('');
