@@ -6,6 +6,7 @@ const output3 = document.querySelector("#output3");
 const output4 = document.querySelector("#output4");
 const output5 = document.querySelector("#output5");
 const output6 = document.querySelector("#output6");
+const output7 = document.querySelector("#output7");
 const btn = document.querySelector("#btn");
 const error = document.querySelector("#error-msg");
 
@@ -152,6 +153,10 @@ function SacarDatos(numero) {
             Ca1=CA1(Bss);
             CA2(Ca1);
             EX2(Bss_original);
+
+            output7.value = "Bits: "+ Bss_original.length  ;
+            output7.style.cursor = 'text';
+
         }
         else{
             
@@ -170,7 +175,8 @@ function SacarDatos(numero) {
             output5.value = "Ca2: "+ Bss + "   Decimal: " + decNo.toString()  ;
             output5.style.cursor = 'text';
             EX2(Bss_original);
-
+            output7.value = "Bits: "+ Bss_original.length  ;
+            output7.style.cursor = 'text';
         }
         
     }
