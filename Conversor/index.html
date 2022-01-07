@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Mega Conversor OC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="binary_to_decimal">
+    <div class="container">
+      <h2>Mega Conversor OC</h2>
+      <div class="form-row">
+        <form>
+          <div class="field">
+            <label>
+              <input type="text" name="bin" id="input" autocomplete="off" placeholder="--">
+              <p>Binario</p>
+            </label>
+          </div>
+
+          
+
+          <div class="field">
+            <label>
+              <input type="text" name="dec" id="output2" readonly="true" placeholder="--">
+              <p>BSS</p>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>
+              <input type="text" name="dec" id="output3" readonly="true" placeholder="--">
+              <p>BCS</p>
+            </label>
+          </div>
+
+         
+          
+
+          <div class="field btn-field">
+            <button type="button" id="btn">Convert</button>
+          </div>
+        </form>
+        <div id="error-msg">
+          <p>You should enter a binary number composed by 0 and 1!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  
+</body>
+</html>

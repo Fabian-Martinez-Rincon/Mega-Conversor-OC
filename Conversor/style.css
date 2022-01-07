@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+html,body {
+  height: 100%;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f1f1;
+}
+.binary_to_decimal h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #4766ff;
+}
+.binary_to_decimal {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 0.2rem;
+}
+.field {
+  margin-bottom: 15px;
+}
+.field label {
+  position: relative;
+}
+.field label input {
+  font-size: 1rem;
+  color: #565656;
+  background: transparent;
+  padding: 1rem 1.2rem;
+  min-width: 100%;
+  border: 2px solid #565656;
+  border-radius: 0.2rem;
+}
+.field label input:focus {
+  border-color: #4766ff;
+}
+.field label p {
+  color: #4766ff;
+  font-size: 1rem;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0.8rem;
+  padding: 0 0.4rem;
+  background: #fff;
+  pointer-events: none;
+  transition: top 0.2s, font-size 0.2s, color 0.2s;
+}
+.field label input:focus + p, .field label input:not(:placeholder-shown) + p {
+  top: -20px;
+  font-size: 0.9rem;
+  color: #4766ff;
+}
+.field label input:not(:focus) + p {
+  color: #565656;
+}
+button#btn {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  background: #4766ff;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.2rem;
+}
+
+div#error-msg {
+  color: red;
+  display: none;
+}
