@@ -7,16 +7,28 @@
     <title>Mega Conversor OC</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  
+
+
+  
   <div class="binary_to_decimal">
     <div class="container">
-      <h2>Mega Conversor OC</h2>
+      <h2>MEGA CONVERSOR OC</h2>
       <div class="form-row">
         <form>
           <div class="field">
             <label>
-              <input type="text" name="bin" id="input" autocomplete="off" placeholder="--">
-              <p>Binario</p>
+              <input  type="text" name="bin" id="input_binario" autocomplete="off" placeholder="Ingrese un Binario">
+              
+            </label>
+          </div>
+
+          <div class="field">
+            <label>
+              <input  type="text" name="bin" id="input_decimal" autocomplete="off" placeholder="Ingrese un Decimal">
+              
             </label>
           </div>
 
@@ -24,15 +36,36 @@
 
           <div class="field">
             <label>
-              <input type="text" name="dec" id="output2" readonly="true" placeholder="--">
+              <input type="text" name="dec" id="output2" readonly="true" >
               <p>BSS</p>
             </label>
           </div>
 
           <div class="field">
             <label>
-              <input type="text" name="dec" id="output3" readonly="true" placeholder="--">
+              <input type="text" name="dec" id="output3" readonly="true" >
               <p>BCS</p>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>
+              <input type="text" name="dec" id="output3" readonly="true" >
+              <p>Ca1</p>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>
+              <input type="text" name="dec" id="output3" readonly="true" >
+              <p>Ca2</p>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>
+              <input type="text" name="dec" id="output3" readonly="true" >
+              <p>Ex2</p>
             </label>
           </div>
 
@@ -44,11 +77,14 @@
           </div>
         </form>
         <div id="error-msg">
-          <p>You should enter a binary number composed by 0 and 1!</p>
+          <p>Ingresa un binario Kpo</p>
         </div>
       </div>
+      
     </div>
   </div>
+
+  
 
   <script src="main.js"></script>
   
