@@ -38,27 +38,102 @@ function BCS(binArr,Bcs){
     }
 
 }
-function BCS(binArr,Bcs){
+//________________________________________________________________________________________
+function CA1(Bcs){
     let decNo = 0;
 
-    binArr.pop();
+    Bcs = Bcs.replace(/\s|[1]/g,'2'); 
+    Bcs = Bcs.replace(/\s|[0]/g,'1');
+    Bcs = Bcs.replace(/\s|[2]/g,'0'); 
 
-    binArr.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
+    let Ca1_Mostrar = Bcs;
+
+    Bcs=Array.from(Bcs).reverse();
+
+    Bcs.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
 
 
-    if (Bcs[0] == 1) {
-        output3.value = "BCS: "+ Bcs + "   Decimal: -" + decNo.toString()  ;
-        output3.style.cursor = 'text';
+    if (Ca1_Mostrar[0] == 1) {
+        output4.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: +" + decNo.toString()  ;
+        output4.style.cursor = 'text';
     }
     else
     {
-        output3.value = "BCS: "+ Bcs + "   Decimal: +" + decNo.toString()  ;
-        output3.style.cursor = 'text';
+        output4.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
+        output4.style.cursor = 'text';
     }
+    Number(Ca1_Mostrar);
+
+    return Ca1_Mostrar;
 
 }
 //________________________________________________________________________________________
+function binaryAddition(a){
+    
 
+    let Sumo = false;
+    tamanio = a.length;
+    while (Sumo == false){
+        
+        if (a[tamanio-1] == 1){
+            a[tamanio-1] = 0;
+;
+        }
+        else{
+            a[tamanio-1] = 1;
+
+            Sumo = true;
+        }
+        tamanio = tamanio -1;
+    }
+    
+    return [a,tamanio];
+  }
+//________________________________________________________________________________________
+function CA2(Ca1){
+    let decNo = 0;
+    Number(Ca1);
+
+    var myInt = Ca1;
+  
+    let myFunc = num => Number(num);
+    
+    var intArr = Array.from(String(myInt), myFunc);
+
+
+
+
+    var valor = binaryAddition(intArr) ;
+    
+    Ca1 = valor[0];
+    tamanio = valor[1];
+    
+    console.log(Ca1);
+    console.log(tamanio);
+
+    Ca1_Mostrar = Ca1.toString();
+    Ca1_Mostrar = Ca1_Mostrar.replace(/\s|[,]/g,''); 
+    
+    
+
+    Ca1 = Array.from(Ca1_Mostrar).reverse();
+    
+    console.log(Ca1);
+    Ca1.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
+
+    
+
+    if ((Ca1_Mostrar[0] == 1) && (tamanio != 0))  {
+        output5.value = "Ca2: "+ Ca1_Mostrar + "   Decimal: +" + decNo.toString()  ;
+        output5.style.cursor = 'text';
+    }
+    else
+    {
+        output5.value = "Ca2: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
+        output5.style.cursor = 'text';
+    }
+    
+}
 //________________________________________________________________________________________
 
 function SacarDatos(numero) {
@@ -73,10 +148,32 @@ function SacarDatos(numero) {
         Bss = Bss.toString() ;
         
         Bss = Bss.replace(/\s|[,]/g,''); 
+        let Ca1 = 0 ;
 
-        BSS(binArr,Bss);
-        BCS(binArr,Bss);
-        CA1((binArr,Bss));
+        if (Bss[0] == 1) {
+            BSS(binArr,Bss);
+            BCS(binArr,Bss);
+            Ca1=CA1(Bss);
+            CA2(Ca1);
+        }
+        else{
+            
+            let decNo = 0;
+            binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
+            
+            output2.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString()  ;
+            output2.style.cursor = 'text';
+            
+            output3.value = "BCS: "+ Bss + "   Decimal: " + decNo.toString()  ;
+            output3.style.cursor = 'text';
+            
+            output4.value = "Ca1: "+ Bss + "   Decimal: " + decNo.toString()  ;
+            output4.style.cursor = 'text';
+            
+            output5.value = "Ca2: "+ Bss + "   Decimal: " + decNo.toString()  ;
+            output5.style.cursor = 'text';
+        }
+        
     }
 
 
@@ -130,7 +227,6 @@ function DecimalABinario(nro){
 
         Number(nroDecimal);
         nro = convertToBinary(nroDecimal);
-        //console.log(nro);
     }
     return nro;
     
@@ -140,8 +236,5 @@ btn.addEventListener('click', () => {
     error.style.display = 'none';
     let numero;
     numero=DecimalABinario(numero);
-    console.log(numero);
     SacarDatos(numero);
-    BinariosConSigno();
-    Ca1();
 })
