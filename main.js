@@ -12,7 +12,7 @@ const error = document.querySelector("#error-msg");
 function BSS(binArr,Bss){
     let decNo = 0;
 
-    binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
+    binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0); // Lo paso a Decimal
 
     output2.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString()  ;
     output2.style.cursor = 'text';
@@ -22,21 +22,13 @@ function BSS(binArr,Bss){
 function BCS(binArr,Bcs){
     let decNo = 0;
 
-    binArr.pop();
+    binArr.pop();   //Elimino el primer bit ya que es BCS
 
     binArr.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
 
 
-    if (Bcs[0] == 1) {
         output3.value = "BCS: "+ Bcs + "   Decimal: -" + decNo.toString()  ;
         output3.style.cursor = 'text';
-    }
-    else
-    {
-        output3.value = "BCS: "+ Bcs + "   Decimal: +" + decNo.toString()  ;
-        output3.style.cursor = 'text';
-    }
-
 }
 //________________________________________________________________________________________
 function CA1(Bcs){
@@ -52,16 +44,9 @@ function CA1(Bcs){
 
     Bcs.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
 
+    output4.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
+    output4.style.cursor = 'text';
 
-    if (Ca1_Mostrar[0] == 1) {
-        output4.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: +" + decNo.toString()  ;
-        output4.style.cursor = 'text';
-    }
-    else
-    {
-        output4.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
-        output4.style.cursor = 'text';
-    }
     Number(Ca1_Mostrar);
 
     return Ca1_Mostrar;
@@ -122,16 +107,8 @@ function CA2(Ca1){
     Ca1.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
 
     
-
-    if ((Ca1_Mostrar[0] == 1) && (tamanio != 0))  {
-        output5.value = "Ca2: "+ Ca1_Mostrar + "   Decimal: +" + decNo.toString()  ;
-        output5.style.cursor = 'text';
-    }
-    else
-    {
-        output5.value = "Ca2: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
-        output5.style.cursor = 'text';
-    }
+    output5.value = "Ca2: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
+    output5.style.cursor = 'text';
     
 }
 //________________________________________________________________________________________
@@ -180,6 +157,15 @@ function SacarDatos(numero) {
     else if (input_decimal.value.match(regEx2)){
         decArr = numero.split('').reverse();
         
+
+        let nroDecimal = input_decimal.value.split('');
+        nroDecimal = nroDecimal.toString() ;
+        
+        nroDecimal = nroDecimal.replace(/\s|[,]/g,''); 
+
+        nroDecimal = nroDecimal.toString(2);
+        
+
         let decNo = 0;
 
         decArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
@@ -189,7 +175,7 @@ function SacarDatos(numero) {
         output2.value = "BSS: 0"+ numero + "   Decimal: " + decNo.toString()  ;
         output2.style.cursor = 'text';
 
-        if (decNo > 0){
+        if (nroDecimal > 0){
             output3.value = "BCS: 0"+ numero + "   Decimal: " + decNo.toString()  ;
             output3.style.cursor = 'text';
             output4.value = "Ca1: 0"+ numero + "   Decimal: " + decNo.toString()  ;
@@ -197,6 +183,13 @@ function SacarDatos(numero) {
             output5.value = "Ca2: 0"+ numero + "   Decimal: " + decNo.toString()  ;
             output5.style.cursor = 'text';
 
+        }
+        else
+        {
+            BSS(decArr,numero);
+            BCS(decArr,numero);
+            Ca1=CA1(numero);
+            CA2(Ca1);
         }
 
     }
@@ -206,7 +199,7 @@ function SacarDatos(numero) {
 }
 
 //________________________________________________________________________________________
-function convertToBinary (number, bin) {
+function convertToBinary (number) {
     if (number > 0) {
         return convertToBinary( parseInt(number / 2) ) + (number % 2)
     };
@@ -224,9 +217,18 @@ function DecimalABinario(nro){
         nroDecimal = nroDecimal.replace(/\s|[,]/g,''); 
 
         nroDecimal = nroDecimal.toString(2);
-
+        
         Number(nroDecimal);
-        nro = convertToBinary(nroDecimal);
+        if (nroDecimal>0){
+            nro = convertToBinary(nroDecimal);
+        }
+        else{
+            nroDecimal = nroDecimal * -1;
+            nro = convertToBinary(nroDecimal);
+            nro = '1' + nro;
+        }
+        
+        console.log('nro Raro: '+nro);
     }
     return nro;
     
