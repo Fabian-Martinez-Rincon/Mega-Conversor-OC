@@ -56,8 +56,6 @@ function CA1(Bcs){
 }
 //________________________________________________________________________________________
 function binaryAddition(a){
-    
-
     let Sumo = false;
     tamanio = a.length;
     while (Sumo == false){
@@ -80,34 +78,16 @@ function binaryAddition(a){
 function CA2(Ca1){
     let decNo = 0;
     Number(Ca1);
-
     var myInt = Ca1;
-  
     let myFunc = num => Number(num);
-    
     var intArr = Array.from(String(myInt), myFunc);
-
-
-
-
     var valor = binaryAddition(intArr) ;
-    
     Ca1 = valor[0];
     tamanio = valor[1];
-    
-
-
     Ca1_Mostrar = Ca1.toString();
     Ca1_Mostrar = Ca1_Mostrar.replace(/\s|[,]/g,''); 
-    
-    
-
     Ca1 = Array.from(Ca1_Mostrar).reverse();
-    
-
     Ca1.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
-
-    
     output5.value = "Ca2: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
     output5.style.cursor = 'text';
     
@@ -245,19 +225,63 @@ function SacarDatos(numero) {
             output2.value = "BSS: No tiene Representacion :,("  ;
             output2.style.cursor = 'text';
             BCS(decArr,numero);
-            
-            Ca1=CA1(numero);
-            CA2(Ca1);
-            let decNo = 0;
-            
-            decNo =  ((Math.pow(2, (numero.length))*-1)-  (nroDecimal))*-1;
+            console.log(numero);
+            //Ca1=CA1(numero);
 
+            let nro = 0;
+            numero = numero.replace(/\s|[1]/g,'2'); 
+            numero = numero.replace(/\s|[0]/g,'1');
+            numero = numero.replace(/\s|[2]/g,'0'); 
+
+            numero=numero.slice(1);
+            let Ca1_Mostrar=numero;
+            
+
+            numero=Array.from(numero).reverse();
+
+            numero.forEach((item, index) =>  item === '1' ? nro += Math.pow(2, index) : void 0);
+
+            output4.value = "Ca1: 1"+ Ca1_Mostrar + "   Decimal: -" + nro.toString()  ;
+            output4.style.cursor = 'text';
+
+
+            //______________________________________________
+            Number(Ca1_Mostrar);
+            var myInt = Ca1_Mostrar;
+            let decNo = 0;
+
+            let myFunc = num => Number(num);
+            var intArr = Array.from(String(myInt), myFunc);
+
+            var valor = binaryAddition(intArr) ;
+            Ca1_Mostrar = valor[0];
+            tamanio = valor[1];
+            Ca1_Mostrar2 = Ca1_Mostrar.toString();
+            Ca1_Mostrar2 = Ca1_Mostrar2.replace(/\s|[,]/g,''); 
+            Ca1_Mostrar = Array.from(Ca1_Mostrar2).reverse();
+            Ca1_Mostrar.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
+            output5.value = "Ca2: 1"+ Ca1_Mostrar2 + "   Decimal: -" + decNo.toString()  ;
+            output5.style.cursor = 'text';
+
+            //______________________________________________
+
+            //CA2(Ca1_Mostrar);
+
+            decNo = 0;
+            
+            console.log('Numero'+numero.length);
+            console.log('Numero'+nroDecimal);
+            decNo =  ((Math.pow(2, ((numero.length)+1))*-1)-  (nroDecimal))*-1;
+
+            console.log('Bien1' + decNo);
             decNo = convertToBinary (decNo);
        
 
-            decNo=decNo.slice(1);
+            
     
+            console.log('Bien' + decNo);
 
+            
             output6.value = "Ex2: 0"+ decNo + "   Decimal: " + nroDecimal.toString()  ;
             output6.style.cursor = 'text';
         }
