@@ -1,12 +1,13 @@
 const input_binario = document.querySelector("#input_binario");
 const input_decimal = document.querySelector("#input_decimal");
+const input_bit = document.querySelector("#input_bit");
 
-const output2 = document.querySelector("#output2");
-const output3 = document.querySelector("#output3");
-const output4 = document.querySelector("#output4");
-const output5 = document.querySelector("#output5");
-const output6 = document.querySelector("#output6");
-const output7 = document.querySelector("#output7");
+const output_BSS = document.querySelector("#output_BSS");
+const output_BCS = document.querySelector("#output_BCS");
+const output_CA1 = document.querySelector("#output_CA1");
+const output_CA2 = document.querySelector("#output_CA2");
+const output_EX2 = document.querySelector("#output_EX2");
+const output_BITS = document.querySelector("#output_BITS");
 const btn = document.querySelector("#btn");
 const error = document.querySelector("#error-msg");
 
@@ -16,8 +17,8 @@ function BSS(binArr,Bss){
 
     binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0); // Lo paso a Decimal
 
-    output2.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString()  ;
-    output2.style.cursor = 'text';
+    output_BSS.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString()  ;
+    output_BSS.style.cursor = 'text';
 
 }
 //________________________________________________________________________________________
@@ -29,8 +30,8 @@ function BCS(binArr,Bcs){
     binArr.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
 
 
-        output3.value = "BCS: "+ Bcs + "   Decimal: -" + decNo.toString()  ;
-        output3.style.cursor = 'text';
+        output_BCS.value = "BCS: "+ Bcs + "   Decimal: -" + decNo.toString()  ;
+        output_BCS.style.cursor = 'text';
 }
 //________________________________________________________________________________________
 function CA1(Bcs){
@@ -46,8 +47,8 @@ function CA1(Bcs){
 
     Bcs.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
 
-    output4.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
-    output4.style.cursor = 'text';
+    output_CA1.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
+    output_CA1.style.cursor = 'text';
 
     Number(Ca1_Mostrar);
 
@@ -55,7 +56,7 @@ function CA1(Bcs){
 
 }
 //________________________________________________________________________________________
-function binaryAddition(a){
+function binaryAddition(a){ //Le sumo un 1 en binario para el Ca2
     let Sumo = false;
     tamanio = a.length;
     while (Sumo == false){
@@ -88,8 +89,8 @@ function CA2(Ca1){
     Ca1_Mostrar = Ca1_Mostrar.replace(/\s|[,]/g,''); 
     Ca1 = Array.from(Ca1_Mostrar).reverse();
     Ca1.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
-    output5.value = "Ca2: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
-    output5.style.cursor = 'text';
+    output_CA2.value = "Ca2: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
+    output_CA2.style.cursor = 'text';
     
 }
 //________________________________________________________________________________________
@@ -104,8 +105,8 @@ function EX2(Bss_original){
     decNo=decNo - Math.pow(2, (binArr.length)-1)
 
   
-    output6.value = "Ex2: "+ Bss_original + "   Decimal: " + decNo.toString()  ;
-    output6.style.cursor = 'text';
+    output_EX2.value = "Ex2: "+ Bss_original + "   Decimal: " + decNo.toString()  ;
+    output_EX2.style.cursor = 'text';
    
 }
 
@@ -123,8 +124,8 @@ function CA1(Bcs){
 
     Bcs.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
 
-    output4.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
-    output4.style.cursor = 'text';
+    output_CA1.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
+    output_CA1.style.cursor = 'text';
 
     Number(Ca1_Mostrar);
 
@@ -138,7 +139,7 @@ function SacarDatos(numero) {
 
     const regEx2 = /^[0-1-2-3-4-5-6-7-8-9]+$/;
 
-    if(input_binario.value.match(regEx)) {
+    if(input_binario.value.match(regEx)) {      //Pregunto si se ingreso un binario
         const binArr = input_binario.value.split('').reverse();
 
         let Bss = input_binario.value.split('');
@@ -148,82 +149,133 @@ function SacarDatos(numero) {
         Bss_original = Bss;
         let Ca1 = 0 ;
 
-        if (Bss[0] == 1) {
+        if (Bss[0] == 1) {  //Si el binario es negativo
             BSS(binArr,Bss);
             BCS(binArr,Bss);
             Ca1=CA1(Bss);
             CA2(Ca1);
             EX2(Bss_original);
 
-            output7.value = "Bits: "+ Bss_original.length  ;
-            output7.style.cursor = 'text';
+            output_BITS.value = "Bits: "+ Bss_original.length  ;
+            output_BITS.style.cursor = 'text';
 
         }
-        else{
+        else{       //Si es positivo
             
             let decNo = 0;
             binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
             
-            output2.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString()  ;
-            output2.style.cursor = 'text';
+            output_BSS.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString()  ;
+            output_BSS.style.cursor = 'text';
             
-            output3.value = "BCS: "+ Bss + "   Decimal: " + decNo.toString()  ;
-            output3.style.cursor = 'text';
+            output_BCS.value = "BCS: "+ Bss + "   Decimal: " + decNo.toString()  ;
+            output_BCS.style.cursor = 'text';
             
-            output4.value = "Ca1: "+ Bss + "   Decimal: " + decNo.toString()  ;
-            output4.style.cursor = 'text';
+            output_CA1.value = "Ca1: "+ Bss + "   Decimal: " + decNo.toString()  ;
+            output_CA1.style.cursor = 'text';
             
-            output5.value = "Ca2: "+ Bss + "   Decimal: " + decNo.toString()  ;
-            output5.style.cursor = 'text';
+            output_CA2.value = "Ca2: "+ Bss + "   Decimal: " + decNo.toString()  ;
+            output_CA2.style.cursor = 'text';
             EX2(Bss_original);
-            output7.value = "Bits: "+ Bss_original.length  ;
-            output7.style.cursor = 'text';
+            output_BITS.value = "Bits: "+ Bss_original.length  ;
+            output_BITS.style.cursor = 'text';
         }
         
     }
 
+    else if ((input_decimal.value.match(regEx2))&&(input_bit.value.match(regEx2))){   //Cuando Restrinjo bits
 
-    else if (input_decimal.value.match(regEx2)){
         decArr = numero.split('').reverse();
-        
+        let nroDecimal = input_decimal.value.split('');
+        let nroBit = input_bit.value.split('');
+        console.log('bits: '+ nroBit);
+        nroDecimal = nroDecimal.toString() ;
+        console.log(nroDecimal);
+        nroDecimal = nroDecimal.replace(/\s|[,]/g,''); 
+        console.log(nroDecimal);
 
+        if (nroBit>0){  //Compruebo que se ingresaron bits mas grandes que 1
+            let decNo = 0;
+            let numero_original = numero;
+            decArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
+            //_______________________________________________________________Decimales Positivos
+            if (nroDecimal > 0){       //Si el decimal es positivo
+                console.log('bits'+nroBit);
+                console.log('leng'+numero.length);
+                if (nroBit>=numero.length){ //Adapto mi numero a la cantidad de bits ingresados
+                    for (var i = numero.length; i<nroBit; i++){
+                        numero = '0' + numero;
+                    }
+                    output_BSS.value = "BSS: "+ numero + "   Decimal: " + decNo.toString() ;
+                    output_BSS.style.cursor = 'text';
+                    output_BCS.value = "BCS: "+ numero + "   Decimal: " + decNo.toString()  ;
+                    output_BCS.style.cursor = 'text';
+                    output_CA1.value = "Ca1: "+ numero + "   Decimal: " + decNo.toString()  ;
+                    output_CA1.style.cursor = 'text';
+                    output_CA2.value = "Ca2: "+ numero + "   Decimal: " + decNo.toString()  ;
+                    output_CA2.style.cursor = 'text';
+                    if (nroBit>numero_original.length){ //Pregunto si tengo bits para agregar el exceso
+                        numero=numero.slice(1);
+                        output_EX2.value = "Ex2: 1"+ numero + "   Decimal: " + decNo.toString()  ;
+                        output_EX2.style.cursor = 'text';
+                    }
+                    else
+                    {   
+                        output_EX2.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'   ;
+                        output_EX2.style.cursor = 'text'
+                    }
+                    output_BITS.value = "Bits: "+ nroBit ;
+                    output_BITS.style.cursor = 'text';
+                }
+                else
+                {
+                    output_BSS.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'   ;
+                    output_BSS.style.cursor = 'text';
+                }
+
+                
+                
+            }
+            //_______________________________________________________________Decimales Positivos
+        }
+        else
+        {
+            error.style.display = 'block';
+        }
+
+
+        
+    }
+
+    else if (input_decimal.value.match(regEx2)){        //Si no ingrese un binario miro si se ingreso un decimal
+        decArr = numero.split('').reverse();
         let nroDecimal = input_decimal.value.split('');
         nroDecimal = nroDecimal.toString() ;
-        
         nroDecimal = nroDecimal.replace(/\s|[,]/g,''); 
-
-        nroDecimal = nroDecimal.toString(2);
-        
-
+        //nroDecimal = nroDecimal.toString(2); No me acuerdo para que puse esta linea pero funciona igual
         let decNo = 0;
-
         decArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
-
-
-
-        
-
-        if (nroDecimal > 0){
-            output2.value = "BSS: "+ numero + "   Decimal: " + decNo.toString()  ;
-            output2.style.cursor = 'text';
-            output3.value = "BCS: 0"+ numero + "   Decimal: " + decNo.toString()  ;
-            output3.style.cursor = 'text';
-            output4.value = "Ca1: 0"+ numero + "   Decimal: " + decNo.toString()  ;
-            output4.style.cursor = 'text';
-            output5.value = "Ca2: 0"+ numero + "   Decimal: " + decNo.toString()  ;
-            output5.style.cursor = 'text';
+        if (nroDecimal > 0){       //Si el decimal es positivo
+            output_BSS.value = "BSS: "+ numero + "   Decimal: " + decNo.toString()  ;
+            output_BSS.style.cursor = 'text';
+            output_BCS.value = "BCS: 0"+ numero + "   Decimal: " + decNo.toString()  ;
+            output_BCS.style.cursor = 'text';
+            output_CA1.value = "Ca1: 0"+ numero + "   Decimal: " + decNo.toString()  ;
+            output_CA1.style.cursor = 'text';
+            output_CA2.value = "Ca2: 0"+ numero + "   Decimal: " + decNo.toString()  ;
+            output_CA2.style.cursor = 'text';
             //decNo=decNo + Math.pow(2, (numero.length))
-            output6.value = "Ex2: 1"+ numero + "   Decimal: " + decNo.toString()  ;
-            output6.style.cursor = 'text';
-            output7.value = "BSS: "+ (numero.length) +', BCS: ' + (numero.length + 1)+', CA1: ' + (numero.length + 1)+', CA2: ' + (numero.length + 1)+', EX2: ' + (numero.length + 1)   ;
-            output7.style.cursor = 'text';
+            output_EX2.value = "Ex2: 1"+ numero + "   Decimal: " + decNo.toString()  ;
+            output_EX2.style.cursor = 'text';
+            output_BITS.value = "BSS: "+ (numero.length) +', BCS: ' + (numero.length + 1)+', CA1: ' + (numero.length + 1)+', CA2: ' + (numero.length + 1)+', EX2: ' + (numero.length + 1)   ;
+            output_BITS.style.cursor = 'text';
             
 
         }
         else
         {
-            output2.value = "BSS: No tiene Representacion :,("  ;
-            output2.style.cursor = 'text';
+            output_BSS.value = "BSS: No tiene Representacion :,("  ;
+            output_BSS.style.cursor = 'text';
             BCS(decArr,numero);
             console.log(numero);
             //Ca1=CA1(numero);
@@ -241,8 +293,8 @@ function SacarDatos(numero) {
 
             numero.forEach((item, index) =>  item === '1' ? nro += Math.pow(2, index) : void 0);
 
-            output4.value = "Ca1: 1"+ Ca1_Mostrar + "   Decimal: -" + nro.toString()  ;
-            output4.style.cursor = 'text';
+            output_CA1.value = "Ca1: 1"+ Ca1_Mostrar + "   Decimal: -" + nro.toString()  ;
+            output_CA1.style.cursor = 'text';
 
 
             //______________________________________________
@@ -260,33 +312,32 @@ function SacarDatos(numero) {
             Ca1_Mostrar2 = Ca1_Mostrar2.replace(/\s|[,]/g,''); 
             Ca1_Mostrar = Array.from(Ca1_Mostrar2).reverse();
             Ca1_Mostrar.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
-            output5.value = "Ca2: 1"+ Ca1_Mostrar2 + "   Decimal: -" + decNo.toString()  ;
-            output5.style.cursor = 'text';
+            output_CA2.value = "Ca2: 1"+ Ca1_Mostrar2 + "   Decimal: -" + decNo.toString()  ;
+            output_CA2.style.cursor = 'text';
 
             //______________________________________________
-
-            //CA2(Ca1_Mostrar);
 
             decNo = 0;
             
             console.log('Numero'+numero.length);
             console.log('Numero'+nroDecimal);
             decNo =  ((Math.pow(2, ((numero.length)+1))*-1)-  (nroDecimal))*-1;
-
             console.log('Bien1' + decNo);
             decNo = convertToBinary (decNo);
-       
-
-            
-    
             console.log('Bien' + decNo);
+            output_EX2.value = "Ex2: 0"+ decNo + "   Decimal: " + nroDecimal.toString()  ;
+            output_EX2.style.cursor = 'text';
 
-            
-            output6.value = "Ex2: 0"+ decNo + "   Decimal: " + nroDecimal.toString()  ;
-            output6.style.cursor = 'text';
+            Number(decNo);
+            decNo = decNo.length + 1;
+            output_BITS.value = "Bits: "+ decNo ;
+            output_BITS.style.cursor = 'text';
+            //______________________________________________
         }
 
     }
+    
+
     else {
         error.style.display = 'block';
     }
