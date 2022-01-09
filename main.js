@@ -296,13 +296,27 @@ function SacarDatos(numero) {
                     output_CA2.style.cursor = 'text';
                     
                     //EX2
-                    decNo =  ((Math.pow(2, ((numero.length)))*-1)-  (nroDecimal))*-1;
+                    console.clear();
+                    decNo =  ((Math.pow(2, ((Ca1_Mostrar.length)-1))*-1)-  (nroDecimal))*-1; //Exceso
+                    console.log('Decno: '+decNo);
                     decNo = convertToBinary (decNo);
-                    for (var i = ((decNo.length)); i<nroBit; i++){
-                        decNo = '0' + decNo;
+                    console.log('Bits: ' + nroBit);
+                    console.log('dec: ' + decNo);
+                    console.log('dec2 ' +decNo.length);
+
+                    if (nroBit>decNo.length){
+                        for (var i = ((decNo.length)); i<nroBit; i++){
+                            decNo = '0' + decNo;
+                        }
+                        
+                        output_EX2.value = "Ex2: "+ decNo + "   Decimal: " + nroDecimal.toString()  ;
+                        output_EX2.style.cursor = 'text';
                     }
-                    output_EX2.value = "Ex2: "+ decNo + "   Decimal: " + nroDecimal.toString()  ;
-                    output_EX2.style.cursor = 'text';
+                    else{
+                        output_EX2.value = "Ex2: No tiene Representacion :,( con " + nroBit + " bits"  ;
+                        output_EX2.style.cursor = 'text';
+                    }
+                    
                     output_BITS.value = "Bits: "+ decNo.length ;
                     output_BITS.style.cursor = 'text';
                 }
