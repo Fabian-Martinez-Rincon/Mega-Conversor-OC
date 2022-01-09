@@ -57,3 +57,24 @@ Decimales
 
 Decimales_Restringidos
 ======================
+
+<table>
+<tr>
+<td> Decimales Positivos </td> <td> Decimales Negativos </td>
+</tr>
+<tr>
+<td>
+ 
+![image](https://user-images.githubusercontent.com/55964635/148695882-de647f11-84b7-4513-bb61-18d1b34a8a44.png)
+
+  
+</td>
+<td>
+ 
+
+![image](https://user-images.githubusercontent.com/55964635/148695896-7d97d5e0-db85-42a0-8714-361c27452742.png)
+ 
+</td>
+</tr>
+ 
+</table>
