@@ -26,7 +26,7 @@
 
 <table>
 <tr>
-<td> Binarios Positivos </td> <td> Binarios Negativos </td>
+<td> Decimales Positivos </td> <td> Decimales Negativos </td>
 </tr>
 <tr>
 <td>
