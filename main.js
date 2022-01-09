@@ -190,9 +190,12 @@ function SacarDatos(numero) {
         let nroBit = input_bit.value.split('');
         console.log('bits: '+ nroBit);
         nroDecimal = nroDecimal.toString() ;
-        console.log(nroDecimal);
         nroDecimal = nroDecimal.replace(/\s|[,]/g,''); 
-        console.log(nroDecimal);
+
+        nroBit = nroBit.toString() ;
+        nroBit = nroBit.replace(/\s|[,]/g,''); 
+        Number(nroBit);
+        
 
         if (nroBit>0){  //Compruebo que se ingresaron bits mas grandes que 1
             let decNo = 0;
@@ -200,8 +203,7 @@ function SacarDatos(numero) {
             decArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
             //_______________________________________________________________Decimales Positivos
             if (nroDecimal > 0){       //Si el decimal es positivo
-                console.log('bits'+nroBit);
-                console.log('leng'+numero.length);
+                
                 if (nroBit>=numero.length){ //Adapto mi numero a la cantidad de bits ingresados
                     for (var i = numero.length; i<nroBit; i++){
                         numero = '0' + numero;
@@ -219,7 +221,7 @@ function SacarDatos(numero) {
                         output_EX2.value = "Ex2: 1"+ numero + "   Decimal: " + decNo.toString()  ;
                         output_EX2.style.cursor = 'text';
                     }
-                    else
+                    else //Si no me alcanzan los bits, mando el siguiente mensaje
                     {   
                         output_EX2.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'   ;
                         output_EX2.style.cursor = 'text'
@@ -231,12 +233,97 @@ function SacarDatos(numero) {
                 {
                     output_BSS.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'   ;
                     output_BSS.style.cursor = 'text';
+                    output_BCS.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'    ;
+                    output_BCS.style.cursor = 'text';
+                    output_CA1.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'    ;
+                    output_CA1.style.cursor = 'text';
+                    output_CA2.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'    ;
+                    output_CA2.style.cursor = 'text';
+                    output_EX2.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'    ;
+                    output_EX2.style.cursor = 'text';
+                    output_BITS.value = "Bits: "+ nroBit ;
+                    output_BITS.style.cursor = 'text';
+                }
+            //_______________________________________________________________Decimales Positivos
+            
+            //_______________________________________________________________Decimales Negativos
+            }
+            else //Para numeros negativos
+            {   
+                output_BSS.value = "BSS: No tiene Representacion :,("  ;
+                output_BSS.style.cursor = 'text';
+                console.log('Numero Decimal: '+nroDecimal);
+                console.log('Bits: '+nroBit);
+                numero=numero.slice(1);
+                console.log('Numero: '+numero);
+                console.log('Anchura: '+numero.length);
+                let nro_original = numero;
+                if (nroBit>=(numero.length+1)){ //Si tengo bits para el numero + el bit de signo
+                    for (var i = ((numero.length)+1); i<nroBit; i++){
+                        numero = '0' + numero;
+                    }
+                    output_BCS.value = "BCS: 1"+ numero + "   Decimal: " + nroDecimal.toString()  ;
+                    output_BCS.style.cursor = 'text';
+
+
+                    //CA1
+                    let nroCa1 = nro_original;
+                    
+                    for (var i = ((nroCa1.length)); i<nroBit; i++){
+                        nroCa1 = '0' + nroCa1;
+                    }
+                    nroCa1 = nroCa1.replace(/\s|[1]/g,'2'); 
+                    nroCa1 = nroCa1.replace(/\s|[0]/g,'1');
+                    nroCa1 = nroCa1.replace(/\s|[2]/g,'0'); 
+                    output_CA1.value = "CA1: "+ nroCa1 + "   Decimal: " + nroDecimal.toString()  ;
+                    output_CA1.style.cursor = 'text';
+
+                    
+                    //CA2
+                    let decNo = 0;
+                    Number(nroCa1);
+                    var myInt = nroCa1;
+                    let myFunc = num => Number(num);
+                    var intArr = Array.from(String(myInt), myFunc);
+                    var valor = binaryAddition(intArr) ;
+                    nroCa1 = valor[0];
+                    tamanio = valor[1];
+                    Ca1_Mostrar = nroCa1.toString();
+                    Ca1_Mostrar = Ca1_Mostrar.replace(/\s|[,]/g,''); 
+                    //nroCa1 = Array.from(Ca1_Mostrar).reverse();
+                    //nroCa1.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
+                    output_CA2.value = "Ca2: "+ Ca1_Mostrar + "   Decimal: " + nroDecimal.toString()  ;
+                    output_CA2.style.cursor = 'text';
+                    
+                    //EX2
+                    decNo =  ((Math.pow(2, ((numero.length)))*-1)-  (nroDecimal))*-1;
+                    decNo = convertToBinary (decNo);
+                    for (var i = ((decNo.length)); i<nroBit; i++){
+                        decNo = '0' + decNo;
+                    }
+                    output_EX2.value = "Ex2: "+ decNo + "   Decimal: " + nroDecimal.toString()  ;
+                    output_EX2.style.cursor = 'text';
+                    output_BITS.value = "Bits: "+ decNo.length ;
+                    output_BITS.style.cursor = 'text';
+                }
+                else
+                {
+                    output_BCS.value = "BCS: No tiene Representacion :,( con " + nroBit + " bits"  ;
+                    output_BCS.style.cursor = 'text';
+                    output_CA1.value = "Ca1: No tiene Representacion :,( con " + nroBit + " bits"  ;
+                    output_CA1.style.cursor = 'text';
+                    output_CA2.value = "Ca2: No tiene Representacion :,( con " + nroBit + " bits"  ;
+                    output_CA2.style.cursor = 'text';
+                    output_EX2.value = "Ca2: No tiene Representacion :,( con " + nroBit + " bits"  ;
+                    output_EX2.style.cursor = 'text';
+                    output_BITS.value = "Bits: "+ decNo.length ;
+                    output_BITS.style.cursor = 'text';
                 }
 
                 
-                
             }
-            //_______________________________________________________________Decimales Positivos
+            //_______________________________________________________________Decimales Negativos
+            
         }
         else
         {
