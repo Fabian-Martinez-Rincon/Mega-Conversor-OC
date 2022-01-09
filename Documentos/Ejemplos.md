@@ -1,6 +1,15 @@
 <h1 align="center"> Ejemplos </h1>
 
-## Binarios
+Indice
+=================
+
+<!--ts-->
+   * [Binarios](#Binarios)
+   * [Decimales](#Decimales)
+   * [Decimales Restringidos](#Decimales_Restringidos)
+
+Binarios
+========
 
 <table>
 <tr>
@@ -22,7 +31,8 @@
  
 </table>
 
-## Decimales
+Decimales
+=========
 
 <table>
 <tr>
@@ -44,3 +54,6 @@
 </tr>
  
 </table>
+
+Decimales_Restringidos
+======================
