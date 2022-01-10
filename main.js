@@ -8,6 +8,7 @@ const output_CA1 = document.querySelector("#output_CA1");
 const output_CA2 = document.querySelector("#output_CA2");
 const output_EX2 = document.querySelector("#output_EX2");
 const output_BITS = document.querySelector("#output_BITS");
+const output_Rangos = document.querySelector("#output_Rangos");
 const btn = document.querySelector("#btn");
 const error = document.querySelector("#error-msg");
 

@@ -15,26 +15,44 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background:  #10121A;
+  background: #121213;
 }
 .binary_to_decimal h2 {
   margin-bottom: 20px;
   font-size: 30px;
-  color: #F1F1F1;
+  color: #fff;
 }
 .binary_to_decimal {
   width: 100%;
   max-width: 800px;
   padding: 20px;
-  background: #191D2B;
+  background: #1a1a1f;
   border-radius: 0.2rem;
   border-width: thin;
   border-style: solid;
-  border-color: rgb(218, 218, 218);
+  border-color: #03535e;
   position: absolute;
   align-items: center;
   top:1%;
   left: 20px;
+  transition: 0.5s;
+
+  --primary-color: #007bff;
+    --primary-color-light: #057FFF;
+    --secondary-color: #ff7675;
+    --background-dark-color: #F1F1F1;
+    --background-dark-grey: #e4e4e4;
+    --border-color: #cbced8;
+    --background-light-color: #F1F1F1;
+    --background-light-color-2: rgba(3,127,255,.3);
+    --white-color: #151515;
+    --font-light-color: #313131;
+    --font-dark-color: #313131;
+    --font-dark-color-2: #151515;
+    --sidebar-dark-color: #E4E4E4;
+    --scrollbar-bg-color: #383838;
+    --scrollbar-thump-color: #6b6b6b;
+    --scrollbar-track-color: #383838;
 }
 .field {
   margin-bottom: 15px;
@@ -44,15 +62,17 @@ body {
 }
 .field label input {
   font-size: 1rem;
-  color: #F1F1F1;
+  color: #fff;
   background: transparent;
+  
+  
   padding: 1rem 1.2rem;
   min-width: 100%;
-  border: 2px solid #000000;
+  border: 1px solid #02a5ad;
   border-radius: 0.2rem;
 }
 .field label input:focus {
-  border-color: #000000;
+  border-color: #f8f8f8;
 }
 .field label p {
   color: #000000;
@@ -63,7 +83,7 @@ body {
   transform: translateY(-50%);
   margin-left: 0.8rem;
   padding: 0 0.4rem;
-  background: #a4acc4;
+  background: #eef0f5;
   pointer-events: none;
   transition: top 0.2s, font-size 0.2s, color 0.2s;
 }
@@ -80,7 +100,8 @@ button#btn {
   font-size: 20px;
   font-weight: 600;
   color: #10121A;
-  background: #a4acc4;
+  background: #404144;
+  
   width: 100%;
   cursor: pointer;
   border-radius: 0.2rem;
@@ -112,7 +133,7 @@ h2 {
   .binary_to_decimal {
     width: 100%;
     max-width: 700px;
-    top:-100px;
+    top:-120px;
     left: -70px;
     transform: scale(0.73)
   }
