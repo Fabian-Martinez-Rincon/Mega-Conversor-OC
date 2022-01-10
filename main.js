@@ -17,6 +17,8 @@ function BSS(binArr,Bss){
 
     binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0); // Lo paso a Decimal
 
+    console.clear();
+    console.log('uwu');
     output_BSS.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString()  ;
     output_BSS.style.cursor = 'text';
 
