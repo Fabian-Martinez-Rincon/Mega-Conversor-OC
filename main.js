@@ -12,6 +12,14 @@ const output_Rangos = document.querySelector("#output_Rangos");
 const btn = document.querySelector("#btn");
 const error = document.querySelector("#error-msg");
 
+
+const input_binario_entero = document.querySelector("#input_binario_entero");
+const output_decimal_Fraccionario = document.querySelector("#output_decimal_Fraccionario");
+const $select_Entera = document.querySelector("#miSelect");
+const $select_fraccionaria = document.querySelector("#miSelect2");
+const btn2 = document.querySelector("#btn2");
+const error2 = document.querySelector("#error-msg2");
+
 //________________________________________________________________________________________
 function BSS(binArr,Bss){
     let decNo = 0;
@@ -105,7 +113,7 @@ function EX2(Bss_original){
 
     binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0); 
 
-    decNo=decNo - Math.pow(2, (binArr.length)-1)
+    decNo=decNo - Math.pow(2, (binArr.length)-1);
 
   
     output_EX2.value = "Ex2: "+ Bss_original + "   Decimal: " + decNo.toString()  ;
@@ -519,10 +527,74 @@ function Rangos(nroBit){
     output_EX2.style.cursor = 'text';
 }
 //________________________________________________________________________________________
+function Parte_Entera(opcion){
+    let resultado = 0;
+    const regEx = /^[0-1]+$/;
+    const binArr = input_binario_entero.value.split('').reverse();
+    console.log(binArr);
+
+    let Bcs = input_binario_entero.value.split('');
+    Bcs = Bcs.toString() ;
+    Bcs = Bcs.replace(/\s|[,]/g,''); 
+    Bcs_original = Bcs;
+    console.log(Bcs);
+
+    if(input_binario_entero.value.match(regEx)){
+    
+        if (Bcs[0] == 0){
+            if(opcion == "BSS"){
+                console.log('uwu 1');
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, index) : void 0); 
+            }
+            else if (opcion == "BCS"){
+                console.log('uwu BCS');
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, index) : void 0); 
+            }
+            else if (opcion == "Ca1"){
+                console.log('uwu Ca1');
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, index) : void 0); 
+            }
+            else if (opcion == "Ca2"){
+                console.log('uwu Ca2');
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, index) : void 0); 
+            }
+            else if (opcion == "Ex2"){
+                console.log('uwu Ex2');
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, index) : void 0); 
+                resultado = resultado - Math.pow(2, (binArr.length)-1);
+            }
+        }
+    }
+    else
+    {
+        error2.style.display = 'block';
+    }
+    return resultado;
+}
+//________________________________________________________________________________________
 btn.addEventListener('click', () => {
     error.style.display = 'none';
     let numero;
     numero=DecimalABinario(numero);
-    SacarDatos(numero);
+    SacarDatos(numero);   
+})
+//________________________________________________________________________________________
+btn2.addEventListener('click', () => {
+    error2.style.display = 'none';
+    console.clear();
+    const indice = $select_Entera.selectedIndex;
+    const opcionSeleccionada = $select_fraccionaria.options[indice];
+    console.log('Opcion 1 '+opcionSeleccionada.text);
     
+    
+    
+
+    const indice2 = $select_fraccionaria.selectedIndex;
+    const opcionSeleccionada2 = $select_fraccionaria.options[indice2];
+    console.log('Opcion 2 '+opcionSeleccionada2.text);
+    
+
+    output_decimal_Fraccionario.value = "Resultado: "+ Parte_Entera(opcionSeleccionada.text) + ', ';
+    output_decimal_Fraccionario.style.cursor = 'text';
+
 })
