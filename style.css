@@ -37,8 +37,8 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  top:1%;
-  left: 20px;
+  top:15%;
+  
   transition: 0.3s;
 
   
@@ -139,9 +139,9 @@ h2 {
   .binary_to_decimal {
     width: 100%;
     max-width: 600px;
-    top:-40px;
-    left: -70px;
-    transform: scale(0.73)
+    top:6%;
+    
+    transform: scale(0.9)
   }
 
 }
