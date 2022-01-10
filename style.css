@@ -15,7 +15,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #121213;
+  background: #181e37;
 }
 .binary_to_decimal h2 {
   margin-bottom: 20px;
@@ -26,11 +26,11 @@ body {
   width: 100%;
   max-width: 800px;
   padding: 20px;
-  background: #1a1a1f;
+  background: #44598e;
   border-radius: 0.2rem;
   border-width: thin;
   border-style: solid;
-  border-color: #03535e;
+  border: 2px solid #120907;
   position: absolute;
   align-items: center;
   top:1%;
@@ -68,7 +68,7 @@ body {
   
   padding: 1rem 1.2rem;
   min-width: 100%;
-  border: 1px solid #02a5ad;
+  border: 2px solid #120907;
   border-radius: 0.2rem;
 }
 .field label input:focus {
@@ -100,7 +100,7 @@ button#btn {
   font-size: 20px;
   font-weight: 600;
   color: #10121A;
-  background: #404144;
+  background: #b8d6ed;
   
   width: 100%;
   cursor: pointer;
