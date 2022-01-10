@@ -166,6 +166,11 @@ div#error-msg {
   display: none;
 }
 
+div#error-msg2 {
+  color: red;
+  display: none;
+}
+
 h2 { 
   font-size: 30px; 
   letter-spacing: -1px; 
