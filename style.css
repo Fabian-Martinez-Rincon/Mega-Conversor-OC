@@ -96,15 +96,20 @@ body {
 }
 .salidas2{   
    
-  background: rgb(19, 18, 18);
+  background:  rgb(46, 46, 46);
   position: absolute;
   
   width: 254px;
   display:inline-block;
-
-  
-  
 }
+.salidas3{   
+   
+  background:  rgb(46, 46, 46);
+  width: 254px;
+  color: white;
+}
+
+
 .field label input:focus {
   border-color: #141111;
 }
@@ -140,10 +145,17 @@ button#btn {
   font-weight: 600;
   color: #10121A;
   background: #ffffff;
- 
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.2rem;
+}
 
- 
-  
+button#btn2 {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #10121A;
+  background: #ffffff;
   width: 100%;
   cursor: pointer;
   border-radius: 0.2rem;
