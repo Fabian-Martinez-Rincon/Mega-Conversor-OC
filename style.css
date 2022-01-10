@@ -15,45 +15,38 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #181e37;
+  background: #2c2c2c;
 }
 .binary_to_decimal h2 {
   margin-bottom: 20px;
   font-size: 30px;
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 .binary_to_decimal {
-  width: 100%;
-  max-width: 800px;
-  padding: 20px;
-  background: #44598e;
-  border-radius: 0.2rem;
-  border-width: thin;
-  border-style: solid;
-  border: 2px solid #120907;
+  
+  
+  
   position: absolute;
-  align-items: center;
+  z-index: 1000;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
   top:1%;
   left: 20px;
   transition: 0.3s;
 
-  --primary-color: #007bff;
-    --primary-color-light: #057FFF;
-    --secondary-color: #ff7675;
-    --background-dark-color: #F1F1F1;
-    --background-dark-grey: #e4e4e4;
-    --border-color: #cbced8;
-    --background-light-color: #F1F1F1;
-    --background-light-color-2: rgba(3,127,255,.3);
-    --white-color: #151515;
-    --font-light-color: #313131;
-    --font-dark-color: #313131;
-    --font-dark-color-2: #151515;
-    --sidebar-dark-color: #E4E4E4;
-    --scrollbar-bg-color: #383838;
-    --scrollbar-thump-color: #6b6b6b;
-    --scrollbar-track-color: #383838;
+  
+  
+  overflow: hidden;
+
 }
+
 .field {
   margin-bottom: 15px;
 }
@@ -68,11 +61,19 @@ body {
   
   padding: 1rem 1.2rem;
   min-width: 100%;
-  border: 2px solid #120907;
+  
   border-radius: 0.2rem;
+  height: 0.1px;
+
+  
+}
+.salidas{
+ 
+    background: rgb(46, 46, 46);
+  
 }
 .field label input:focus {
-  border-color: #f8f8f8;
+  border-color: #141111;
 }
 .field label p {
   color: #000000;
@@ -83,9 +84,10 @@ body {
   transform: translateY(-50%);
   margin-left: 0.8rem;
   padding: 0 0.4rem;
-  background: #eef0f5;
+  background: #1b1b1b;
   pointer-events: none;
   transition: top 0.2s, font-size 0.2s, color 0.2s;
+  visibility: hidden;
 }
 .field label input:focus + p, .field label input:not(:placeholder-shown) + p {
   top: -20px;
@@ -95,12 +97,16 @@ body {
 .field label input:not(:focus) + p {
   color: #000000;
 }
+
 button#btn {
   padding: 10px 20px;
   font-size: 20px;
   font-weight: 600;
   color: #10121A;
-  background: #b8d6ed;
+  background: #ffffff;
+ 
+
+ 
   
   width: 100%;
   cursor: pointer;
@@ -132,8 +138,8 @@ h2 {
 {
   .binary_to_decimal {
     width: 100%;
-    max-width: 700px;
-    top:-120px;
+    max-width: 600px;
+    top:-40px;
     left: -70px;
     transform: scale(0.73)
   }
@@ -148,6 +154,6 @@ h2 {
     top:-100px;
     position: absolute;
     left: 0%;
-    transform: scale(0.75)
+    transform: scale(0.75);
   }
 }
