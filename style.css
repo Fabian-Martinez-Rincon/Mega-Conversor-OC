@@ -23,9 +23,6 @@ body {
   color: rgb(255, 255, 255);
 }
 .binary_to_decimal {
-  
-  
-  
   position: relative;
   z-index: 1000;
   width: 100%;
@@ -38,15 +35,31 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   top:1%;
-  
   transition: 0.3s;
-
-  
-  
   overflow: hidden;
-    
-    transform: scale(0.95)
-  
+  transform: scale(0.95)
+}
+.binary_to_decimal2 h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+}
+.binary_to_decimal2 {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  max-width: 370px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  top:1%;
+  transition: 0.3s;
+  overflow: hidden;
+  transform: scale(0.95)
 }
 
 .field {
@@ -99,13 +112,13 @@ body {
   background:  rgb(46, 46, 46);
   position: absolute;
   
-  width: 254px;
+  width: 154px;
   display:inline-block;
 }
 .salidas3{   
    
   background:  rgb(46, 46, 46);
-  width: 254px;
+  width: 154px;
   color: white;
 }
 
@@ -192,7 +205,7 @@ h2 {
   .binary_to_decimal {
     width: 100%;
     max-width: 600px;
-    top:6%;
+    top:1%;
     
     transform: scale(0.9)
   }

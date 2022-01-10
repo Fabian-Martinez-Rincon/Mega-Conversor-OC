@@ -14,6 +14,8 @@ const error = document.querySelector("#error-msg");
 
 
 const input_binario_entero = document.querySelector("#input_binario_entero");
+const input_binario_fraccionaria = document.querySelector("#input_binario_fraccionaria");
+
 const output_decimal_Fraccionario = document.querySelector("#output_decimal_Fraccionario");
 const $select_Entera = document.querySelector("#miSelect");
 const $select_fraccionaria = document.querySelector("#miSelect2");
@@ -527,13 +529,13 @@ function Rangos(nroBit){
     output_EX2.style.cursor = 'text';
 }
 //________________________________________________________________________________________
-function Parte_Entera(opcion){
+function Parte_Mantisa(opcion,numero){
     let resultado = 0;
     const regEx = /^[0-1]+$/;
-    const binArr = input_binario_entero.value.split('').reverse();
+    const binArr = numero.value.split('').reverse();
     console.log(binArr);
 
-    let Bcs = input_binario_entero.value.split('');
+    let Bcs = numero.value.split('');
     Bcs = Bcs.toString() ;
     Bcs = Bcs.replace(/\s|[,]/g,''); 
     Bcs_original = Bcs;
@@ -554,7 +556,7 @@ function Parte_Entera(opcion){
     console.log(Ca2);
 
 
-    if(input_binario_entero.value.match(regEx)){
+    if(numero.value.match(regEx)){
     
         if (Bcs[0] == 0){
             if(opcion == "BSS"){
@@ -631,15 +633,24 @@ btn2.addEventListener('click', () => {
     const opcionSeleccionada = $select_fraccionaria.options[indice];
     console.log('Opcion 1 '+opcionSeleccionada.text);
     
-    
+    numero1 = input_binario_entero;
     
 
     const indice2 = $select_fraccionaria.selectedIndex;
     const opcionSeleccionada2 = $select_fraccionaria.options[indice2];
     console.log('Opcion 2 '+opcionSeleccionada2.text);
     
+    numero2 = input_binario_fraccionaria;
 
-    output_decimal_Fraccionario.value = "Resultado: "+ Parte_Entera(opcionSeleccionada.text) + ', ';
+    base = Parte_Mantisa(opcionSeleccionada.text,numero1);
+    Number(base);
+    exponente = Parte_Mantisa(opcionSeleccionada2.text,numero2);
+    Number(exponente);
+    resultado = base*Math.pow(2, exponente);
+    console.log('Base '+base);
+    console.log('Exponente '+exponente);
+    console.log('Resultado '+resultado);
+    output_decimal_Fraccionario.value = "Resultado: "+ base + ' * (2 ^ ' + exponente +') = '+ resultado;
     output_decimal_Fraccionario.style.cursor = 'text';
 
 })
