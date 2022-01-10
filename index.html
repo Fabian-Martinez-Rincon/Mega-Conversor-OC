@@ -99,8 +99,118 @@
       
     </div>
 
+    
+
   </div>
 
+
+
+
+
+
+
+
+
+  <div class="binary_to_decimal">
+    <div class="container">
+      <h2>Binario Punto Fijo</h2>
+
+      <div class="form-row">
+        <form>
+
+          <div class="field2">
+            <label class="salidas2">
+              <input  type="text" name="bin" id="input_binario" autocomplete="off" placeholder="Binario Parte Entera">
+            </label>
+            
+          </div>
+
+        
+          <div class="field2">
+            <label class="salidas2">
+              <input  type="text" name="bin" id="input_bit" autocomplete="off" placeholder="Binario Parte Fraccionaria">
+              
+            </label>
+          </div>
+
+          <div class="field2">
+            <select name="">
+
+              <option selected>BSS</option>
+              
+              <option>BCS</option>
+              
+              <option >Ca1</option>
+              <option>Ca2</option>
+              <option>Ex2</option>
+              
+              </select>
+          </div>
+
+          <div class="field2">
+            <select name="">
+
+              <option selected>BSS</option>
+              
+              <option>BCS</option>
+              
+              <option >Ca1</option>
+              <option>Ca2</option>
+              <option>Ex2</option>
+              
+              </select>
+          </div>
+          
+
+          <div class="field">
+            <label >
+              <input type="text" name="dec" id="output_BSS" readonly="true" placeholder="Binarios Sin Signo">
+              <p>BSS</p>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>
+              <input type="text" name="dec" id="output_BCS" readonly="true" placeholder="Binarios Con Signo">
+              <p>BCS</p>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>
+              <input type="text" name="dec" id="output_CA1" readonly="true" placeholder="Complemento a1">
+              <p>Ca1</p>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>
+              <input type="text" name="dec" id="output_CA2" readonly="true" placeholder="Complemento a2">
+              <p>Ca2</p>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>
+              <input type="text" name="dec" id="output_EX2" readonly="true" placeholder="Exceso 2">
+              <p>Ex2</p>
+            </label>
+          </div>
+          
+        <div class="field btn-field">
+            <button type="button" id="btn">Convert</button>
+          </div>
+        </form>
+        <div id="error-msg">
+          <p>Ingrese un Binario/Ingrese bits positivos</p>
+        </div>
+      </div>
+      
+    </div>
+
+    
+
+  </div>
   
 
   <script src="main.js"></script>
