@@ -297,6 +297,14 @@ function Decimal_Positivo_Solo(decNo,numero){
     output_EX2.style.cursor = 'text';
     output_BITS.value = "BSS: "+ (numero.length) +', BCS: ' + (numero.length + 1)+', CA1: ' + (numero.length + 1)+', CA2: ' + (numero.length + 1)+', EX2: ' + (numero.length + 1)   ;
     output_BITS.style.cursor = 'text';
+
+    rangoBss =(Math.pow(2, numero.length))-1;
+
+    rangoBcs = (Math.pow(2, (numero.length)))-1;
+    rangoCa2 =  Math.pow(2, (numero.length));
+    output_Rangos.value = "Bss: [0.."+rangoBss+"]"  + "  Bcs: [-"+rangoBcs+".."+"+"+rangoBcs+"]" + "  Ca1 :[-"+rangoBcs+".."+"+"+rangoBcs+"]" + "  Ca2: [-"+rangoCa2+"..+"+rangoBcs+"]"+"  Ex2: [-"+rangoCa2+"..+"+rangoBcs+"]";
+    output_EX2.style.cursor = 'text';
+
 }
 //________________________________________________________________________________________
 function Decimal_Negativo_Solo(decArr,numero,nroDecimal){
@@ -358,6 +366,7 @@ function Decimal_Negativo_Solo(decArr,numero,nroDecimal){
     decNo = decNo.length + 1;
     output_BITS.value = "Bits: "+ decNo ;
     output_BITS.style.cursor = 'text';
+    Rangos(decNo);
 
 }
 //________________________________________________________________________________________
@@ -380,6 +389,7 @@ function SacarDatos(numero) {
         else{       //Si es positivo
             Binario_Positivo(binArr,Bss,Bss_original);   
         }
+        Rangos(Bss_original.length);
     }
     //_________________________________________________________________________________________________
     else if ((input_decimal.value.match(regEx2))&&(input_bit.value.match(regEx2))){   //Cuando Restrinjo bits
@@ -395,6 +405,7 @@ function SacarDatos(numero) {
         nroBit = nroBit.replace(/\s|[,]/g,''); 
         Number(nroBit);
 
+        Rangos(nroBit);
         if (nroBit>0){  //Compruebo que se ingresaron bits mas grandes que 1
             let decNo = 0;
             let numero_original = numero;
@@ -495,11 +506,17 @@ function DecimalABinario(nro){
             nro = convertToBinary(nroDecimal);
             nro = '1' + nro;
         }
-        
-        
     }
-    return nro;
     
+    return nro;
+}
+//________________________________________________________________________________________
+function Rangos(nroBit){
+    rangoBss =(Math.pow(2, nroBit))-1;
+    rangoBcs = (Math.pow(2, (nroBit-1)))-1;
+    rangoCa2 =  Math.pow(2, (nroBit-1));
+    output_Rangos.value = "Bss: [0.."+rangoBss+"]"  + "  Bcs: [-"+rangoBcs+".."+"+"+rangoBcs+"]" + "  Ca1 :[-"+rangoBcs+".."+"+"+rangoBcs+"]" + "  Ca2: [-"+rangoCa2+"..+"+rangoBcs+"]"+"  Ex2: [-"+rangoCa2+"..+"+rangoBcs+"]";
+    output_EX2.style.cursor = 'text';
 }
 //________________________________________________________________________________________
 btn.addEventListener('click', () => {
@@ -507,4 +524,5 @@ btn.addEventListener('click', () => {
     let numero;
     numero=DecimalABinario(numero);
     SacarDatos(numero);
+    
 })
