@@ -30,7 +30,7 @@ function BCS(binArr,Bcs){
     binArr.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
 
 
-        output_BCS.value = "BCS: "+ Bcs + "   Decimal: -" + decNo.toString()  ;
+        output_BCS.value = "BCS: "+ Bcs + " Decimal: " + decNo.toString()  ;
         output_BCS.style.cursor = 'text';
 }
 //________________________________________________________________________________________
@@ -279,6 +279,7 @@ function Decimal_Negativo_Error(decNo,nroBit){
     output_BITS.value = "Bits: "+ nroBit ;
     output_BITS.style.cursor = 'text';
 }
+//________________________________________________________________________________________
 function Decimal_Positivo_Solo(decNo,numero){
     output_BSS.value = "BSS: "+ numero + "   Decimal: " + decNo.toString()  ;
     output_BSS.style.cursor = 'text';

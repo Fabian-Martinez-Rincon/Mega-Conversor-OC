@@ -24,16 +24,17 @@ body {
 }
 .binary_to_decimal {
   width: 100%;
-  max-width: 500px;
+  max-width: 800px;
   padding: 20px;
   background: #191D2B;
   border-radius: 0.2rem;
   border-width: thin;
-    border-style: solid;
-    border-color: rgb(218, 218, 218);
-    position: absolute;
-    align-items: center;
-    top:5%;
+  border-style: solid;
+  border-color: rgb(218, 218, 218);
+  position: absolute;
+  align-items: center;
+  top:1%;
+  left: 20px;
 }
 .field {
   margin-bottom: 15px;
@@ -103,5 +104,17 @@ h2 {
   position: absolute;
   align-items: center;
   top:0%;
+
+}
+
+@media (max-width: 1440px) and (orientation: landscape)/*Baja resolucion______________________*/
+{
+  .binary_to_decimal {
+    width: 100%;
+    max-width: 700px;
+    top:-100px;
+    left: -70px;
+    transform: scale(0.73)
+  }
 
 }
