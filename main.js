@@ -539,6 +539,21 @@ function Parte_Entera(opcion){
     Bcs_original = Bcs;
     console.log(Bcs);
 
+    Ca2 = Bcs;
+    Ca2 = Ca2.replace(/\s|[1]/g,'2'); 
+    Ca2 = Ca2.replace(/\s|[0]/g,'1');
+    Ca2 = Ca2.replace(/\s|[2]/g,'0'); 
+    var myInt = Ca2;
+    let myFunc = num => Number(num);
+    var intArr = Array.from(String(myInt), myFunc);
+    var valor = binaryAddition(intArr) ;
+    Ca2 = valor[0];
+    //Number(Ca2);
+    Ca2 = Array.from(Ca2).reverse();
+
+    console.log(Ca2);
+
+
     if(input_binario_entero.value.match(regEx)){
     
         if (Bcs[0] == 0){
@@ -562,6 +577,36 @@ function Parte_Entera(opcion){
                 console.log('uwu Ex2');
                 binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, index) : void 0); 
                 resultado = resultado - Math.pow(2, (binArr.length)-1);
+            }
+        }
+        else{
+            if(opcion == "BSS"){
+                console.log('uwu 1');
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, index) : void 0); 
+            }
+            else if (opcion == "BCS"){
+                console.log('uwu BCS');
+                binArr.pop();
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, index) : void 0); 
+                resultado = "-" + resultado;
+            }
+            else if (opcion == "Ca1"){
+                console.log('uwu Ca1');
+                binArr.pop();
+                binArr.forEach((item, index) => item === '0' ? resultado += Math.pow(2, index) : void 0); 
+                resultado = "-" + resultado;
+            }
+            else if (opcion == "Ca2"){
+                console.log('uwu Ca2');
+                console.log('AAAAAAA: '+Ca2);
+                Ca2.forEach((item, index) => item === 1 ? resultado += Math.pow(2, index) : void 0); 
+                resultado = "-" + resultado;
+            }
+            else if (opcion == "Ex2"){
+                console.log('uwu Ex2');
+                binArr.pop();
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, index) : void 0); 
+                
             }
         }
     }
