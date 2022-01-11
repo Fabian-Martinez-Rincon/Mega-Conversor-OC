@@ -13,12 +13,16 @@ const btn = document.querySelector("#btn");
 const error = document.querySelector("#error-msg");
 
 
+
+
 const input_binario_entero = document.querySelector("#input_binario_entero");
 const input_binario_fraccionaria = document.querySelector("#input_binario_fraccionaria");
 
 const output_decimal_Fraccionario = document.querySelector("#output_decimal_Fraccionario");
 const $select_Entera = document.querySelector("#miSelect");
 const $select_fraccionaria = document.querySelector("#miSelect2");
+
+const output_Resolucion_Mantisa = document.querySelector("#output_Resolucion_Mantisa");
 const btn2 = document.querySelector("#btn2");
 const error2 = document.querySelector("#error-msg2");
 
@@ -652,5 +656,19 @@ btn2.addEventListener('click', () => {
     console.log('Resultado '+resultado);
     output_decimal_Fraccionario.value = "Resultado: "+ base + ' * (2 ^ ' + exponente +') = '+ resultado;
     output_decimal_Fraccionario.style.cursor = 'text';
+
+
+
+
+    //Resolucion
+    resolucion = numero2.value.split('').reverse();
+    resolucion = resolucion.length;
+    Number(resolucion);
+    resolucion = resolucion * -1;
+    resolucion = Math.pow(2, resolucion);
+    console.log(resolucion);
+    
+    output_Resolucion_Mantisa.value = 'Resolucion: '+resolucion;
+    output_Resolucion_Mantisa.style.cursor = 'text';
 
 })

@@ -120,6 +120,15 @@ body {
   background:  rgb(46, 46, 46);
   width: 154px;
   color: white;
+  
+}
+
+.salidas4{   
+   
+  background:  rgb(46, 46, 46);
+  width: 314px;
+  color: white;
+  height: 30.1px;
 }
 
 
@@ -192,6 +201,14 @@ h2 {
   text-shadow: 1px 1px 0 #000, margin: 10px 0 24px; 
   text-align: center; 
   line-height: 50px; }
+
+h4 { 
+
+
+  color: #fcfaf7; 
+  text-transform: uppercase; 
+
+
 
 .title {
   position: absolute;
