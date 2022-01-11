@@ -15,7 +15,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #2c2c2c;
+  background: #232626;
 }
 .binary_to_decimal h2 {
   margin-bottom: 20px;
@@ -28,10 +28,10 @@ body {
   width: 100%;
   max-width: 600px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 45px rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(61, 61, 61, 0.1);
+  
+  border: 5px solid rgba(255, 255, 255, 0.25);
+  border-right: 10px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   top: 0px;
@@ -52,10 +52,9 @@ body {
   width: 100%;
   max-width: 370px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 45px rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(61, 61, 61, 0.1);
+  border: 5px solid rgba(255, 255, 255, 0.25);
+  border-right: 10px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   top:-124px;
@@ -168,22 +167,24 @@ button#btn {
   padding: 10px 20px;
   font-size: 20px;
   font-weight: 600;
-  color: #10121A;
-  background: #ffffff;
+  color: #ffffff;
+  background: #252525;
   width: 100%;
   cursor: pointer;
   border-radius: 0.2rem;
+  border: 1px solid white;
 }
 
 button#btn2 {
   padding: 10px 20px;
   font-size: 20px;
   font-weight: 600;
-  color: #10121A;
-  background: #ffffff;
+  color: #ffffff;
+  background: #252525;
   width: 100%;
   cursor: pointer;
   border-radius: 0.2rem;
+  border: 1px solid white;
 }
 
 div#error-msg {
