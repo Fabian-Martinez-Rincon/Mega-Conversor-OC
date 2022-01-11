@@ -41,6 +41,7 @@ const output_Resolucion_Mantisa = document.querySelector("#output_Resolucion_Man
 const btn2 = document.querySelector("#btn2");
 const error2 = document.querySelector("#error-msg2");
 
+
 //________________________________________________________________________________________
 function TodosLosMinimosMaximos(bits){
     //__________________________________________
@@ -747,6 +748,7 @@ function Parte_Mantisa_Fraccionaria(opcion,numero){
         if (Bcs[0] == 0){
             if(opcion == "BSS"){
                 console.log('uwu 1');
+                binArr.unshift(0);
                 binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, (index*-1)) : void 0);
             }
             else if (opcion == "BCS"){
@@ -907,3 +909,27 @@ btn2.addEventListener('click', () => {
     output_Resolucion_Mantisa.style.cursor = 'text';*/
 
 })
+
+
+//Para ocultar html que no voy a usar con mantisa fraccionaria y con bit implicito
+const ocultar = document.querySelector("#OCULTAR");
+const ocultar1 = document.querySelector("#OCULTAR1");
+const ocultar2 = document.querySelector("#OCULTAR2");
+
+const selectElement = document.querySelector('#tipo_mantisa');
+
+selectElement.addEventListener('change', (event) => {
+    //const resultado = document.querySelector('.resultado');
+    console.log( );
+    if ((`${event.target.value}` == "FRACCIONARIA")||(`${event.target.value}` == "FRACCIONARIA BIT IMPLICITO")){
+        document.getElementById('OCULTAR').style.visibility = 'hidden';
+        document.getElementById('OCULTAR1').style.visibility = 'hidden';
+        document.getElementById('OCULTAR2').style.visibility = 'hidden';
+    }
+    else{
+        document.getElementById('OCULTAR').style.visibility = 'visible';
+        document.getElementById('OCULTAR1').style.visibility = 'visible';
+        document.getElementById('OCULTAR2').style.visibility = 'visible';
+    }
+    
+});
