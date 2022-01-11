@@ -21,6 +21,12 @@ const output_MinimoMaximoPositivo2 = document.querySelector("#output_MinimoMaxim
 const output_MinimoMaximoNegativo3 = document.querySelector("#output_MinimoMaximoNegativo3");
 const output_MinimoMaximoPositivo3 = document.querySelector("#output_MinimoMaximoPositivo3");
 
+const output_MinimoMaximoNegativo4 = document.querySelector("#output_MinimoMaximoNegativo4");
+const output_MinimoMaximoPositivo4 = document.querySelector("#output_MinimoMaximoPositivo4");
+
+const output_MinimoMaximoNegativo5 = document.querySelector("#output_MinimoMaximoNegativo5");
+const output_MinimoMaximoPositivo5 = document.querySelector("#output_MinimoMaximoPositivo5");
+
 
 const input_binario_entero = document.querySelector("#input_binario_entero");
 const input_binario_fraccionaria = document.querySelector("#input_binario_fraccionaria");
@@ -34,6 +40,42 @@ const btn2 = document.querySelector("#btn2");
 const error2 = document.querySelector("#error-msg2");
 
 //________________________________________________________________________________________
+function TodosLosMinimosMaximos(bits){
+    //__________________________________________
+    output_MinimoMaximoNegativo.value = "Minimo Negativo: No tiene "+ "      Maximo Negativo: No tiene  " ;
+    output_MinimoMaximoNegativo.style.cursor = 'text';
+    maximoPositivo=(Math.pow(2, bits))-1;
+    output_MinimoMaximoPositivo.value = "Minimo Positivo: 0 "+ "                     Maximo Positivo: "+ maximoPositivo ;
+    output_MinimoMaximoPositivo.style.cursor = 'text';
+    //__________________________________________
+    maximoPositivo=(Math.pow(2, (bits-1)))-1;
+    output_MinimoMaximoNegativo2.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -0"  ;
+    output_MinimoMaximoNegativo2.style.cursor = 'text';
+    
+    output_MinimoMaximoPositivo2.value = "Minimo Positivo: +0 "+ "          Maximo Positivo: "+ maximoPositivo ;
+    output_MinimoMaximoPositivo2.style.cursor = 'text';
+    //__________________________________________
+    output_MinimoMaximoNegativo3.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -0"  ;
+    output_MinimoMaximoNegativo3.style.cursor = 'text';
+    
+    output_MinimoMaximoPositivo3.value = "Minimo Positivo: +0 "+ "          Maximo Positivo: +"+ maximoPositivo ;
+    output_MinimoMaximoPositivo3.style.cursor = 'text';
+    //__________________________________________
+    maximoPositivo=Math.pow(2, (bits -1));
+    output_MinimoMaximoNegativo4.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -1"  ;
+    output_MinimoMaximoNegativo4.style.cursor = 'text';
+
+    output_MinimoMaximoNegativo5.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -1"  ;
+    output_MinimoMaximoNegativo5.style.cursor = 'text';
+
+    maximoPositivo=(Math.pow(2, (bits -1)))-1;
+    output_MinimoMaximoPositivo4.value = "Minimo Positivo: 0 "+ "          Maximo Positivo: +"+ maximoPositivo ;
+    output_MinimoMaximoPositivo4.style.cursor = 'text';
+ 
+    output_MinimoMaximoPositivo5.value = "Minimo Positivo: 0 "+ "          Maximo Positivo: +"+ maximoPositivo ;
+    output_MinimoMaximoPositivo5.style.cursor = 'text';
+}
+//________________________________________________________________________________________
 function BSS(binArr,Bss){
     let decNo = 0;
 
@@ -43,28 +85,9 @@ function BSS(binArr,Bss){
     console.log('uwu');
     output_BSS.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString() ;
     output_BSS.style.cursor = 'text';
-    output_MinimoMaximoNegativo.value = "Minimo Negativo: No tiene "+ "      Maximo Negativo: No tiene  " ;
-    output_MinimoMaximoNegativo.style.cursor = 'text';
-    maximoPositivo=(Math.pow(2, Bss.length))-1;
-    output_MinimoMaximoPositivo.value = "Minimo Positivo: 0 "+ "                     Maximo Positivo: "+ maximoPositivo ;
-    output_MinimoMaximoPositivo.style.cursor = 'text';
-
-}
-//________________________________________________________________________________________
-function MinimoMaximoBCS(bits){
-    maximoPositivo=(Math.pow(2, (bits-1)))-1;
-    output_MinimoMaximoNegativo2.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -0"  ;
-    output_MinimoMaximoNegativo2.style.cursor = 'text';
     
-    output_MinimoMaximoPositivo2.value = "Minimo Positivo: +0 "+ "          Maximo Positivo: "+ maximoPositivo ;
-    output_MinimoMaximoPositivo2.style.cursor = 'text';
-
-    output_MinimoMaximoNegativo3.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -0"  ;
-    output_MinimoMaximoNegativo3.style.cursor = 'text';
-    
-    output_MinimoMaximoPositivo3.value = "Minimo Positivo: +0 "+ "          Maximo Positivo: "+ maximoPositivo ;
-    output_MinimoMaximoPositivo3.style.cursor = 'text';
 }
+
 //________________________________________________________________________________________
 function BCS(binArr,Bcs){
     let decNo = 0;
@@ -77,8 +100,6 @@ function BCS(binArr,Bcs){
     output_BCS.value = "BCS: "+ Bcs + " Decimal: -" + decNo.toString()  ;
     output_BCS.style.cursor = 'text';
     
-    MinimoMaximoBCS(Bcs.length);
-
     
 }
 //________________________________________________________________________________________
@@ -97,7 +118,6 @@ function CA1(Bcs){
 
     output_CA1.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
     output_CA1.style.cursor = 'text';
-    MinimoMaximoBCS(Ca1_Mostrar.length);
 
     Number(Ca1_Mostrar);
 
@@ -175,9 +195,7 @@ function CA1(Bcs){
 
     output_CA1.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
     output_CA1.style.cursor = 'text';
-    MinimoMaximoBCS(Ca1_Mostrar.length);
     Number(Ca1_Mostrar);
-
     return Ca1_Mostrar;
 
 }
@@ -192,6 +210,7 @@ function Binario_Negativo(binArr,Bss,Bss_original){
 
     output_BITS.value = "Bits: "+ Bss_original.length  ;
     output_BITS.style.cursor = 'text';
+    TodosLosMinimosMaximos(Bss_original.length);
 }
 
 //________________________________________________________________________________________
@@ -212,19 +231,23 @@ function Binario_Positivo(binArr,Bss,Bss_original){
     
     output_BCS.value = "BCS: "+ Bss + "   Decimal: " + decNo.toString()  ;
     output_BCS.style.cursor = 'text';
-    MinimoMaximoBCS(Bss.length);
+    
 
 
     output_CA1.value = "Ca1: "+ Bss + "   Decimal: " + decNo.toString()  ;
     output_CA1.style.cursor = 'text';
-    MinimoMaximoBCS(Bss.length);
+
 
 
     output_CA2.value = "Ca2: "+ Bss + "   Decimal: " + decNo.toString()  ;
     output_CA2.style.cursor = 'text';
+
     EX2(Bss_original);
     output_BITS.value = "Bits: "+ Bss_original.length  ;
     output_BITS.style.cursor = 'text';
+
+
+    TodosLosMinimosMaximos(Bss_original.length);
 }
 //________________________________________________________________________________________
 function Decimal_Positivo(nroBit,numero,numero_original,decNo){
@@ -251,6 +274,7 @@ function Decimal_Positivo(nroBit,numero,numero_original,decNo){
     }
     output_BITS.value = "Bits: "+ nroBit ; //Los bits siguen siendo los mismos
     output_BITS.style.cursor = 'text';
+    TodosLosMinimosMaximos(nroBit);
 }
 //________________________________________________________________________________________
 function Decimal_Error(numero, nroBit){
@@ -266,6 +290,36 @@ function Decimal_Error(numero, nroBit){
     output_EX2.style.cursor = 'text';
     output_BITS.value = "Bits: "+ nroBit ;
     output_BITS.style.cursor = 'text';
+
+    output_MinimoMaximoNegativo.value = "" ;
+    output_MinimoMaximoNegativo.style.cursor = 'text';
+
+    output_MinimoMaximoPositivo.value = "" ;
+    output_MinimoMaximoPositivo.style.cursor = 'text';
+    //__________________________________________
+    output_MinimoMaximoNegativo2.value = ""  ;
+    output_MinimoMaximoNegativo2.style.cursor = 'text';
+    
+    output_MinimoMaximoPositivo2.value = "" ;
+    output_MinimoMaximoPositivo2.style.cursor = 'text';
+    //__________________________________________
+    output_MinimoMaximoNegativo3.value = ""  ;
+    output_MinimoMaximoNegativo3.style.cursor = 'text';
+    
+    output_MinimoMaximoPositivo3.value = "" ;
+    output_MinimoMaximoPositivo3.style.cursor = 'text';
+    //__________________________________________
+    output_MinimoMaximoNegativo4.value = ""  ;
+    output_MinimoMaximoNegativo4.style.cursor = 'text';
+
+    output_MinimoMaximoNegativo5.value = ""  ;
+    output_MinimoMaximoNegativo5.style.cursor = 'text';
+
+    output_MinimoMaximoPositivo4.value = "" ;
+    output_MinimoMaximoPositivo4.style.cursor = 'text';
+ 
+    output_MinimoMaximoPositivo5.value = "" ;
+    output_MinimoMaximoPositivo5.style.cursor = 'text';
 }
 //________________________________________________________________________________________
 function Decimal_Negativo(numero,nroBit,nroDecimal,nro_original){
@@ -326,6 +380,7 @@ function Decimal_Negativo(numero,nroBit,nroDecimal,nro_original){
     
     output_BITS.value = "Bits: "+ decNo.length ;
     output_BITS.style.cursor = 'text';
+    TodosLosMinimosMaximos(decNo.length);
 }
 //________________________________________________________________________________________
 function Decimal_Negativo_Error(decNo,nroBit){
@@ -355,6 +410,8 @@ function Decimal_Positivo_Solo(decNo,numero){
     output_EX2.style.cursor = 'text';
     output_BITS.value = "BSS: "+ (numero.length) +', BCS: ' + (numero.length + 1)+', CA1: ' + (numero.length + 1)+', CA2: ' + (numero.length + 1)+', EX2: ' + (numero.length + 1)   ;
     output_BITS.style.cursor = 'text';
+
+    TodosLosMinimosMaximos(numero.length);
 
     rangoBss =(Math.pow(2, numero.length))-1;
 
@@ -424,6 +481,7 @@ function Decimal_Negativo_Solo(decArr,numero,nroDecimal){
     decNo = decNo.length + 1;
     output_BITS.value = "Bits: "+ decNo ;
     output_BITS.style.cursor = 'text';
+    TodosLosMinimosMaximos(decNo);
     Rangos(decNo);
 
 }
