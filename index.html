@@ -291,6 +291,7 @@
 
         <div class="field btn-field">
             <button type="button" id="btn2">Convert</button>
+            
           </div>
         </form>
         <div id="error-msg2">
@@ -298,25 +299,21 @@
         </div>
       </div>
       
+      <button type="button" onclick="resetform()" value="Reiniciar todo" id="btn2">   Reinciar Todo</button>
+      
     </div>
-
-
-
     
   </div>
   
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
   <script>
-    var hidden = false;
-    function action() {
-        hidden = !hidden;
-        if(hidden) {
-            document.getElementById('OCULTAR').style.visibility = 'hidden';
-        } else {
-            document.getElementById('OCULTAR').style.visibility = 'visible';
-        }
-    }
-</script>
+      function resetform() {
+       $("form select").each(function() { this.selectedIndex = 0 });
+       $("form input[type=text] , form textarea").each(function() { this.value = '' });
+  }
+  </script>
   <script src="main.js"></script>
   
 
