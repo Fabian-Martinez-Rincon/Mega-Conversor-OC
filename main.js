@@ -12,7 +12,14 @@ const output_Rangos = document.querySelector("#output_Rangos");
 const btn = document.querySelector("#btn");
 const error = document.querySelector("#error-msg");
 
+const output_MinimoMaximoNegativo = document.querySelector("#output_MinimoMaximoNegativo");
+const output_MinimoMaximoPositivo = document.querySelector("#output_MinimoMaximoPositivo");
 
+const output_MinimoMaximoNegativo2 = document.querySelector("#output_MinimoMaximoNegativo2");
+const output_MinimoMaximoPositivo2 = document.querySelector("#output_MinimoMaximoPositivo2");
+
+const output_MinimoMaximoNegativo3 = document.querySelector("#output_MinimoMaximoNegativo3");
+const output_MinimoMaximoPositivo3 = document.querySelector("#output_MinimoMaximoPositivo3");
 
 
 const input_binario_entero = document.querySelector("#input_binario_entero");
@@ -34,9 +41,29 @@ function BSS(binArr,Bss){
 
     console.clear();
     console.log('uwu');
-    output_BSS.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString()  ;
+    output_BSS.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString() ;
     output_BSS.style.cursor = 'text';
+    output_MinimoMaximoNegativo.value = "Minimo Negativo: No tiene "+ "      Maximo Negativo: No tiene  " ;
+    output_MinimoMaximoNegativo.style.cursor = 'text';
+    maximoPositivo=(Math.pow(2, Bss.length))-1;
+    output_MinimoMaximoPositivo.value = "Minimo Positivo: 0 "+ "                     Maximo Positivo: "+ maximoPositivo ;
+    output_MinimoMaximoPositivo.style.cursor = 'text';
 
+}
+//________________________________________________________________________________________
+function MinimoMaximoBCS(bits){
+    maximoPositivo=(Math.pow(2, (bits-1)))-1;
+    output_MinimoMaximoNegativo2.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -0"  ;
+    output_MinimoMaximoNegativo2.style.cursor = 'text';
+    
+    output_MinimoMaximoPositivo2.value = "Minimo Positivo: +0 "+ "          Maximo Positivo: "+ maximoPositivo ;
+    output_MinimoMaximoPositivo2.style.cursor = 'text';
+
+    output_MinimoMaximoNegativo3.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -0"  ;
+    output_MinimoMaximoNegativo3.style.cursor = 'text';
+    
+    output_MinimoMaximoPositivo3.value = "Minimo Positivo: +0 "+ "          Maximo Positivo: "+ maximoPositivo ;
+    output_MinimoMaximoPositivo3.style.cursor = 'text';
 }
 //________________________________________________________________________________________
 function BCS(binArr,Bcs){
@@ -47,8 +74,12 @@ function BCS(binArr,Bcs){
     binArr.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
 
 
-        output_BCS.value = "BCS: "+ Bcs + " Decimal: " + decNo.toString()  ;
-        output_BCS.style.cursor = 'text';
+    output_BCS.value = "BCS: "+ Bcs + " Decimal: -" + decNo.toString()  ;
+    output_BCS.style.cursor = 'text';
+    
+    MinimoMaximoBCS(Bcs.length);
+
+    
 }
 //________________________________________________________________________________________
 function CA1(Bcs){
@@ -66,6 +97,7 @@ function CA1(Bcs){
 
     output_CA1.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
     output_CA1.style.cursor = 'text';
+    MinimoMaximoBCS(Ca1_Mostrar.length);
 
     Number(Ca1_Mostrar);
 
@@ -143,7 +175,7 @@ function CA1(Bcs){
 
     output_CA1.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
     output_CA1.style.cursor = 'text';
-
+    MinimoMaximoBCS(Ca1_Mostrar.length);
     Number(Ca1_Mostrar);
 
     return Ca1_Mostrar;
@@ -169,13 +201,25 @@ function Binario_Positivo(binArr,Bss,Bss_original){
     
     output_BSS.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString()  ;
     output_BSS.style.cursor = 'text';
+
+    output_MinimoMaximoNegativo.value = "Minimo Negativo: No tiene "+ "      Maximo Negativo: No tiene  " ;
+    output_MinimoMaximoNegativo.style.cursor = 'text';
+    maximoPositivo=(Math.pow(2, Bss.length))-1;
+    output_MinimoMaximoPositivo.value = "Minimo Positivo: 0 "+ "                     Maximo Positivo: "+ maximoPositivo ;
+    output_MinimoMaximoPositivo.style.cursor = 'text';
+
+
     
     output_BCS.value = "BCS: "+ Bss + "   Decimal: " + decNo.toString()  ;
     output_BCS.style.cursor = 'text';
-    
+    MinimoMaximoBCS(Bss.length);
+
+
     output_CA1.value = "Ca1: "+ Bss + "   Decimal: " + decNo.toString()  ;
     output_CA1.style.cursor = 'text';
-    
+    MinimoMaximoBCS(Bss.length);
+
+
     output_CA2.value = "Ca2: "+ Bss + "   Decimal: " + decNo.toString()  ;
     output_CA2.style.cursor = 'text';
     EX2(Bss_original);

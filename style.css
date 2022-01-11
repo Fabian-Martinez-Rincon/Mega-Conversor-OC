@@ -19,7 +19,7 @@ body {
 }
 .binary_to_decimal h2 {
   margin-bottom: 20px;
-  font-size: 30px;
+  font-size: 3¿0px;
   color: rgb(255, 255, 255);
 }
 .binary_to_decimal {
@@ -34,10 +34,12 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  top:1%;
+  top: 0px;
   transition: 0.3s;
   overflow: hidden;
-  transform: scale(0.95)
+  transform: scale(0.95);
+  left: -283px;
+  
 }
 .binary_to_decimal2 h2 {
   margin-bottom: 20px;
@@ -63,7 +65,7 @@ body {
 }
 
 .field {
-  margin-bottom: 15px;
+  margin-bottom: 9px;
   
 }
 .field2 {
