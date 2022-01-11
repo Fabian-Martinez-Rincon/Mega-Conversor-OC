@@ -181,114 +181,64 @@
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="binary_to_decimal2">
     <div class="container">
       <h2>PUNTO FLOTANTE</h2>
-
-      
       <div class="field2">
         <select class="salidas4"  name="" id="tipo_mantisa">
-
           <option class="Botones" selected >ENTERA</option>
-          
           <option >FRACCIONARIA</option>
-          
           <option >FRACCIONARIA BIT IMPLICITO</option>
- 
-          
           </select>
       </div>
-
-
       <div class="form-row">
         <form>
-
           <div class="field2">
             <label class="salidas2">
               <input  type="text" name="bin" id="input_binario_entero" autocomplete="off" placeholder="MANTISA">
             </label>
-            
           </div>
-
-        
           <div class="field2">
             <label class="salidas2">
               <input  type="text" name="bin" id="input_binario_fraccionaria" autocomplete="off" placeholder="EXPONENTE">
-              
             </label>
           </div>
-
           <div class="field2">
             <select class="salidas3" name="" id="miSelect">
-
               <option selected >BSS</option>
-              
               <option >BCS</option>
-              
               <option >Ca1</option>
               <option >Ca2</option>
               <option >Ex2</option>
-              
               </select>
           </div>
-
           <div class="field2">
             <select class="salidas3"  name="" id="miSelect2">
-
               <option class="Botones" selected value="Bss">BSS</option>
-              
               <option >BCS</option>
-              
               <option >Ca1</option>
               <option >Ca2</option>
               <option >Ex2</option>
-              
               </select>
           </div>
-          
-
           <div class="field">
             <label >
               <input type="text" name="dec" id="output_decimal_Fraccionario" readonly="true" placeholder="Conversion a decimal">
-      
             </label>
           </div>
-
-          <div class="field" hidden>
-            <label>
-              <input type="text" name="dec" id="output_Rango_Fraccionario" readonly="true" placeholder="Rango">
- 
-            </label>
-          </div>
-
-          <div class="field" hidden>
-            <label>
-              <input type="text" name="dec" id="output_Resolucion_Mantisa" readonly="true" placeholder="Resolucion">
-            </label>
-          </div>
-
-        <div class="field btn-field">
-            <button type="button" id="btn2">Convert</button>
-          </div>
-        </form>
-        <div id="error-msg2">
-          <p>Ingrese un Binario</p>
-        </div>
-      </div>
-      
-    </div>
-
-
-
-    
-  </div>
-
-  <div class="binary_to_decimal2">
-    <div class="container">
-      <h2>DATOS EXTRAS</h2>
-
-      <div class="form-row">
-        <form>
           <h4>Numeros</h4>
           <div class="field">
             <label >
@@ -310,8 +260,6 @@
               <input type="text" name="dec" id="output_maximoPositivo" readonly="true" placeholder="Maximo Positivo">
             </label>
           </div>
-
-
           <h4>Resoluciones</h4>
           <div class="field">
             <label >
@@ -333,10 +281,14 @@
               <input type="text" name="dec" id="output_maximoPositivo" readonly="true" placeholder="Maximo Positivo">
             </label>
           </div>
-          
-        
+
+        <div class="field btn-field">
+            <button type="button" id="btn2">Convert</button>
+          </div>
         </form>
-       
+        <div id="error-msg2">
+          <p>Ingrese un Binario</p>
+        </div>
       </div>
       
     </div>

@@ -38,7 +38,7 @@ body {
   transition: 0.3s;
   overflow: hidden;
   transform: scale(0.95);
-  left: -283px;
+  left: -453px;
   
 }
 .binary_to_decimal2 h2 {
@@ -58,10 +58,11 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  top:1%;
+  top:-124px;
   transition: 0.3s;
   overflow: hidden;
-  transform: scale(0.95)
+  transform: scale(0.95);
+  left: -443px;
 }
 
 .field {
