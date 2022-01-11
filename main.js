@@ -630,9 +630,7 @@ btn.addEventListener('click', () => {
     SacarDatos(numero);   
 })
 //________________________________________________________________________________________
-btn2.addEventListener('click', () => {
-    error2.style.display = 'none';
-    console.clear();
+function MANTISA_ENTERA(){
     const indice = $select_Entera.selectedIndex;
     const opcionSeleccionada = $select_fraccionaria.options[indice];
     console.log('Opcion 1 '+opcionSeleccionada.text);
@@ -656,11 +654,21 @@ btn2.addEventListener('click', () => {
     console.log('Resultado '+resultado);
     output_decimal_Fraccionario.value = "Resultado: "+ base + ' * (2 ^ ' + exponente +') = '+ resultado;
     output_decimal_Fraccionario.style.cursor = 'text';
+}
+//________________________________________________________________________________________
+btn2.addEventListener('click', () => {
+    error2.style.display = 'none';
+    console.clear();
+    
+    
+    
+    MANTISA_ENTERA();
 
 
 
 
-    //Resolucion
+
+    /*//Resolucion
     resolucion = numero2.value.split('').reverse();
     resolucion = resolucion.length;
     Number(resolucion);
@@ -669,6 +677,6 @@ btn2.addEventListener('click', () => {
     console.log(resolucion);
     
     output_Resolucion_Mantisa.value = 'Resolucion: '+resolucion;
-    output_Resolucion_Mantisa.style.cursor = 'text';
+    output_Resolucion_Mantisa.style.cursor = 'text';*/
 
 })
