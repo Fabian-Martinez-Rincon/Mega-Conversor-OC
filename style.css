@@ -242,11 +242,19 @@ h4 {
 @media (max-width: 430px ) and  (orientation: portrait)
 {
   .binary_to_decimal {
-    width: 100%;
-    max-width: 700px;
-    top:-100px;
+    width: 330px;
+    max-width: 900px;
+    top: -100px;
     position: absolute;
-    left: 0%;
+    left: -10%;
+    transform: scale(0.75);
+  }
+  .binary_to_decimal2 {
+    width: 330px;
+    max-width: 900px;
+    top: 700px;
+    position: absolute;
+    left: -10%;
     transform: scale(0.75);
   }
 }
