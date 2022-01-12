@@ -893,12 +893,59 @@ function BSS_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
     }
 }
 //________________________________________________________________________________________
+function BCS_Ca1MaximosResoluciones(bitsMantisa,bitsExponente){
+    base = ((Math.pow(2,(bitsMantisa-1)))-1);
+    exponente = ((Math.pow(2,(bitsExponente-1)))-1);
+    Numeros1.value = "Minimo Negativo: -"+(base * (Math.pow(2,(exponente))));
+    Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
+    Numeros2.value = "Maximo Negativo: -0";
+    Numeros3.value = "Minimo Positivo: +0";   //Numero Minimo Positivo
+}
+//________________________________________________________________________________________
+function Ca2_Ex2MaximosResoluciones(bitsMantisa,bitsExponente){
+    base = ((Math.pow(2,(bitsMantisa-1)))-1); //(2^(n-1))-1
+    exponente = ((Math.pow(2,(bitsExponente-1)))-1);
+    Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
+    Numeros1.value = "Minimo Negativo: -"+base ;
+    Numeros2.value = "Maximo Negativo: -0";
+    Numeros3.value = "Minimo Positivo: +0";   //Numero Minimo Positivo
+}
+//________________________________________________________________________________________
+function BCS_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
+    console.log('AAAAAAAAA');
+    if (ExponenteElegido == "BSS"){
+        base = ((Math.pow(2,(bitsMantisa-1)))-1);
+        exponente = ((Math.pow(2,bitsExponente))-1);
+        Numeros1.value = "Minimo Negativo: -"+(base * (Math.pow(2,(exponente))));
+        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
+        Numeros2.value = "Maximo Negativo: -0";
+        Numeros3.value = "Minimo Positivo: +0";   //Numero Minimo Positivo
+    }
+    else if(ExponenteElegido == "BCS"){
+        BCS_Ca1MaximosResoluciones(bitsMantisa,bitsExponente);
+    }
+    else if(ExponenteElegido == "Ca1"){
+        BCS_Ca1MaximosResoluciones(bitsMantisa,bitsExponente);
+    }
+    else if (ExponenteElegido == "Ca2"){
+        Ca2_Ex2MaximosResoluciones(bitsMantisa,bitsExponente);
+    }
+    else if (ExponenteElegido == "Ex2"){
+        Ca2_Ex2MaximosResoluciones(bitsMantisa,bitsExponente);
+    }
+
+
+}
+//________________________________________________________________________________________
 function Calculo_Maximo_Minimos_Mantisa_entera(MantisaElegida,mantisa,ExponenteElegido,exponete)
 {
     const regEx = /^[0-1]+$/;
     if((mantisa.value.match(regEx))&&(exponete.value.match(regEx))){
         if(MantisaElegida == "BSS"){
             BSS_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
+        }
+        else if(MantisaElegida == "BCS"){
+            BCS_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
         }
     
 
