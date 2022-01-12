@@ -973,7 +973,19 @@ function BCSyCa1_paraCa2MaximosMinimos(bitsMantisa,bitsExponente){
 }
 //________________________________________________________________________________________
 function Ca2yEx2_paraCa2MaximosMinimos(bitsMantisa,bitsExponente){
+    Numeros3.value = "Minimo Positivo: +0";   //Numero Minimo Positivo
+    base = ((Math.pow(2,(bitsMantisa-1)))-1);
+    exponente = ((Math.pow(2,(bitsExponente-1)))-1);
+    Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
+    
+    base = ((Math.pow(2,(bitsMantisa-1))));
 
+    Numeros1.value = "Minimo Negativo: -"+(base * (Math.pow(2,(exponente))));
+
+    exponente = ((Math.pow(2,(bitsExponente-1))));
+    Numeros2.value = "Maximo Negativo: -"+ (Math.pow(2,(exponente*-1)));
+
+    //Resoluciones
 }
 //________________________________________________________________________________________
 function Ca2_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
