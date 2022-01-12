@@ -951,8 +951,10 @@ function BCS_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
     else if (ExponenteElegido == "Ex2"){
         Ca2_Ex2MaximosResoluciones(bitsMantisa,bitsExponente);
     }
-
-
+}
+//________________________________________________________________________________________
+function Ca2_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
+    console.log('AAAAAA :D');
 }
 //________________________________________________________________________________________
 function Calculo_Maximo_Minimos_Mantisa_entera(MantisaElegida,mantisa,ExponenteElegido,exponete)
@@ -969,10 +971,11 @@ function Calculo_Maximo_Minimos_Mantisa_entera(MantisaElegida,mantisa,ExponenteE
             BCS_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
         }
         else if (MantisaElegida == "Ca2"){
-            console.log('PATATA :D');
+            Ca2_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
         }
-    
-
+        else if(MantisaElegida == "Ex2"){
+            Ca2_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
+        }
     }
     else{
         error2.style.display = 'block';
