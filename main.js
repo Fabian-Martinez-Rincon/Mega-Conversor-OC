@@ -953,8 +953,60 @@ function BCS_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
     }
 }
 //________________________________________________________________________________________
+function BCSyCa1_paraCa2MaximosMinimos(bitsMantisa,bitsExponente){
+    base = ((Math.pow(2,(bitsMantisa-1))));
+    exponente = ((Math.pow(2,(bitsExponente-1)))-1);
+    Numeros1.value = "Minimo Negativo: -"+(base * (Math.pow(2,(exponente))));
+    Numeros2.value = "Maximo Negativo: -"+ (Math.pow(2,(exponente*-1)));
+
+    
+    base = ((Math.pow(2,(bitsMantisa-1)))-1);
+    Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
+    
+    Numeros3.value = "Minimo Positivo: +0";   //Numero Minimo Positivo
+
+    Resoluciones1.value = "Minimo Negativo: -"+ (Math.pow(2,(exponente)));
+    Resoluciones2.value = "Maximo Negativo: -"+ (Math.pow(2,(exponente*-1)));
+
+    Resoluciones3.value = "Minimo Positivo: "+ (Math.pow(2,(exponente*-1)));
+    Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,(exponente)));
+}
+//________________________________________________________________________________________
+function Ca2yEx2_paraCa2MaximosMinimos(bitsMantisa,bitsExponente){
+
+}
+//________________________________________________________________________________________
 function Ca2_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
     console.log('AAAAAA :D');
+    if (ExponenteElegido == "BSS"){
+        base = ((Math.pow(2,(bitsMantisa-1))));
+        exponente = ((Math.pow(2,bitsExponente))-1);
+        Numeros1.value = "Minimo Negativo: -"+(base * (Math.pow(2,(exponente))));
+        Resoluciones1.value = "Minimo Negativo: -"+(Math.pow(2,exponente));
+        base = ((Math.pow(2,(bitsMantisa-1)))-1);
+        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
+
+        Numeros2.value = "Maximo Negativo: -1";
+
+        Numeros3.value = "Minimo Positivo: 0";   //Numero Minimo Positivo
+
+        
+        Resoluciones2.value = "Maximo Negativo: -1";
+        Resoluciones3.value = "Minimo Positivo: 1";
+        Resoluciones4.value = "Maximo Positivo: " +(Math.pow(2,exponente));
+    }
+    else if(ExponenteElegido == "BCS"){
+        BCSyCa1_paraCa2MaximosMinimos(bitsMantisa,bitsExponente);
+    }
+    else if(ExponenteElegido == "Ca1"){
+        BCSyCa1_paraCa2MaximosMinimos(bitsMantisa,bitsExponente);
+    }
+    else if(ExponenteElegido == "Ca2"){
+        Ca2yEx2_paraCa2MaximosMinimos(bitsMantisa,bitsExponente);
+    }
+    else if(ExponenteElegido == "Ex2"){
+        Ca2yEx2_paraCa2MaximosMinimos(bitsMantisa,bitsExponente);
+    }
 }
 //________________________________________________________________________________________
 function Calculo_Maximo_Minimos_Mantisa_entera(MantisaElegida,mantisa,ExponenteElegido,exponete)
