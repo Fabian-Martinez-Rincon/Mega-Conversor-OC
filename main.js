@@ -900,15 +900,28 @@ function BCS_Ca1MaximosResoluciones(bitsMantisa,bitsExponente){
     Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
     Numeros2.value = "Maximo Negativo: -0";
     Numeros3.value = "Minimo Positivo: +0";   //Numero Minimo Positivo
+
+
+
+    Resoluciones1.value = "Minimo Negativo: -"+(base * (Math.pow(2,(exponente))));
+    Resoluciones2.value = "Maximo Negativo: "+ (Math.pow(2,(exponente*-1)));
+    Resoluciones3.value = "Minimo Positivo: "+ (Math.pow(2,(exponente*-1)));
+    Resoluciones4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
 }
 //________________________________________________________________________________________
 function Ca2_Ex2MaximosResoluciones(bitsMantisa,bitsExponente){
     base = ((Math.pow(2,(bitsMantisa-1)))-1); //(2^(n-1))-1
     exponente = ((Math.pow(2,(bitsExponente-1)))-1);
     Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
-    Numeros1.value = "Minimo Negativo: -"+base ;
-    Numeros2.value = "Maximo Negativo: -0";
-    Numeros3.value = "Minimo Positivo: +0";   //Numero Minimo Positivo
+    Numeros1.value = "Minimo Negativo: -"+base *(Math.pow(2,(exponente)));
+    Numeros2.value = "Maximo Negativo: "+ (Math.pow(2,((exponente*-1)-1)));
+    console.log('222 '+(Math.pow(2,((exponente*-1)-1))));
+    Numeros3.value = "Minimo Positivo: 0";   //Numero Minimo Positivo
+
+    Resoluciones1.value = "Minimo Negativo: -"  + (Math.pow(2,(exponente)));
+    Resoluciones2.value = "Maximo Negativo: -"+(Math.pow(2,((exponente*-1)-1)));
+    Resoluciones3.value = "Minimo Positivo: "+(Math.pow(2,((exponente*-1)-1)));
+    Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,(exponente)));
 }
 //________________________________________________________________________________________
 function BCS_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
@@ -920,6 +933,11 @@ function BCS_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
         Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
         Numeros2.value = "Maximo Negativo: -0";
         Numeros3.value = "Minimo Positivo: +0";   //Numero Minimo Positivo
+
+        Resoluciones1.value = "Minimo Negativo: -"+(Math.pow(2,exponente));
+        Resoluciones2.value = "Maximo Negativo: -1";
+        Resoluciones3.value = "Minimo Positivo: 1";
+        Resoluciones4.value = "Maximo Positivo: " +(Math.pow(2,exponente));
     }
     else if(ExponenteElegido == "BCS"){
         BCS_Ca1MaximosResoluciones(bitsMantisa,bitsExponente);
@@ -946,6 +964,12 @@ function Calculo_Maximo_Minimos_Mantisa_entera(MantisaElegida,mantisa,ExponenteE
         }
         else if(MantisaElegida == "BCS"){
             BCS_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
+        }
+        else if(MantisaElegida == "Ca1"){
+            BCS_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
+        }
+        else if (MantisaElegida == "Ca2"){
+            console.log('PATATA :D');
         }
     
 
