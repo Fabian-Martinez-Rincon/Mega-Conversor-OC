@@ -986,6 +986,14 @@ function Ca2yEx2_paraCa2MaximosMinimos(bitsMantisa,bitsExponente){
     Numeros2.value = "Maximo Negativo: -"+ (Math.pow(2,(exponente*-1)));
 
     //Resoluciones
+    exponente = ((Math.pow(2,(bitsExponente-1)))-1);
+    Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,(exponente)));
+    Resoluciones1.value = "Minimo Negativo: -"+ (Math.pow(2,(exponente)));
+
+    exponente = ((Math.pow(2,(bitsExponente-1))));
+    Resoluciones2.value = "Maximo Negativo: -"+ (Math.pow(2,((exponente*-1))));
+    Resoluciones3.value = "Minimo Positivo: "+ (Math.pow(2,((exponente*-1))));
+
 }
 //________________________________________________________________________________________
 function Ca2_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
@@ -1125,25 +1133,9 @@ btn2.addEventListener('click', () => {
         MANTISA_FRACCIONARIA();
     }
     else if(opcionSeleccionada.text == "FRACCIONARIA BIT IMPLICITO"){
-
+        MANTISA_FRACCIONARIA_BIT_IMPLICITO();
     }
 
-    
-
-
-
-
-
-    /*//Resolucion
-    resolucion = numero2.value.split('').reverse();
-    resolucion = resolucion.length;
-    Number(resolucion);
-    resolucion = resolucion * -1;
-    resolucion = Math.pow(2, resolucion);
-    console.log(resolucion);
-    
-    output_Resolucion_Mantisa.value = 'Resolucion: '+resolucion;
-    output_Resolucion_Mantisa.style.cursor = 'text';*/
 
 })
 
