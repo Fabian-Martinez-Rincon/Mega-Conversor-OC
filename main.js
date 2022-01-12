@@ -840,7 +840,7 @@ function BSS_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
     Resoluciones2.value = "No tiene representacion";
 
     
-    Resoluciones4.value = "ewe";    //Resolucion Maxima Positiva
+    
     
     if (ExponenteElegido == "BSS"){
         base = ((Math.pow(2,bitsMantisa))-1);
@@ -848,26 +848,44 @@ function BSS_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
         Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
         console.log('base' + bitsMantisa);
         Resoluciones3.value = "Minimo Positivo: 1";    //Resolucion Minima Positiva
+
+        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
     }
     else if(ExponenteElegido == "BCS"){
         base = ((Math.pow(2,bitsMantisa))-1);
         exponente = ((Math.pow(2,(bitsExponente-1)))-1);
         Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
+        
+
+        Resoluciones3.value = "Minimo Positivo: "+ Math.pow(2,(exponente*-1));    //Resolucion Minima Positiva
+        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
     }
     else if(ExponenteElegido == "Ca1"){
         base = ((Math.pow(2,bitsMantisa))-1);
         exponente = ((Math.pow(2,(bitsExponente-1)))-1);
         Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
+
+
+        Resoluciones3.value = "Minimo Positivo: "+  Math.pow(2,(exponente*-1)); ;    //Resolucion Minima Positiva
+        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
     }
     else if(ExponenteElegido == "Ca2"){
         base = ((Math.pow(2,bitsMantisa))-1);
         exponente = ((Math.pow(2,(bitsExponente-1)))-1);
         Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
+
+
+        Resoluciones3.value = "Minimo Positivo: "+ Math.pow(2,(exponente*-1)); ;    //Resolucion Minima Positiva
+        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
     }
     else if(ExponenteElegido == "Ex2"){
         base = ((Math.pow(2,bitsMantisa))-1);
         exponente = ((Math.pow(2,(bitsExponente-1)))-1);
         Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
+
+
+        Resoluciones3.value = "Minimo Positivo: " +  Math.pow(2,(exponente*-1)); ;    //Resolucion Minima Positiva
+        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
     }
 }
 //________________________________________________________________________________________
