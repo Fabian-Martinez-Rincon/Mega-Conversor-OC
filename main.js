@@ -41,6 +41,16 @@ const output_Resolucion_Mantisa = document.querySelector("#output_Resolucion_Man
 const btn2 = document.querySelector("#btn2");
 const error2 = document.querySelector("#error-msg2");
 
+const Numeros1 = document.querySelector("#Numeros1");
+const Numeros2 = document.querySelector("#Numeros2");
+const Numeros3 = document.querySelector("#Numeros3");
+const Numeros4 = document.querySelector("#Numeros4");
+
+const Resoluciones1 = document.querySelector("#Resoluciones1");
+const Resoluciones2 = document.querySelector("#Resoluciones2");
+const Resoluciones3 = document.querySelector("#Resoluciones3");
+const Resoluciones4 = document.querySelector("#Resoluciones4");
+
 
 //________________________________________________________________________________________
 function TodosLosMinimosMaximos(bits){
@@ -843,6 +853,11 @@ function MANTISA_ENTERA(){
     console.log('Resultado '+resultado);
     output_decimal_Fraccionario.value = "Resultado: "+ base + ' * (2 ^ ' + exponente +') = '+ resultado;
     output_decimal_Fraccionario.style.cursor = 'text';
+
+    Numeros1.value = "No tiene representacion";
+    Numeros2.value = "No tiene representacion";
+    Numeros3.value = "0";
+    Numeros4.value = resultado;
 }
 //________________________________________________________________________________________
 function MANTISA_FRACCIONARIA(){
