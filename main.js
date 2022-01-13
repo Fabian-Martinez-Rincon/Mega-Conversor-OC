@@ -1104,8 +1104,24 @@ function BCS_Ca1MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente){
 
 }
 //________________________________________________________________________________________
+function Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente){//Tengo que terminar esta zona
+    Numeros3.value = "Minimo Positivo: 0";
+    let mantisa = 0;
+
+    for (var i = 1; i <= bitsMantisa; i++) {
+        mantisa += Math.pow(2, (i*-1));
+    }
+    exponente = ((Math.pow(2,(bitsExponente-1)))-1);
+    Numeros4.value = "Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
+
+
+    mantisa = Math.pow(2, (bitsMantisa*-1));
+
+    Resoluciones3.value ="Minimo Positivo: "+ (mantisa * (Math.pow(2,(exponente*-1))));
+    Resoluciones4.value ="Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
+}
+//________________________________________________________________________________________
 function BSS_NUMEROS_RESOLUCIONES_Fraccionaria(bitsMantisa,ExponenteElegido,bitsExponente){
-    console.log('aaaaaaaaaaaaaaa');
     Numeros1.value = "No tiene representacion 😔";
     Numeros2.value = "No tiene representacion 😔";
     Resoluciones1.value ="No tiene representacion 😔";
