@@ -1104,7 +1104,7 @@ function BCS_Ca1MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente){
 
 }
 //________________________________________________________________________________________
-function Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente){//Tengo que terminar esta zona
+function Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente){
     Numeros3.value = "Minimo Positivo: 0";
     let mantisa = 0;
 
@@ -1120,8 +1120,6 @@ function Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente){//Te
     exponente = ((Math.pow(2,(bitsExponente-1))));    
     Resoluciones3.value ="Minimo Positivo: "+ (mantisa * (Math.pow(2,(exponente*-1))));
 
-    
-    
 }
 //________________________________________________________________________________________
 function BSS_NUMEROS_RESOLUCIONES_Fraccionaria(bitsMantisa,ExponenteElegido,bitsExponente){
@@ -1160,7 +1158,37 @@ function BSS_NUMEROS_RESOLUCIONES_Fraccionaria(bitsMantisa,ExponenteElegido,bits
 }
 //________________________________________________________________________________________
 function BCS_NUMEROS_RESOLUCIONES_Fraccionaria(bitsMantisa,ExponenteElegido,bitsExponente){
-    console.log('Eligio mantisa fraccionaria con BCS');
+    if (ExponenteElegido == "BSS"){
+        Numeros1.value = "Minimo Negativo: ";
+        Numeros2.value = "Maximo Negativo: ";
+        Resoluciones1.value ="Minimo Negativo: ";
+        Resoluciones2.value ="Maximo Negativo: ";
+        Numeros3.value = "Minimo Positivo: 0";
+        let mantisa = 0;
+        bitsMantisa = bitsMantisa-1;
+        for (var i = 1; i <= bitsMantisa; i++) {
+            mantisa += Math.pow(2, (i*-1));
+         }
+         exponente = ((Math.pow(2,bitsExponente))-1);
+         Numeros4.value = "Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
+    
+        mantisa = Math.pow(2, (bitsMantisa*-1));
+        Resoluciones3.value ="Minimo Positivo: "+ mantisa;
+    
+        Resoluciones4.value ="Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
+    }
+    /*else if(ExponenteElegido == "BCS"){
+        BCS_Ca1MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
+    }
+    else if(ExponenteElegido == "Ca1"){
+        BCS_Ca1MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
+    }
+    else if (ExponenteElegido == "Ca2"){
+        Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
+    }
+    else if (ExponenteElegido == "Ex2"){
+        Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
+    }*/
 }
 //________________________________________________________________________________________
 function Calculo_Maximo_Minimos_Mantisa_Fraccionaria(MantisaElegida,mantisa,ExponenteElegido,exponente){
@@ -1172,6 +1200,9 @@ function Calculo_Maximo_Minimos_Mantisa_Fraccionaria(MantisaElegida,mantisa,Expo
         else if(MantisaElegida == "BCS"){
             BCS_NUMEROS_RESOLUCIONES_Fraccionaria(mantisa.value.length,ExponenteElegido,exponente.value.length);
         }
+    }
+    else{
+        error2.style.display = 'block';
     }
 }
 //________________________________________________________________________________________
@@ -1250,3 +1281,5 @@ selectElement.addEventListener('change', (event) => {
     }
     
 });
+
+
