@@ -1158,6 +1158,26 @@ function BSS_NUMEROS_RESOLUCIONES_Fraccionaria(bitsMantisa,ExponenteElegido,bits
 }
 //________________________________________________________________________________________
 function BCS_Ca1MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente){ //Me quede aca :D
+    bitsMantisa = bitsMantisa-1;
+    Numeros3.value = "Minimo Positivo: +0";
+    let mantisa = 0;
+
+    for (var i = 1; i <= bitsMantisa; i++) {
+        mantisa += Math.pow(2, (i*-1));
+    }
+    exponente = ((Math.pow(2,(bitsExponente-1)))-1);
+    Numeros4.value = "Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
+    Numeros1.value = "Minimo Negativo: -"+(mantisa * (Math.pow(2,(exponente))));
+    Numeros2.value = "Maximo Negativo: -0";
+    mantisa = Math.pow(2, (bitsMantisa*-1));
+    Resoluciones1.value ="Minimo Negativo: -"+ (mantisa * (Math.pow(2,(exponente*-1))));
+    Resoluciones2.value ="Maximo Negativo: -"+(mantisa * (Math.pow(2,(exponente))));
+    Resoluciones3.value ="Minimo Positivo: "+ (mantisa * (Math.pow(2,(exponente*-1))));
+    Resoluciones4.value ="Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
+}
+//________________________________________________________________________________________
+function Ca2_Ex2MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente){
+    bitsMantisa = bitsMantisa - 1;
     Numeros3.value = "Minimo Positivo: 0";
     let mantisa = 0;
 
@@ -1166,12 +1186,14 @@ function BCS_Ca1MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente){ 
     }
     exponente = ((Math.pow(2,(bitsExponente-1)))-1);
     Numeros4.value = "Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
-
-
+    Numeros1.value = "Minimo Negativo: -"+(mantisa * (Math.pow(2,(exponente))));
     mantisa = Math.pow(2, (bitsMantisa*-1));
-
-    Resoluciones3.value ="Minimo Positivo: "+ (mantisa * (Math.pow(2,(exponente*-1))));
     Resoluciones4.value ="Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
+    Resoluciones1.value ="Minimo Negativo: -"+(mantisa * (Math.pow(2,(exponente+1))));
+    exponente = ((Math.pow(2,(bitsExponente-1))));    
+    Resoluciones3.value ="Minimo Positivo: "+ (mantisa * (Math.pow(2,(exponente*-1))));
+    Resoluciones2.value ="Maximo Negativo: -"+ (mantisa * (Math.pow(2,(exponente*-1))));
+    Numeros2.value = "Maximo Negativo: -"+ (mantisa * (Math.pow(2,(exponente*-1))));
 }
 //________________________________________________________________________________________
 function BCS_NUMEROS_RESOLUCIONES_Fraccionaria(bitsMantisa,ExponenteElegido,bitsExponente){
@@ -1197,13 +1219,13 @@ function BCS_NUMEROS_RESOLUCIONES_Fraccionaria(bitsMantisa,ExponenteElegido,bits
     }
     else if(ExponenteElegido == "Ca1"){
         BCS_Ca1MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente);
-    }/*
+    }
     else if (ExponenteElegido == "Ca2"){
-        Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
+        Ca2_Ex2MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente);
     }
     else if (ExponenteElegido == "Ex2"){
-        Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
-    }*/
+        Ca2_Ex2MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente);
+    }
 }
 //________________________________________________________________________________________
 function Calculo_Maximo_Minimos_Mantisa_Fraccionaria(MantisaElegida,mantisa,ExponenteElegido,exponente){
