@@ -1085,6 +1085,10 @@ function MANTISA_ENTERA(){
     
 }
 //________________________________________________________________________________________
+function BCS_Ca1MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente){
+    
+}
+//________________________________________________________________________________________
 function BSS_NUMEROS_RESOLUCIONES_Fraccionaria(bitsMantisa,ExponenteElegido,bitsExponente){
     console.log('aaaaaaaaaaaaaaa');
     Numeros1.value = "No tiene representacion 😔";
