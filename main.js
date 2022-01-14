@@ -1341,7 +1341,7 @@ function BSS_NUMEROS_RESOLUCIONES_Fraccionaria2(bitsMantisa,ExponenteElegido,bit
     Resoluciones2.value ="No tiene representacion 😔";
     bitsMantisa = bitsMantisa+1;
     if (ExponenteElegido == "BSS"){
-        Numeros3.value = "Minimo Positivo: 0.5";
+        
         let mantisa = 0;
 
         for (var i = 1; i <= (bitsMantisa); i++) {
@@ -1369,6 +1369,7 @@ function BSS_NUMEROS_RESOLUCIONES_Fraccionaria2(bitsMantisa,ExponenteElegido,bit
     else if (ExponenteElegido == "Ex2"){
         Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
     }
+    Numeros3.value = "Minimo Positivo: 0.5";
 }
 //________________________________________________________________________________________
 function Calculo_Maximo_Minimos_Mantisa_Fraccionaria2(MantisaElegida,mantisa,ExponenteElegido,exponente){
