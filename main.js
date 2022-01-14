@@ -1270,8 +1270,93 @@ function MANTISA_FRACCIONARIA(){
     Calculo_Maximo_Minimos_Mantisa_Fraccionaria(opcionSeleccionada.text,numero1,opcionSeleccionada2.text,numero2);
 }
 //________________________________________________________________________________________
+function Parte_Mantisa_Fraccionaria2(opcion,numero){
+    let resultado = 0;
+    const regEx = /^[0-1]+$/;
+    const binArr = numero.value.split('');
+
+
+    let Bcs = numero.value.split('');
+    Bcs = Bcs.toString() ;
+    Bcs = Bcs.replace(/\s|[,]/g,''); 
+    Bcs_original = Bcs;
+
+
+    Ca2 = Bcs;
+    Ca2 = Ca2.replace(/\s|[1]/g,'2'); 
+    Ca2 = Ca2.replace(/\s|[0]/g,'1');
+    Ca2 = Ca2.replace(/\s|[2]/g,'0'); 
+    var myInt = Ca2;
+    let myFunc = num => Number(num);
+    var intArr = Array.from(String(myInt), myFunc);
+    var valor = binaryAddition(intArr) ;
+    Ca2 = valor[0];
+    //Number(Ca2);
+    Ca2 = Array.from(Ca2).reverse();
+    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
+
+    if(numero.value.match(regEx)){
+    
+        if (Bcs[0] == 0){
+            if(opcion == "BSS"){
+                console.log('uwu 1');
+                binArr.unshift(0,"1");
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, (index*-1)) : void 0);
+            }
+            else if (opcion == "BCS"){
+                console.log('uwu BCS');
+                binArr.shift()
+                binArr.unshift(0,"1");
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, (index*-1)) : void 0); 
+            }
+
+        }
+        else{
+            if(opcion == "BSS"){
+                console.log('uwu 1');
+                binArr.unshift(0,"1");
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, (index*-1)) : void 0); 
+                console.log('Aaa: ' + resultado);
+            }
+            else if (opcion == "BCS"){
+                console.log('uwu BCS');
+                binArr.shift();
+                binArr.unshift(0,"1");
+                binArr.forEach((item, index) => item === '1' ? resultado += Math.pow(2, (index*-1)) : void 0); 
+                resultado = "-" + resultado;
+            }
+        }
+    }
+    else
+    {
+        error2.style.display = 'block';
+    }
+    return resultado;
+}
+//________________________________________________________________________________________
 function MANTISA_FRACCIONARIA_BIT_IMPLICITO(){
     Numeros1.value = "ME CAGO EN TU PUTA madre";
+    const indice = $select_Entera.selectedIndex;
+    const opcionSeleccionada = $select_Entera.options[indice];
+    console.log('Opcion 1 '+opcionSeleccionada.text);
+    
+    numero1 = input_binario_entero;
+    const indice2 = $select_fraccionaria.selectedIndex;
+    const opcionSeleccionada2 = $select_fraccionaria.options[indice2];
+    console.log('Opcion 2 '+opcionSeleccionada2.text);
+    
+    numero2 = input_binario_fraccionaria;
+
+    base = Parte_Mantisa_Fraccionaria2(opcionSeleccionada.text,numero1);
+    Number(base);
+    exponente = Parte_Mantisa(opcionSeleccionada2.text,numero2);
+    Number(exponente);
+    resultado = base*Math.pow(2, exponente);
+    console.log('Base '+base);
+    console.log('Exponente '+exponente);
+    console.log('Resultado '+resultado);
+    output_decimal_Fraccionario.value = "Resultado: "+ base + ' * (2 ^ ' + exponente +') = '+ resultado;
+    output_decimal_Fraccionario.style.cursor = 'text';
 }
 //________________________________________________________________________________________
 btn2.addEventListener('click', () => {
