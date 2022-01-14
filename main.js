@@ -902,7 +902,7 @@ function BCS_Ca1MaximosResoluciones(bitsMantisa,bitsExponente){
     Numeros3.value = "Minimo Positivo: +0";   //Numero Minimo Positivo
 
     Resoluciones1.value = "Minimo Negativo: -"+((Math.pow(2,(exponente))));
-    Resoluciones2.value = "Maximo Negativo: "+ (Math.pow(2,(exponente*-1)));
+    Resoluciones2.value = "Maximo Negativo: -"+ (Math.pow(2,(exponente*-1)));
     Resoluciones3.value = "Minimo Positivo: "+ (Math.pow(2,(exponente*-1)));
     Resoluciones4.value = "Maximo Positivo: "+( (Math.pow(2,(exponente))));
 }
@@ -1271,7 +1271,7 @@ function MANTISA_FRACCIONARIA(){
 }
 //________________________________________________________________________________________
 function MANTISA_FRACCIONARIA_BIT_IMPLICITO(){
-
+    Numeros1.value = "ME CAGO EN TU PUTA madre";
 }
 //________________________________________________________________________________________
 btn2.addEventListener('click', () => {
@@ -1291,8 +1291,6 @@ btn2.addEventListener('click', () => {
     else if(opcionSeleccionada.text == "FRACCIONARIA BIT IMPLICITO"){
         MANTISA_FRACCIONARIA_BIT_IMPLICITO();
     }
-
-
 })
 
 
