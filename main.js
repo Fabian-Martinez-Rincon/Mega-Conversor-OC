@@ -1372,6 +1372,43 @@ function BSS_NUMEROS_RESOLUCIONES_Fraccionaria2(bitsMantisa,ExponenteElegido,bit
     Numeros3.value = "Minimo Positivo: 0.5";
 }
 //________________________________________________________________________________________
+function BCS_NUMEROS_RESOLUCIONES_Fraccionaria2(bitsMantisa,ExponenteElegido,bitsExponente){
+    bitsMantisa = bitsMantisa+1;
+    if (ExponenteElegido == "BSS"){
+        Numeros3.value = "Minimo Positivo: 0.5";
+        let mantisa = 0;
+        bitsMantisa = bitsMantisa-1; //Porque estamos trabajando con BCS
+        for (var i = 1; i <= bitsMantisa; i++) {
+            mantisa += Math.pow(2, (i*-1));
+        }
+        exponente = ((Math.pow(2,bitsExponente))-1);
+        Numeros4.value = "Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
+        Numeros1.value = "Minimo Negativo: -"+(mantisa * (Math.pow(2,(exponente))));
+        Numeros2.value = "Maximo Negativo: -0.5";
+        mantisa = Math.pow(2, (bitsMantisa*-1));
+        Resoluciones3.value ="Minimo Positivo: "+ mantisa;
+        Resoluciones2.value ="Maximo Negativo: -"+ mantisa;
+        Resoluciones4.value ="Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
+        Resoluciones1.value ="Minimo Negativo: -"+(mantisa * (Math.pow(2,(exponente))));
+    }
+    else if(ExponenteElegido == "BCS"){
+        BCS_Ca1MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente);
+    }
+    else if(ExponenteElegido == "Ca1"){
+        BCS_Ca1MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente);
+    }
+    else if (ExponenteElegido == "Ca2"){
+        Ca2_Ex2MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente);
+    }
+    else if (ExponenteElegido == "Ex2"){
+        Ca2_Ex2MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente);
+    }
+    Numeros2.value = "Maximo Negativo: -0.5";
+    Numeros3.value = "Minimo Positivo: 0.5";
+}
+    
+
+//________________________________________________________________________________________
 function Calculo_Maximo_Minimos_Mantisa_Fraccionaria2(MantisaElegida,mantisa,ExponenteElegido,exponente){
     const regEx = /^[0-1]+$/;
     if((mantisa.value.match(regEx))&&(exponente.value.match(regEx))){
@@ -1379,7 +1416,7 @@ function Calculo_Maximo_Minimos_Mantisa_Fraccionaria2(MantisaElegida,mantisa,Exp
             BSS_NUMEROS_RESOLUCIONES_Fraccionaria2(mantisa.value.length,ExponenteElegido,exponente.value.length);
         }
         else if(MantisaElegida == "BCS"){
-            BCS_NUMEROS_RESOLUCIONES_Fraccionaria(mantisa.value.length,ExponenteElegido,exponente.value.length);
+            BCS_NUMEROS_RESOLUCIONES_Fraccionaria2(mantisa.value.length,ExponenteElegido,exponente.value.length);
         }
     }
     else{
