@@ -1334,6 +1334,58 @@ function Parte_Mantisa_Fraccionaria2(opcion,numero){
     return resultado;
 }
 //________________________________________________________________________________________
+function BSS_NUMEROS_RESOLUCIONES_Fraccionaria2(bitsMantisa,ExponenteElegido,bitsExponente){
+    Numeros1.value = "No tiene representacion 😔";
+    Numeros2.value = "No tiene representacion 😔";
+    Resoluciones1.value ="No tiene representacion 😔";
+    Resoluciones2.value ="No tiene representacion 😔";
+    bitsMantisa = bitsMantisa+1;
+    if (ExponenteElegido == "BSS"){
+        Numeros3.value = "Minimo Positivo: 0.5";
+        let mantisa = 0;
+
+        for (var i = 1; i <= (bitsMantisa); i++) {
+            mantisa += Math.pow(2, (i*-1));
+         }
+         exponente = ((Math.pow(2,bitsExponente))-1);
+         Numeros4.value = "Maximo Positivo: "+((mantisa * (Math.pow(2,(exponente)))));
+
+         
+        mantisa = Math.pow(2, (bitsMantisa*-1));
+
+        Resoluciones3.value ="Minimo Positivo: "+mantisa;
+
+        Resoluciones4.value ="Maximo Positivo: "+((mantisa) * (Math.pow(2,(exponente))));
+    }
+    else if(ExponenteElegido == "BCS"){
+        BCS_Ca1MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
+    }
+    else if(ExponenteElegido == "Ca1"){
+        BCS_Ca1MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
+    }
+    else if (ExponenteElegido == "Ca2"){
+        Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
+    }
+    else if (ExponenteElegido == "Ex2"){
+        Ca2_Ex2MaximosResoluciones_Fraccionaria(bitsMantisa,bitsExponente);
+    }
+}
+//________________________________________________________________________________________
+function Calculo_Maximo_Minimos_Mantisa_Fraccionaria2(MantisaElegida,mantisa,ExponenteElegido,exponente){
+    const regEx = /^[0-1]+$/;
+    if((mantisa.value.match(regEx))&&(exponente.value.match(regEx))){
+        if(MantisaElegida == "BSS"){
+            BSS_NUMEROS_RESOLUCIONES_Fraccionaria2(mantisa.value.length,ExponenteElegido,exponente.value.length);
+        }
+        else if(MantisaElegida == "BCS"){
+            BCS_NUMEROS_RESOLUCIONES_Fraccionaria(mantisa.value.length,ExponenteElegido,exponente.value.length);
+        }
+    }
+    else{
+        error2.style.display = 'block';
+    }
+}
+//________________________________________________________________________________________
 function MANTISA_FRACCIONARIA_BIT_IMPLICITO(){
     Numeros1.value = "ME CAGO EN TU PUTA madre";
     const indice = $select_Entera.selectedIndex;
@@ -1357,6 +1409,8 @@ function MANTISA_FRACCIONARIA_BIT_IMPLICITO(){
     console.log('Resultado '+resultado);
     output_decimal_Fraccionario.value = "Resultado: "+ base + ' * (2 ^ ' + exponente +') = '+ resultado;
     output_decimal_Fraccionario.style.cursor = 'text';
+
+    Calculo_Maximo_Minimos_Mantisa_Fraccionaria2(opcionSeleccionada.text,numero1,opcionSeleccionada2.text,numero2);
 }
 //________________________________________________________________________________________
 btn2.addEventListener('click', () => {
