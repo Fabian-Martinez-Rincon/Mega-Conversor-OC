@@ -1170,8 +1170,8 @@ function BCS_Ca1MaximosResoluciones_FraccionariaBCS(bitsMantisa,bitsExponente){ 
     Numeros1.value = "Minimo Negativo: -"+(mantisa * (Math.pow(2,(exponente))));
     Numeros2.value = "Maximo Negativo: -0";
     mantisa = Math.pow(2, (bitsMantisa*-1));
-    Resoluciones1.value ="Minimo Negativo: -"+ (mantisa * (Math.pow(2,(exponente*-1))));
-    Resoluciones2.value ="Maximo Negativo: -"+(mantisa * (Math.pow(2,(exponente))));
+    Resoluciones1.value ="Minimo Negativo: -"+ (mantisa * (Math.pow(2,(exponente))));
+    Resoluciones2.value ="Maximo Negativo: -"+(mantisa * (Math.pow(2,(exponente*-1))));
     Resoluciones3.value ="Minimo Positivo: "+ (mantisa * (Math.pow(2,(exponente*-1))));
     Resoluciones4.value ="Maximo Positivo: "+(mantisa * (Math.pow(2,(exponente))));
 }
