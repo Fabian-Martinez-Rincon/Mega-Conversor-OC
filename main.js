@@ -901,10 +901,10 @@ function BCS_Ca1MaximosResoluciones(bitsMantisa,bitsExponente){
     Numeros2.value = "Maximo Negativo: -0";
     Numeros3.value = "Minimo Positivo: +0";   //Numero Minimo Positivo
 
-    Resoluciones1.value = "Minimo Negativo: -"+(base * (Math.pow(2,(exponente))));
+    Resoluciones1.value = "Minimo Negativo: -"+((Math.pow(2,(exponente))));
     Resoluciones2.value = "Maximo Negativo: "+ (Math.pow(2,(exponente*-1)));
     Resoluciones3.value = "Minimo Positivo: "+ (Math.pow(2,(exponente*-1)));
-    Resoluciones4.value = "Maximo Positivo: "+(base * (Math.pow(2,(exponente))));
+    Resoluciones4.value = "Maximo Positivo: "+( (Math.pow(2,(exponente))));
 }
 //________________________________________________________________________________________
 function Ca2_Ex2MaximosResoluciones(bitsMantisa,bitsExponente){
