@@ -21,7 +21,7 @@ body {
 
 .binary_to_decimal h2 {
   margin-bottom: 20px;
-  font-size: 3¿0px;
+  font-size: 30px;
   color: #2196f3;
 }
 .binary_to_decimal {
@@ -76,6 +76,8 @@ body {
   display: inline-block;
   color: #000;
   font-size: 1.3rem;
+  font-size: 20px;
+  
   
 }
 .field label {
@@ -121,8 +123,31 @@ body {
   display:inline-block;
   width: 404px;
   color: rgb(255, 251, 251);
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   text-transform: uppercase; 
+  left: 11%;
+}
+.salidasDec{    
+
+  background:  #2195f394;
+border-radius: 5px;
+display:inline-block;
+width: 404px;
+color: rgb(255, 251, 251);
+font-size: 1.0rem;
+text-transform: uppercase; 
+left: 9.4%;
+}
+.salidasBit{    
+
+  background:  #2195f394;
+border-radius: 5px;
+display:inline-block;
+width: 404px;
+color: rgb(255, 251, 251);
+font-size: 1.0rem;
+text-transform: uppercase; 
+left: 20%;
 }
 .salidas2{   
    
@@ -235,7 +260,11 @@ h4 {
   text-transform: uppercase; 
 
 }
-
+.Datos{
+  color: #0c3455f3;
+  text-transform: uppercase; 
+  display: inline-block;
+}
 .title {
   position: absolute;
   align-items: center;
