@@ -74,6 +74,9 @@ body {
 .field2 {
   margin-bottom: 7px;
   display: inline-block;
+  color: #000;
+  font-size: 1.3rem;
+  
 }
 .field label {
   position: relative;
@@ -81,11 +84,12 @@ body {
 
 .field2 label {
   position: relative;
+  
 }
 .field label input {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.192);
+  background: rgba(139, 139, 139, 0.192);
   
   
   padding: 1rem 1.2rem;
@@ -107,19 +111,18 @@ body {
   
   border-radius: 0.2rem;
   height: 0.1px;
-
+  text-transform: uppercase; 
   
 }
 .salidas{    
 
-    background:  rgb(8, 8, 8);
+    background:  #2195f394;
   border-radius: 5px;
   display:inline-block;
-  width: 554px;
-  color: #000;
-
-
-  
+  width: 404px;
+  color: rgb(255, 251, 251);
+  font-size: 1.1rem;
+  text-transform: uppercase; 
 }
 .salidas2{   
    
@@ -128,6 +131,8 @@ body {
   width: 154px;
   display:inline-block;
   color: #000;
+  font-size: 1.1rem;
+  text-transform: uppercase; 
   
 }
 .salidas3{   
@@ -135,7 +140,7 @@ body {
   background:  #2195f394;
   width: 154px;
   color: rgb(0, 0, 0);
-  
+  font-size: 1.1rem;
   
 }
 
@@ -145,6 +150,8 @@ body {
   width: 314px;
   color: rgb(0, 0, 0);
   height: 30.1px;
+  font-size: 1.1rem;
+  text-transform: uppercase; 
 }
 
 
@@ -172,6 +179,7 @@ body {
 }
 .field label input:not(:focus) + p {
   color: #000000;
+  
 }
 
 
@@ -243,6 +251,7 @@ h4 {
     top:1%;
     left: -20%;
     transform: scale(0.67);
+    
   }
   .binary_to_decimal2 {
 
