@@ -39,7 +39,7 @@ body {
   top: 0px;
   transition: 0.3s;
   transform: scale(0.95);
-  left: -453px;
+  left: -253px;
   
 }
 .binary_to_decimal2 h2 {
@@ -58,11 +58,11 @@ body {
   border-right: 10px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  top:-100px;
+  top:-40px;
   transition: 0.3s;
   overflow: hidden;
   transform: scale(0.95);
-  left: -443px;
+  left: -143px;
   
 }
 
@@ -278,14 +278,14 @@ h4 {
     width: 100%;
     max-width: 600px;
     top:1%;
-    left: -20%;
+    left: -7%;
     transform: scale(0.67);
     
   }
   .binary_to_decimal2 {
 
-    top:-3.7%;
-    left: -28%;
+    top:1%;
+    left: -8%;
     transform: scale(0.77);
   }
 

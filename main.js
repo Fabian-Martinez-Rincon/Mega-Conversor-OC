@@ -1048,7 +1048,7 @@ function MANTISA_ENTERA(){
     exponente = Parte_Mantisa(opcionSeleccionada2.text,numero2);
     Number(exponente);
     resultado = base*Math.pow(2, exponente);
-    output_decimal_Fraccionario.value = "Resultado: "+ base + ' * (2 ^ ' + exponente +') = '+ resultado;
+    output_decimal_Fraccionario.value =  base + ' * (2 ^ ' + exponente +') = '+ resultado;
     output_decimal_Fraccionario.style.cursor = 'text';
 
 
@@ -1231,7 +1231,7 @@ function MANTISA_FRACCIONARIA(){
     Number(exponente);
     resultado = base*Math.pow(2, exponente);
 
-    output_decimal_Fraccionario.value = "Resultado: "+ base + ' * (2 ^ ' + exponente +') = '+ resultado;
+    output_decimal_Fraccionario.value =  base + ' * (2 ^ ' + exponente +') = '+ resultado;
     output_decimal_Fraccionario.style.cursor = 'text';
 
 
@@ -1409,7 +1409,7 @@ function MANTISA_FRACCIONARIA_BIT_IMPLICITO(){
     Number(exponente);
     resultado = base*Math.pow(2, exponente);
 
-    output_decimal_Fraccionario.value = "Resultado: "+ base + ' * (2 ^ ' + exponente +') = '+ resultado;
+    output_decimal_Fraccionario.value = base + ' * (2 ^ ' + exponente +') = '+ resultado;
     output_decimal_Fraccionario.style.cursor = 'text';
 
     Calculo_Maximo_Minimos_Mantisa_Fraccionaria2(opcionSeleccionada.text,numero1,opcionSeleccionada2.text,numero2);
