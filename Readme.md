@@ -1,9 +1,6 @@
 <h1 align="center"> MEGA CONVERSOR OC </h1>
 
-![image](https://user-images.githubusercontent.com/55964635/149591470-a74f4207-c417-4917-86f7-b9bdc3224f5e.png)
-
-![image](https://user-images.githubusercontent.com/55964635/149626038-ef7f9910-9046-492e-84de-739393dafdc3.png)
-
+![image](https://user-images.githubusercontent.com/55964635/152696299-01016a51-aa3e-4c5a-9814-02bcdd57a5c2.png)
 
 - [Ejemplos](/Documentos/Ejemplos.md)
 
