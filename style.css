@@ -1,4 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+:root{
+  --negro: #000;
+  --celeste: #2196f3;
+  --violeta: #5809eb;
+  --violetaClaro:#9198e5;
+  --cosa:to top,#5809eb,#9198e5,#5809eb;
+  --tuneado:#5809eb,#9198e5;
+  --violeta1: #1c003b;
+  --violeta2:#4b0374;
+  --violeta3:#7f00b2;
+  --violeta4:#bc4ed8;
+ 
+  --valor:hsl(0, 100%, 50%);
+}
 * {
   margin: 0;
   padding: 0;
@@ -15,32 +29,34 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #2196f3;
+  background: linear-gradient(var(--cosa));
+
 }
 
 
 .binary_to_decimal h2 {
   margin-bottom: 20px;
   font-size: 30px;
-  color: #2196f3;
+  color: var(--celeste)
 }
 .binary_to_decimal {
   position: relative;
   z-index: 1000;
-  width: 100%;
+  width: 10011px;
   max-width: 600px;
-  padding: 20px;
-  background: #fff;
+  padding: 6px;
+  background: var(--violeta2);
   color: white;
   border: 5px solid rgba(255, 255, 255, 0.25);
   border-right: 10px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  top: 0px;
+  top: 20px;
   transition: 0.3s;
-  transform: scale(0.95);
-  left: -253px;
   
+  transform: scale(0.84);
+
+
 }
 .binary_to_decimal2 h2 {
   margin-bottom: 20px;
@@ -67,18 +83,23 @@ body {
 }
 
 .field {
-  margin-bottom: 7px;
+  margin-bottom: 0px;
   
   
 }
 .field2 {
+  margin-bottom: 3px;
+  display: inline-block;
+  color: #000;
+  font-size: 1.3rem;
+  font-size: 2px;
+}
+.field3 {
   margin-bottom: 7px;
   display: inline-block;
   color: #000;
   font-size: 1.3rem;
   font-size: 20px;
-  
-  
 }
 .field label {
   position: relative;
@@ -86,8 +107,8 @@ body {
 
 .field2 label {
   position: relative;
-  
 }
+
 .field label input {
   font-size: 1.1rem;
   color: rgb(0, 0, 0);
@@ -116,12 +137,35 @@ body {
   text-transform: uppercase; 
   
 }
+.field3 label input {
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  background: transparent;
+  
+  
+  padding: 1rem 1.2rem;
+  min-width: 100%;
+  
+  border-radius: 0.2rem;
+  height: 0.1px;
+  text-transform: uppercase; 
+  
+}
 .salidas{    
+ 
 
-    background:  #2195f394;
+  display:inline-block;
+  width: 230px;
+  color: rgb(255, 251, 251);
+  font-size: 0rem;
+  text-transform: uppercase; 
+  left: 5%;
+}
+.salidas5{    
+  background:  #2195f394;
   border-radius: 5px;
   display:inline-block;
-  width: 404px;
+  width: 315px;
   color: rgb(255, 251, 251);
   font-size: 1.0rem;
   text-transform: uppercase; 
@@ -129,25 +173,21 @@ body {
 }
 .salidasDec{    
 
-  background:  #2195f394;
-border-radius: 5px;
-display:inline-block;
-width: 404px;
-color: rgb(255, 251, 251);
-font-size: 1.0rem;
-text-transform: uppercase; 
-left: 9.4%;
+  display:inline-block;
+  width: 230px;
+  color: rgb(255, 251, 251);
+  font-size: 0rem;
+  text-transform: uppercase; 
+  left: 5%;
 }
 .salidasBit{    
 
-  background:  #2195f394;
-border-radius: 5px;
-display:inline-block;
-width: 404px;
-color: rgb(255, 251, 251);
-font-size: 1.0rem;
-text-transform: uppercase; 
-left: 20%;
+  display:inline-block;
+  width: 230px;
+  color: rgb(255, 251, 251);
+  font-size: 0rem;
+  text-transform: uppercase; 
+  left: 5%;
 }
 .salidas2{   
    
@@ -260,8 +300,9 @@ h4 {
   text-transform: uppercase; 
 
 }
+
 .Datos{
-  color: #0c3455f3;
+  color: #d1d9dff3;
   text-transform: uppercase; 
   display: inline-block;
 }
@@ -309,4 +350,79 @@ h4 {
     left: -10%;
     transform: scale(0.75);
   }
+}
+
+
+
+
+
+* {
+  margin: 0; 
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body { 
+  min-height: 100vh;
+  background-image: linear-gradient(-45deg, #e3ddd9 50%, #36221c 50%);
+  font-family: 'Raleway', sans-serif;
+}
+
+.titulo {
+  font-size: 40px;
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.subtitulo {
+  margin: 0;
+  color: #000;
+  display: inline;
+  font-size: 50px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.sabor { 
+  color: #fff;
+  margin: 7px 0;
+  font-size: 50px;
+  font-weight: 600;
+  text-shadow: 2px 2px 1px rgba(0,0,0,0.7);
+  font-family: 'Dancing Script', cursive;
+  margin-top: 0;
+}
+
+.linea-division {
+  width: 80%;
+  height: 2px;
+  background-color: #36221c;
+}
+.carousel{
+  min-height: 1200px;
+}
+
+
+.carousel .carousel-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+
+  width: 500px;
+  height: 500px;
+  
+}
+
+.carousel .carousel-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: -1;
+  border-radius: 15px;
 }

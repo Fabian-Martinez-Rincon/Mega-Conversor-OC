@@ -6,413 +6,424 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <title>MEGA CONVERSOR OC</title>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style2.css">
+    
+   
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   
+  <div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="carousel center-align">
 
+                <div class="carousel-item">
+                  <div class="binary_to_decimal">
+                    <div class="container">
+                      
+                      <div class="form-row">
+                        <form>
+                          <div class="field2">
+                            
+                              <h6 class="Datos">BINARIO:</h6><label class="salidas">
+                              
+                              <input  type="text" name="bin" id="input_binario" autocomplete="off" placeholder="Ingrese un Binario">
+                              
+                            </label>
+                          </div>
+                
+                          <div class="field2">
+                            <h6 class="Datos">Decimal:</h6><label class="salidasDec">
+                               <input  type="text" name="bin" id="input_decimal" autocomplete="off" placeholder="Ingrese un Decimal">
+                              
+                            </label>
+                          </div>
+                
+                          <div class="field2">
+                            <h6 class="Datos">BITS:</h6><label class="salidasBit">
+                              <input  type="text" name="bin" id="input_bit" autocomplete="off" placeholder="Restriccion de Bits para Decimales (opcional)">
+                              
+                            </label>
+                          </div>
+                
+                          <div class="field">
+                            <label class="resultados">
+                              <input type="text" name="dec" id="output_BSS" readonly="true" placeholder="Binarios Sin Signo">
+                              <p>BSS</p>
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_MinimoMaximoNegativo" readonly="true" placeholder="Minimo Negativo y Maximo Negativo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_MinimoMaximoPositivo" readonly="true" placeholder="Minimo Positivo y Maximo Positivo">
+                            </label>
+                          </div>
+                
+                
+                          <div class="field">
+                            <label>
+                              <input type="text" name="dec" id="output_BCS" readonly="true" placeholder="Binarios Con Signo">
+                              <p>BCS</p>
+                            </label>
+                          </div>
+                
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_MinimoMaximoNegativo2" readonly="true" placeholder="Minimo Negativo y Maximo Negativo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_MinimoMaximoPositivo2" readonly="true" placeholder="Minimo Positivo y Maximo Positivo">
+                            </label>
+                          </div>
+                
+                
+                          <div class="field">
+                            <label>
+                              <input type="text" name="dec" id="output_CA1" readonly="true" placeholder="Complemento a1">
+                              <p>Ca1</p>
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_MinimoMaximoNegativo3" readonly="true" placeholder="Minimo Negativo y Maximo Negativo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_MinimoMaximoPositivo3" readonly="true" placeholder="Minimo Positivo y Maximo Positivo">
+                            </label>
+                          </div>  
+                
+                          <div class="field">
+                            <label>
+                              <input type="text" name="dec" id="output_CA2" readonly="true" placeholder="Complemento a2">
+                              <p>Ca2</p>
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_MinimoMaximoNegativo4" readonly="true" placeholder="Minimo Negativo y Maximo Negativo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_MinimoMaximoPositivo4" readonly="true" placeholder="Minimo Positivo y Maximo Positivo">
+                            </label>
+                          </div>
+                
+                          <div class="field">
+                            <label>
+                              <input type="text" name="dec" id="output_EX2" readonly="true" placeholder="Exceso 2">
+                              <p>Ex2</p>
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_MinimoMaximoNegativo5" readonly="true" placeholder="Minimo Negativo y Maximo Negativo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_MinimoMaximoPositivo5" readonly="true" placeholder="Minimo Positivo y Maximo Positivo">
+                            </label>
+                          </div>
+                
+                
+                          <div class="field">
+                            <label>
+                              <input type="text" name="dec" id="output_BITS" readonly="true" placeholder="Cantidad de Bits">
+                              <p>Bits</p>
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label>
+                              <input type="text" name="dec" id="output_Rangos" readonly="true" placeholder="Rangos ">
+                              <p>Rangos</p>
+                            </label>
+                          </div>
+                        <div class="field btn-field">
+                            <button type="button" id="btn">Convert</button>
+                          </div>
+                        </form>
+                        <div id="error-msg">
+                          <p>Ingrese un Binario/Ingrese bits positivos</p>
+                        </div>
+                      </div>
+                      
+                    </div>
+                
+                    
+                
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <h2 class="subtitulo">Cosa</h2>
+                  <div class="linea-division"></div>
+                  <p class="sabor">Cosa2</p>
+                  <img src="/img/1.png" alt="">
+              </div>
 
+              <div class="carousel-item">
+                  <h2 class="subtitulo">Cosa2</h2>
+                  <div class="linea-division"></div>
+                  <p class="sabor">Cosa2</p>
+                  <img src="/img/dona-02.jpg" alt="">
+              </div>
+                <div class="carousel-item">
+                  <div class="binary_to_decimal2">
+                    <div class="container">
+                      <h2>PUNTO FLOTANTE BINARIO</h2>
+                      <div class="field2">
+                        <select class="salidas4"  name="" id="tipo_mantisa">
+                          <option class="Botones" selected >ENTERA</option>
+                          <option >FRACCIONARIA</option>
+                          <option >FRACCIONARIA BIT IMPLICITO</option>
+                          <option >FRACCIONARIA NORMALIZADA</option>
+                          </select>
+                      </div>
+                      <div class="form-row">
+                        <form>
+                          <div class="field2">
+                            <label class="salidas2">
+                              <input  type="text" name="bin" id="input_binario_entero" autocomplete="off" placeholder="MANTISA">
+                            </label>
+                          </div>
+                          <div class="field2">
+                            <label class="salidas2">
+                              <input  type="text" name="bin" id="input_binario_fraccionaria" autocomplete="off" placeholder="EXPONENTE">
+                            </label>
+                          </div>
+                          <div class="field2">
+                            <select class="salidas3" name="" id="miSelect">
+                              <option selected >BSS</option>
+                              <option >BCS</option>
+                              <option id="OCULTAR">Ca1</option>
+                              <option id="OCULTAR1">Ca2</option>
+                              <option id="OCULTAR2">Ex2</option>
+                
+                              
+                              </select>
+                          </div>
+                          <div class="field2">
+                            <select class="salidas3"  name="" id="miSelect2">
+                              <option class="Botones" selected value="Bss">BSS</option>
+                              <option >BCS</option>
+                              <option >Ca1</option>
+                              <option >Ca2</option>
+                              <option >Ex2</option>
+                              </select>
+                          </div>
+                
+                
+                          
+                
+                          <h4>Resultado</h4>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_decimal_Fraccionario" readonly="true" placeholder="Conversion a decimal">
+                            </label>
+                          </div>
+                          <h4>Numeros</h4>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="Numeros1" readonly="true" placeholder="Minimo Negativo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="Numeros2" readonly="true" placeholder="Maximo Negativo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="Numeros3" readonly="true" placeholder="Minimo Positivo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="Numeros4" readonly="true" placeholder="Maximo Positivo">
+                            </label>
+                          </div>
+                          <h4>Resoluciones</h4>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="Resoluciones1" readonly="true" placeholder="Minimo Negativo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="Resoluciones2" readonly="true" placeholder="Maximo Negativo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="Resoluciones3" readonly="true" placeholder="Minimo Positivo">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="Resoluciones4" readonly="true" placeholder="Maximo Positivo">
+                            </label>
+                          </div>
+                
+                        <div class="field btn-field">
+                            <button type="button" id="btn2">Convert</button>
+                            
+                          </div>
+                        </form>
+                        <div id="error-msg2">
+                          <p>Ingrese un Binario</p>
+                        </div>
+                      </div>
+                      
+                      <button type="button" onclick="resetform()" value="Reiniciar todo" id="btn2">   Reinciar Todo</button>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="binary_to_decimal2">
+                    <div class="container">
+                      <h2>PUNTO FLOTANTE DECIMAL</h2>
+                      <div class="field2">
+                        <select class="salidas4"  name="" id="tipo_mantisa">
+                          <option selected>FRACCIONARIA NORMALIZADA</option>
+                          
+                          
+                          </select>
+                      </div>
+                      <div class="form-row">
+                        <form>
+                          <div class="field2">
+                            <label class="salidas2">
+                              <input  type="text" name="bin" id="input_binario_entero" autocomplete="off" placeholder="PARTE ENTERA">
+                            </label>
+                          </div>
+                          <div class="field2">
+                            <label class="salidas2">
+                              <input  type="text" name="bin" id="input_binario_fraccionaria" autocomplete="off" placeholder="FRACCIONARIA">
+                            </label>
+                          </div>
+                
+                          <div class="field2">
+                            <label class="salidas2">
+                              <input  type="text" name="bin" id="input_binario_entero" autocomplete="off" placeholder="BITS">
+                            </label>
+                          </div>
+                          <div class="field2">
+                            <label class="salidas2">
+                              <input  type="text" name="bin" id="input_binario_fraccionaria" autocomplete="off" placeholder="BITS">
+                            </label>
+                          </div>
+                
+                          <div class="field2">
+                            <select class="salidas3" name="" id="miSelect">
+                              <option selected >BSS</option>
+                              <option >BCS</option>
+                
+                
+                              
+                              </select>
+                          </div>
+                          <div class="field2">
+                            <select class="salidas3"  name="" id="miSelect2">
+                              <option class="Botones" selected value="Bss">BSS</option>
+                              <option >BCS</option>
+                              <option >Ca1</option>
+                              <option >Ca2</option>
+                              <option >Ex2</option>
+                              </select>
+                          </div>
+                
+                
+                          <h4>Resultado</h4>
+                
+                
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_decimal_Fraccionario" readonly="true" placeholder="Conversion a binario">
+                            </label>
+                          </div>
+                          <h4>ERRORES</h4>
+                          
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_decimal_Fraccionario" readonly="true" placeholder="Error Absoluto">
+                            </label>
+                          </div>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_decimal_Fraccionario" readonly="true" placeholder="Error Relativo">
+                            </label>
+                          </div>
+                        <div class="field btn-field">
+                            <button type="button" id="btn2">Convert</button>
+                            
+                          </div>
+                        </form>
+                        <div id="error-msg2">
+                          <p>Ingrese un Binario</p>
+                        </div>
+                      </div>
+                      
+                     
+                      
+                    </div>
+                
+                    <div class="container">
+                      <h2>DECIMAL A BCD</h2>
+                      <div class="field3">
+                            
+                        <h4 >Decimal</h4><label class="salidas5">
+                        
+                        <input  type="text" name="bin" id="input_binario" autocomplete="off" placeholder="Ingrese un Decimal">
+                        
+                      </label>
+                    </div>
+                      <div class="form-row">
+                        <form>                
+                          <h4>Resultado</h4>
+                          <div class="field">
+                            <label >
+                              <input type="text" name="dec" id="output_decimal_Fraccionario" readonly="true" placeholder="Conversion a BCD">
+                            </label>
+                          </div>
+                          
+                        <div class="field btn-field">
+                            <button type="button" id="btn2">Convert</button>
+                            
+                          </div>
+                        </form>
+                        <div id="error-msg2">
+                          <p>Ingrese un Binario</p>
+                        </div>
+                      </div>
+                      
+                     
+                      
+                    </div>
+                    
+                  </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
   
-  <div class="binary_to_decimal">
-    <div class="container">
-      <h2>PUNTO FIJO </h2>
-      <div class="form-row">
-        <form>
-          <div class="field2">
-            
-              <h4 class="Datos">BINARIO:</h4><label class="salidas">
-              
-              <input  type="text" name="bin" id="input_binario" autocomplete="off" placeholder="Ingrese un Binario">
-              
-            </label>
-          </div>
-
-          <div class="field2">
-            <h4 class="Datos">Decimal:</h4><label class="salidasDec">
-               <input  type="text" name="bin" id="input_decimal" autocomplete="off" placeholder="Ingrese un Decimal">
-              
-            </label>
-          </div>
-
-          <div class="field2">
-            <h4 class="Datos">BITS:</h4><label class="salidasBit">
-              <input  type="text" name="bin" id="input_bit" autocomplete="off" placeholder="Restriccion de Bits para Decimales (opcional)">
-              
-            </label>
-          </div>
-
-          
-
-          <div class="field">
-            <label class="resultados">
-              <input type="text" name="dec" id="output_BSS" readonly="true" placeholder="Binarios Sin Signo">
-              <p>BSS</p>
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_MinimoMaximoNegativo" readonly="true" placeholder="Minimo Negativo y Maximo Negativo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_MinimoMaximoPositivo" readonly="true" placeholder="Minimo Positivo y Maximo Positivo">
-            </label>
-          </div>
-
-
-
-
-
-
-
-
-
-          <div class="field">
-            <label>
-              <input type="text" name="dec" id="output_BCS" readonly="true" placeholder="Binarios Con Signo">
-              <p>BCS</p>
-            </label>
-          </div>
-
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_MinimoMaximoNegativo2" readonly="true" placeholder="Minimo Negativo y Maximo Negativo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_MinimoMaximoPositivo2" readonly="true" placeholder="Minimo Positivo y Maximo Positivo">
-            </label>
-          </div>
-
-
-
-
-
-
-          <div class="field">
-            <label>
-              <input type="text" name="dec" id="output_CA1" readonly="true" placeholder="Complemento a1">
-              <p>Ca1</p>
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_MinimoMaximoNegativo3" readonly="true" placeholder="Minimo Negativo y Maximo Negativo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_MinimoMaximoPositivo3" readonly="true" placeholder="Minimo Positivo y Maximo Positivo">
-            </label>
-          </div>  
-
-
-          
-          <div class="field">
-            <label>
-              <input type="text" name="dec" id="output_CA2" readonly="true" placeholder="Complemento a2">
-              <p>Ca2</p>
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_MinimoMaximoNegativo4" readonly="true" placeholder="Minimo Negativo y Maximo Negativo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_MinimoMaximoPositivo4" readonly="true" placeholder="Minimo Positivo y Maximo Positivo">
-            </label>
-          </div>
-
-
-
-
-
-          <div class="field">
-            <label>
-              <input type="text" name="dec" id="output_EX2" readonly="true" placeholder="Exceso 2">
-              <p>Ex2</p>
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_MinimoMaximoNegativo5" readonly="true" placeholder="Minimo Negativo y Maximo Negativo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_MinimoMaximoPositivo5" readonly="true" placeholder="Minimo Positivo y Maximo Positivo">
-            </label>
-          </div>
-
-
-
-
-
-
-
-          <div class="field">
-            <label>
-              <input type="text" name="dec" id="output_BITS" readonly="true" placeholder="Cantidad de Bits">
-              <p>Bits</p>
-            </label>
-          </div>
-          <div class="field">
-            <label>
-              <input type="text" name="dec" id="output_Rangos" readonly="true" placeholder="Rangos ">
-              <p>Rangos</p>
-            </label>
-          </div>
-        <div class="field btn-field">
-            <button type="button" id="btn">Convert</button>
-          </div>
-        </form>
-        <div id="error-msg">
-          <p>Ingrese un Binario/Ingrese bits positivos</p>
-        </div>
-      </div>
-      
-    </div>
-
-    
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="binary_to_decimal2">
-    <div class="container">
-      <h2>PUNTO FLOTANTE BINARIO</h2>
-      <div class="field2">
-        <select class="salidas4"  name="" id="tipo_mantisa">
-          <option class="Botones" selected >ENTERA</option>
-          <option >FRACCIONARIA</option>
-          <option >FRACCIONARIA BIT IMPLICITO</option>
-          <option >FRACCIONARIA NORMALIZADA</option>
-          </select>
-      </div>
-      <div class="form-row">
-        <form>
-          <div class="field2">
-            <label class="salidas2">
-              <input  type="text" name="bin" id="input_binario_entero" autocomplete="off" placeholder="MANTISA">
-            </label>
-          </div>
-          <div class="field2">
-            <label class="salidas2">
-              <input  type="text" name="bin" id="input_binario_fraccionaria" autocomplete="off" placeholder="EXPONENTE">
-            </label>
-          </div>
-          <div class="field2">
-            <select class="salidas3" name="" id="miSelect">
-              <option selected >BSS</option>
-              <option >BCS</option>
-              <option id="OCULTAR">Ca1</option>
-              <option id="OCULTAR1">Ca2</option>
-              <option id="OCULTAR2">Ex2</option>
-
-              
-              </select>
-          </div>
-          <div class="field2">
-            <select class="salidas3"  name="" id="miSelect2">
-              <option class="Botones" selected value="Bss">BSS</option>
-              <option >BCS</option>
-              <option >Ca1</option>
-              <option >Ca2</option>
-              <option >Ex2</option>
-              </select>
-          </div>
-
-
-          
-
-          <h4>Resultado</h4>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_decimal_Fraccionario" readonly="true" placeholder="Conversion a decimal">
-            </label>
-          </div>
-          <h4>Numeros</h4>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="Numeros1" readonly="true" placeholder="Minimo Negativo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="Numeros2" readonly="true" placeholder="Maximo Negativo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="Numeros3" readonly="true" placeholder="Minimo Positivo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="Numeros4" readonly="true" placeholder="Maximo Positivo">
-            </label>
-          </div>
-          <h4>Resoluciones</h4>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="Resoluciones1" readonly="true" placeholder="Minimo Negativo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="Resoluciones2" readonly="true" placeholder="Maximo Negativo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="Resoluciones3" readonly="true" placeholder="Minimo Positivo">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="Resoluciones4" readonly="true" placeholder="Maximo Positivo">
-            </label>
-          </div>
-
-        <div class="field btn-field">
-            <button type="button" id="btn2">Convert</button>
-            
-          </div>
-        </form>
-        <div id="error-msg2">
-          <p>Ingrese un Binario</p>
-        </div>
-      </div>
-      
-      <button type="button" onclick="resetform()" value="Reiniciar todo" id="btn2">   Reinciar Todo</button>
-      
-    </div>
-    
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="binary_to_decimal2">
-    <div class="container">
-      <h2>PUNTO FLOTANTE DECIMAL</h2>
-      <div class="field2">
-        <select class="salidas4"  name="" id="tipo_mantisa">
-          <option selected>FRACCIONARIA NORMALIZADA</option>
-          
-          
-          </select>
-      </div>
-      <div class="form-row">
-        <form>
-          <div class="field2">
-            <label class="salidas2">
-              <input  type="text" name="bin" id="input_binario_entero" autocomplete="off" placeholder="PARTE ENTERA">
-            </label>
-          </div>
-          <div class="field2">
-            <label class="salidas2">
-              <input  type="text" name="bin" id="input_binario_fraccionaria" autocomplete="off" placeholder="FRACCIONARIA">
-            </label>
-          </div>
-
-          <div class="field2">
-            <label class="salidas2">
-              <input  type="text" name="bin" id="input_binario_entero" autocomplete="off" placeholder="BITS">
-            </label>
-          </div>
-          <div class="field2">
-            <label class="salidas2">
-              <input  type="text" name="bin" id="input_binario_fraccionaria" autocomplete="off" placeholder="BITS">
-            </label>
-          </div>
-
-          <div class="field2">
-            <select class="salidas3" name="" id="miSelect">
-              <option selected >BSS</option>
-              <option >BCS</option>
-
-
-              
-              </select>
-          </div>
-          <div class="field2">
-            <select class="salidas3"  name="" id="miSelect2">
-              <option class="Botones" selected value="Bss">BSS</option>
-              <option >BCS</option>
-              <option >Ca1</option>
-              <option >Ca2</option>
-              <option >Ex2</option>
-              </select>
-          </div>
-
-
-          <h4>Resultado</h4>
-
-
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_decimal_Fraccionario" readonly="true" placeholder="Conversion a binario">
-            </label>
-          </div>
-          <h4>ERRORES</h4>
-          
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_decimal_Fraccionario" readonly="true" placeholder="Error Absoluto">
-            </label>
-          </div>
-          <div class="field">
-            <label >
-              <input type="text" name="dec" id="output_decimal_Fraccionario" readonly="true" placeholder="Error Relativo">
-            </label>
-          </div>
-        <div class="field btn-field">
-            <button type="button" id="btn2">Convert</button>
-            
-          </div>
-        </form>
-        <div id="error-msg2">
-          <p>Ingrese un Binario</p>
-        </div>
-      </div>
-      
-     
-      
-    </div>
-    
-  </div>
-
-
-
   
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
   <script>
@@ -421,7 +432,9 @@
        $("form input[type=text] , form textarea").each(function() { this.value = '' });
   }
   </script>
+  <script src="materialize.js"></script>
   <script src="main.js"></script>
+  <script src="main2.js"></script>
   
 
   
