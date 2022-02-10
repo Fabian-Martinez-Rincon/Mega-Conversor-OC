@@ -119,7 +119,40 @@ video{
   z-index: 10;
   
 }
+.binary_to_decimal2::before
+{
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 150%;
+  
+  background: linear-gradient(#7f00b2, #450061);
+  animation: animate 4s linear infinite;
 
+  top: -200px;
+  left: 40%;
+
+}
+.binary_to_decimal2::after
+{
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: #0e1538;
+  border-radius: 20px;
+
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform: rotate(350deg);
+  }
+}
 .field {
   margin-bottom: -11px;
   z-index: 10;
@@ -255,13 +288,21 @@ video{
 }
 
 .salidas4{   
-   
+  display:inline-block;
+
+  color: rgb(255, 251, 251);
+  font-size: 0rem;
+  text-transform: uppercase; 
+  left: 100px;
+  margin-top: 19px;
+  bottom: 0px;
+  
   background:  #2195f394;
   width: 314px;
   color: rgb(0, 0, 0);
   height: 30.1px;
   font-size: 1.1rem;
-  text-transform: uppercase; 
+  position: relative;
 }
 
 
