@@ -169,6 +169,7 @@ video{
   margin-bottom: -11px;
   z-index: 10;
   margin-inline: 30px;
+  
 }
 .field3 {
   margin-bottom: 7px;
@@ -240,7 +241,7 @@ video{
   bottom: 0px;
 }
 .salidas5{    
-  background:  #2195f394;
+
   border-radius: 5px;
   display:inline-block;
   width: 315px;
@@ -269,13 +270,14 @@ video{
 }
 .salidas2{   
    
-  background:  #2195f394;
+
   position: absolute;
   width: 154px;
   display:inline-block;
   color: #000;
   font-size: 1.1rem;
   text-transform: uppercase; 
+  
   
 }
 .salidas3{   
@@ -284,7 +286,19 @@ video{
   width: 154px;
   color: rgb(0, 0, 0);
   font-size: 1.1rem;
+  display:inline-block;
+
+  color: rgb(255, 251, 251);
+  font-size: 0rem;
+  left: 100px;
+  margin-top: 19px;
+  bottom: 0px;
   
+  background:  #2195f394;
+  width: 204px;
+  color: rgb(0, 0, 0);
+  height: 30.1px;
+  font-size: 1.1rem;
 }
 
 .salidas4{   
@@ -302,7 +316,8 @@ video{
   color: rgb(0, 0, 0);
   height: 30.1px;
   font-size: 1.1rem;
-  position: relative;
+
+  
 }
 
 
