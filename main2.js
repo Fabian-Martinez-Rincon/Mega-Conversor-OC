@@ -6,6 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
         shift: 5,
         padding: 5,
         numVisible:3,
-        indicators:true
+        indicators:false
     });
 });    

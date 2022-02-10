@@ -30,7 +30,8 @@ body {
   align-items: center;
   justify-content: center;
   background: linear-gradient(var(--cosa));
-
+  max-height: 100vh;
+  overflow-y: hidden;
 }
 
 
@@ -42,21 +43,17 @@ body {
 .binary_to_decimal {
   position: relative;
   z-index: 1000;
-  width: 10011px;
-  max-width: 600px;
-  padding: 6px;
+  width: 600px;
+  max-width: 8000px;
+  padding: 0px;
   background: var(--violeta2);
   color: white;
   border: 5px solid rgba(255, 255, 255, 0.25);
   border-right: 10px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  top: 20px;
+  top: 2px;
   transition: 0.3s;
-  
-  transform: scale(0.84);
-
-
 }
 .binary_to_decimal2 h2 {
   margin-bottom: 20px;
@@ -77,22 +74,23 @@ body {
   top:-40px;
   transition: 0.3s;
   overflow: hidden;
-  transform: scale(0.95);
+  transform: scale(1);
   left: -143px;
   
 }
 
 .field {
-  margin-bottom: 0px;
+  margin-bottom: -11px;
   
+  margin-inline: 30px;
   
 }
 .field2 {
-  margin-bottom: 3px;
+  margin-bottom: 30px;
   display: inline-block;
   color: #000;
   font-size: 1.3rem;
-  font-size: 2px;
+  font-size: 10px;
 }
 .field3 {
   margin-bottom: 7px;
@@ -155,11 +153,13 @@ body {
  
 
   display:inline-block;
-  width: 230px;
+  width: 110px;
   color: rgb(255, 251, 251);
   font-size: 0rem;
   text-transform: uppercase; 
-  left: 5%;
+  left: -100;
+  margin-top: 19px;
+  bottom: 0px;
 }
 .salidas5{    
   background:  #2195f394;
@@ -174,7 +174,7 @@ body {
 .salidasDec{    
 
   display:inline-block;
-  width: 230px;
+  width: 120px;
   color: rgb(255, 251, 251);
   font-size: 0rem;
   text-transform: uppercase; 
@@ -183,7 +183,7 @@ body {
 .salidasBit{    
 
   display:inline-block;
-  width: 230px;
+  width: 163.093px;
   color: rgb(255, 251, 251);
   font-size: 0rem;
   text-transform: uppercase; 
@@ -260,6 +260,7 @@ button#btn {
   cursor: pointer;
   border-radius: 0.2rem;
   border: 1px solid white;
+  margin-block:30px;
 }
 
 button#btn2 {
@@ -425,4 +426,13 @@ body {
   left: 0;
   z-index: -1;
   border-radius: 15px;
+}
+
+.container{
+  
+  margin: 0px;
+
+  top: 2px;
+  width: 100%;
+  
 }
