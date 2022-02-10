@@ -29,7 +29,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(var(--cosa));
   max-height: 100vh;
   overflow-y: hidden;
 }
@@ -66,10 +65,10 @@ video{
 {
   content: '';
   position: absolute;
-  width: 150px;
+  width: 250px;
   height: 150%;
   
-  background: linear-gradient(var(--cosa));
+  background: linear-gradient(#7f00b2, #450061);
   animation: animate 4s linear infinite;
 
   top: -200px;
