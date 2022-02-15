@@ -132,6 +132,55 @@ body {
   border-radius: 20px;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+.binary_to_decimal3 {
+  position: absolute;
+  width: 600px;
+  max-width: 8000px;
+  padding: 0px;
+  background: var(--azul);
+  top: -202px;
+  transition: 0.3s;
+  display: flex;
+  overflow: hidden;
+  border-radius: 20px;
+  z-index: 10;
+  top: -212px;
+  
+}
+.binary_to_decimal3::before
+{
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 150%;
+  
+  background: linear-gradient(#7f00b2, #450061);
+  animation: animate 4s linear infinite;
+
+  top: -200px;
+  left: 40%;
+
+}
+.binary_to_decimal3::after
+{
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: var(--ColorFondo2);
+  border-radius: 20px;
+
+}
 @keyframes animate
 {
   0%

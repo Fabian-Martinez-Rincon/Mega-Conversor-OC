@@ -296,7 +296,7 @@
                 </div>
 
                 <div class="carousel-item">
-                  <div class="binary_to_decimal2">
+                  <div class="binary_to_decimal3">
                     <div class="container">
                       <h2>Punto Flotante Binario</h2>
                       <div class="field2">
@@ -440,7 +440,26 @@
   <script src="materialize.js"></script>
   <script src="main.js"></script>
   <script src="main2.js"></script>
-  
+  <script src="./js/vanilla-tilt.min.js"></script>
+  <script>
+      VanillaTilt.init(document.querySelector(".binary_to_decimal"), {
+  max: 6,
+  speed: 7000
+});
+  </script>
+
+<script>
+  VanillaTilt.init(document.querySelector(".binary_to_decimal2"), {
+max: 6,
+speed: 7000
+});
+</script>
+<script>
+  VanillaTilt.init(document.querySelector(".binary_to_decimal3"), {
+max: 6,
+speed: 7000
+});
+</script>
 
   
   

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Cartas en 3d</title>
+    <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h2 class="name">Product Name</h2>
+
+        </div>
+
+    </div>
+    <script src="/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelector(".box"), {
+		max: 25,
+		speed: 400
+	});
+    </script>
+</body>
+</html>
