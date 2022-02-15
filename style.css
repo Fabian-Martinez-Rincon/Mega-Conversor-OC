@@ -150,22 +150,16 @@ body {
 
 }
 .field2 {
-  margin-bottom: 30px;
   display: inline-block;
-  font-size: 1.3rem;
-  font-size: 10px;
-  z-index: 10;
-  margin-bottom: -11px;
   z-index: 10;
   margin-inline: 30px;
-  
 }
 .field3 {
   margin-bottom: 7px;
   display: inline-block;
-  color: #000;
   font-size: 1.3rem;
   font-size: 20px;
+  
 }
 .field label {
   position: relative;
@@ -196,7 +190,7 @@ body {
 .field3 label input {
   font-size: 1rem;
   background: transparent;
-  
+  color: var(--ColorTexto);
   
   padding: 1rem 1.2rem;
   min-width: 100%;
@@ -225,6 +219,7 @@ body {
   font-size: 1.0rem;
   text-transform: uppercase; 
   left: 11%;
+  
 }
 .salidasDec{    
 
@@ -268,21 +263,19 @@ body {
   background:  var(--ColorBarras);
   width: 204px;
   color: rgb(0, 0, 0); /*Texto dentro de barras*/
-  height: 30.1px;
+  height: 31px;
   font-size: 1.1rem;
 }
 
 .salidas4{   /*Barra de opciones grande*/
   display:inline-block;
-  font-size: 0rem;
   text-transform: uppercase; 
-  left: 100px;
   margin-top: 19px;
   bottom: 0px;
   background:  var(--ColorBarras);
-  width: 314px;
+  width: 100%;
   color: rgb(0, 0, 0);
-  height: 30.1px;
+  height: 31px;
   font-size: 1.1rem;
 }
 
@@ -314,29 +307,69 @@ body {
 }
 
 button#btn {
-  padding: 10px 20px;
+  padding: 10px;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 690;
   color: #000;
   background: var(--ColorBarras);
-  width: 100%;
+  width: 40%;
   cursor: pointer;
   border-radius: 0.2rem;
   border: 1px solid ;
   margin-block:30px;
 }
-
-button#btn2 {
+button#btn1 {
   padding: 10px 20px;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 690;
   color: #000;
   background: var(--ColorBarras);
-  width: 100%;
+  width: 40%;
   cursor: pointer;
   border-radius: 0.2rem;
   border: 1px solid ;
   margin-block:30px;
+  position: relative;
+}
+
+button#btn2 {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 690;
+  color: #000;
+  background: var(--ColorBarras);
+  width: 40%;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  border: 1px solid ;
+  margin-block:30px;
+  position: relative;
+}
+button#btn3 {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 690;
+  color: #000;
+  background: var(--ColorBarras);
+  width: 40%;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  border: 1px solid ;
+  margin-block:30px;
+  position: relative;
+}
+button#btn4 {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 690;
+  color: #000;
+  background: var(--ColorBarras);
+  width: 40%;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  border: 1px solid ;
+  margin-block:30px;
+  position: relative;
 }
 
 div#error-msg {
