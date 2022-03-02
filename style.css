@@ -1,17 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 :root{
-
-  --Rojo:hsl(345, 93%, 54%);   /**/
-  --Rosa:hsl(322, 100%, 50%) ;    /**/
-  --Rosa_Claro:hsl(300, 54%, 73%);          /**/
-  --Violeta:hsl(271, 98%, 47%);           /**/
   --ColorFondo:hsl(268, 100%, 12%);    /**/
   --ColorFondo2: hsl(268, 100%, 9%);
   --ColorTitulos:hsl(322, 100%, 50%) ;
   --ColorSubTitulos:hsl(322, 100%, 80%);
   --ColorTexto: hsl(322, 100%, 90%);
   --ColorBarras:hsl(207, 86%, 54%);
-  --ColorBarras2:hsl(207, 86%, 64%);
 }
 * {
   margin: 0;
@@ -26,35 +20,23 @@ html,body {
   height: 100%;
 }
 body {
-  
-
   max-height: 100vh;
   overflow-y: hidden;
   width: 100%;
 }
-
-
 .binary_to_decimal h2 {
-  margin-bottom: 20px;
   font-size: 30px;
   color: var(--celeste);
 }
 .binary_to_decimal {
   position: absolute;
-
   width: 600px;
-  max-width: 8000px;
-  padding: 0px;
   background: var(--azul);
-
-  border-radius: 10px;
-  top: -212px;
   transition: 0.3s;
   display: flex;
   overflow: hidden;
   border-radius: 20px;
   z-index: 10;
-  
 }
 .binary_to_decimal::before
 {
@@ -62,13 +44,10 @@ body {
   position: absolute;
   width: 250px;
   height: 150%;
-  
   background: linear-gradient(#7f00b2, #450061);
   animation: animate 4s linear infinite;
-
   top: -200px;
   left: 40%;
-
 }
 .binary_to_decimal::after
 {
@@ -77,7 +56,6 @@ body {
   inset: 4px;
   background: var(--ColorFondo2);
   border-radius: 20px;
-
 }
 @keyframes animate
 {
@@ -97,16 +75,12 @@ body {
 .binary_to_decimal2 {
   position: absolute;
   width: 600px;
-  max-width: 8000px;
-  padding: 0px;
   background: var(--azul);
-  top: -202px;
   transition: 0.3s;
   display: flex;
   overflow: hidden;
   border-radius: 20px;
   z-index: 10;
-  top: -212px;
   
 }
 .binary_to_decimal2::before
@@ -115,13 +89,10 @@ body {
   position: absolute;
   width: 250px;
   height: 150%;
-  
   background: linear-gradient(#7f00b2, #450061);
   animation: animate 4s linear infinite;
-
   top: -200px;
   left: 40%;
-
 }
 .binary_to_decimal2::after
 {
@@ -130,48 +101,27 @@ body {
   inset: 4px;
   background: var(--ColorFondo2);
   border-radius: 20px;
-
 }
-
-
-
-
-
-
-
-
-
-
 
 .binary_to_decimal3 {
   position: absolute;
   width: 600px;
-  max-width: 8000px;
-  padding: 0px;
   background: var(--azul);
-  top: -202px;
   transition: 0.3s;
   display: flex;
   overflow: hidden;
   border-radius: 20px;
-  z-index: 10;
-  top: -212px;
-  height: fit-content;
-  
 }
 .binary_to_decimal3::before
 {
   content: '';
   position: absolute;
-  width: 250px;
-  height: 150%;
-  
+  width: 190px;
+  height: 180%;
   background: linear-gradient(#7f00b2, #450061);
   animation: animate 4s linear infinite;
-
   top: -200px;
-  left: 40%;
-
+  left: 30%;
 }
 .binary_to_decimal3::after
 {
@@ -180,7 +130,6 @@ body {
   inset: 4px;
   background: var(--ColorFondo2);
   border-radius: 20px;
-
 }
 @keyframes animate
 {
@@ -197,7 +146,6 @@ body {
   margin-bottom: -11px;
   z-index: 10;
   margin-inline: 30px;
-
 }
 .field2 {
   display: inline-block;
@@ -209,7 +157,6 @@ body {
   display: inline-block;
   font-size: 1.3rem;
   font-size: 20px;
-  
 }
 .field label {
   position: relative;
@@ -235,23 +182,18 @@ body {
   border-radius: 0.2rem;
   height: 0.1px;
   text-transform: uppercase; 
-  
 }
 .field3 label input {
   font-size: 1rem;
   background: transparent;
   color: var(--ColorTexto);
-  
   padding: 1rem 1.2rem;
   min-width: 100%;
-  
   border-radius: 0.2rem;
   height: 0.1px;
   text-transform: uppercase; 
-  
 }
 .salidas{    
-
   display:inline-block;
   width: 110px;
   font-size: 0rem;
@@ -259,20 +201,16 @@ body {
   left: -100;
   margin-top: 19px;
   bottom: 0px;
-  
 }
 .salidas5{    
-
   border-radius: 5px;
   display:inline-block;
   width: 315px;
   font-size: 1.0rem;
   text-transform: uppercase; 
   left: 11%;
-  
 }
 .salidasDec{    
-
   display:inline-block;
   width: 120px;
   color: rgb(255, 251, 251);
@@ -281,7 +219,6 @@ body {
   left: 5%;
 }
 .salidasBit{    
-
   display:inline-block;
   width: 163.093px;
   color: rgb(255, 23, 23);
@@ -290,26 +227,18 @@ body {
   left: 5%;
 }
 .salidas2{   
-   
-
   position: absolute;
   width: 154px;
   display:inline-block;
   color: rgb(255, 14, 14);
   font-size: 1.1rem;
   text-transform: uppercase; 
-  
-  
 }
 .salidas3{   /*Barra de opciones*/
-  width: 154px;
-  font-size: 1.1rem;
   display:inline-block;
-  font-size: 0rem;
   left: 100px;
   margin-top: 19px;
   bottom: 0px;
-  
   background:  var(--ColorBarras);
   width: 204px;
   color: rgb(0, 0, 0); /*Texto dentro de barras*/
@@ -421,17 +350,14 @@ button#btn4 {
   margin-block:30px;
   position: relative;
 }
-
 div#error-msg {
   color: red;
   display: none;
 }
-
 div#error-msg2 {
   color: red;
   display: none;
 }
-
 h2 { 
   font-size: 30px; 
   letter-spacing: -1px; 
@@ -442,7 +368,6 @@ h2 {
 h4 { 
   text-transform: uppercase; 
 }
-
 .Datos{
   text-transform: uppercase; 
   display: inline-block;
@@ -451,39 +376,27 @@ h4 {
   position: absolute;
   align-items: center;
   top:0%;
-
 }
-
-
-
-
-
 * {
   margin: 0; 
   padding: 0;
   box-sizing: border-box;
 }
-
 body { 
   min-height: 100vh;
 }
 .carousel{
   min-height: 1200px;
 }
-
-
 .carousel .carousel-item{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   user-select: none;
-
   width: 500px;
   height: 500px;
-  
 }
-
 .carousel .carousel-item img{
   width: 100%;
   height: 100%;
@@ -493,17 +406,12 @@ body {
   left: 0;
   z-index: -1;
   border-radius: 15px;
-  
 }
-
 .container{
-  
   margin: 0px;
-
   top: 2px;
   width: 100%;
   z-index: 10;
-  
 }
 .container h2{
   margin-bottom: -16px;
@@ -513,7 +421,6 @@ body {
 .container p{
   color:  var(--ColorSubTitulos);
   margin-top: 5%;
-  
   border-radius: 5px;
   display:inline-block;
   width: 80%;
@@ -524,24 +431,18 @@ body {
 .container h5{
   color:  var(--ColorSubTitulos);
 }
-
 html {
   height: 100%;
   overflow: hidden;
   background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
 }
-
 .Josu{
   width: 100%;
   height: 100%;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
 }
-
-
 
 #stars {
   width: 1px;
@@ -1110,8 +1011,6 @@ html {
 }
 
 
-
-
 @media (max-width: 1440px) and (orientation: landscape)/*Baja resolucion______________________*/
 {
 
@@ -1128,13 +1027,9 @@ html {
     left: 10%;
   }
 }
-
-
 .contactos{
-
   display: flex;
   flex-direction: column;
-
 }
 .container.contactos img{
   display: flex;
@@ -1142,16 +1037,12 @@ html {
   position: relative;
   width: 10%;
   align-items: center;
-  
-  
   left: 43%;
 }
 
 p {
 	font-size: 1.7rem;
-	
 	line-height: 2.5rem;
 	letter-spacing: .05rem;
   position: relative;
-  
 }
