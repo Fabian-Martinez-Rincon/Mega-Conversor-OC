@@ -1,3 +1,0 @@
-1. Cuando se usa el converter del punto flotante,
-  al insertar previamente cualquiera de los sistemas que no deja introducir en el apartado de punto flotante con bit implicito
-  en el cuadro de minimo negativo saldra un mensaje "peculiar".
