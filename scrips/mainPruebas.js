@@ -2,90 +2,11 @@
 
 
 //________________________________________________________________________________________
-function TodosLosMinimosMaximos(bits){
-    //__________________________________________
-    output_MinimoMaximoNegativo.value = "Minimo Negativo: No tiene "+ "      Maximo Negativo: No tiene  " ;
-    output_MinimoMaximoNegativo.style.cursor = 'text';
-    maximoPositivo=(Math.pow(2, bits))-1;
-    output_MinimoMaximoPositivo.value = "Minimo Positivo: 0 "+ "                     Maximo Positivo: "+ maximoPositivo ;
-    output_MinimoMaximoPositivo.style.cursor = 'text';
-    //__________________________________________
-    maximoPositivo=(Math.pow(2, (bits-1)))-1;
-    output_MinimoMaximoNegativo2.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -0"  ;
-    output_MinimoMaximoNegativo2.style.cursor = 'text';
-    
-    output_MinimoMaximoPositivo2.value = "Minimo Positivo: +0 "+ "          Maximo Positivo: "+ maximoPositivo ;
-    output_MinimoMaximoPositivo2.style.cursor = 'text';
-    //__________________________________________
-    output_MinimoMaximoNegativo3.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -0"  ;
-    output_MinimoMaximoNegativo3.style.cursor = 'text';
-    
-    output_MinimoMaximoPositivo3.value = "Minimo Positivo: +0 "+ "          Maximo Positivo: +"+ maximoPositivo ;
-    output_MinimoMaximoPositivo3.style.cursor = 'text';
-    //__________________________________________
-    maximoPositivo=Math.pow(2, (bits -1));
-    output_MinimoMaximoNegativo4.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -1"  ;
-    output_MinimoMaximoNegativo4.style.cursor = 'text';
-
-    output_MinimoMaximoNegativo5.value = "Minimo Negativo: -"+maximoPositivo+ "         Maximo Negativo: -1"  ;
-    output_MinimoMaximoNegativo5.style.cursor = 'text';
-
-    maximoPositivo=(Math.pow(2, (bits -1)))-1;
-    output_MinimoMaximoPositivo4.value = "Minimo Positivo: 0 "+ "          Maximo Positivo: +"+ maximoPositivo ;
-    output_MinimoMaximoPositivo4.style.cursor = 'text';
- 
-    output_MinimoMaximoPositivo5.value = "Minimo Positivo: 0 "+ "          Maximo Positivo: +"+ maximoPositivo ;
-    output_MinimoMaximoPositivo5.style.cursor = 'text';
-}
-//________________________________________________________________________________________
-function BSS(binArr,Bss){
-    let decNo = 0;
-
-    binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0); // Lo paso a Decimal
-
-    console.clear();
-
-    OUTPUT_BSS.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString() ;
-    OUTPUT_BSS.style.cursor = 'text';
-    
-}
 
 //________________________________________________________________________________________
-function BCS(binArr,Bcs){
-    let decNo = 0;
 
-    binArr.pop();   //Elimino el primer bit ya que es BCS
-
-    binArr.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
-
-
-    output_BCS.value = "BCS: "+ Bcs + " Decimal: -" + decNo.toString()  ;
-    output_BCS.style.cursor = 'text';
-    
-    
-}
 //________________________________________________________________________________________
-function CA1(Bcs){
-    let decNo = 0;
 
-    Bcs = Bcs.replace(/\s|[1]/g,'2'); 
-    Bcs = Bcs.replace(/\s|[0]/g,'1');
-    Bcs = Bcs.replace(/\s|[2]/g,'0'); 
-
-    let Ca1_Mostrar = Bcs;
-
-    Bcs=Array.from(Bcs).reverse();
-
-    Bcs.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
-
-    output_CA1.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
-    output_CA1.style.cursor = 'text';
-
-    Number(Ca1_Mostrar);
-
-    return Ca1_Mostrar;
-
-}
 //________________________________________________________________________________________
 function binaryAddition(a){ //Le sumo un 1 en binario para el Ca2
     let Sumo = false;
@@ -98,7 +19,6 @@ function binaryAddition(a){ //Le sumo un 1 en binario para el Ca2
         }
         else{
             a[tamanio-1] = 1;
-
             Sumo = true;
         }
         tamanio = tamanio -1;
@@ -159,7 +79,6 @@ function CA1(Bcs){
     output_CA1.style.cursor = 'text';
     Number(Ca1_Mostrar);
     return Ca1_Mostrar;
-
 }
 //________________________________________________________________________________________
 function Binario_Negativo(binArr,Bss,Bss_original){
@@ -232,50 +151,7 @@ function Decimal_Positivo(nroBit,numero,numero_original,decNo){
     TodosLosMinimosMaximos(nroBit);
 }
 //________________________________________________________________________________________
-function Decimal_Error(numero, nroBit){
-    OUTPUT_BSS.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'   ;
-    output_BSS.style.cursor = 'text';
-    output_BCS.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'    ;
-    output_BCS.style.cursor = 'text';
-    output_CA1.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'    ;
-    output_CA1.style.cursor = 'text';
-    output_CA2.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'    ;
-    output_CA2.style.cursor = 'text';
-    output_EX2.value = "El numero: "+ numero + " No se puede representar con : " + nroBit + ' bits'    ;
-    output_EX2.style.cursor = 'text';
-    output_BITS.value = "Bits: "+ nroBit ;
-    output_BITS.style.cursor = 'text';
 
-    output_MinimoMaximoNegativo.value = "" ;
-    output_MinimoMaximoNegativo.style.cursor = 'text';
-
-    output_MinimoMaximoPositivo.value = "" ;
-    output_MinimoMaximoPositivo.style.cursor = 'text';
-    //__________________________________________
-    output_MinimoMaximoNegativo2.value = ""  ;
-    output_MinimoMaximoNegativo2.style.cursor = 'text';
-    
-    output_MinimoMaximoPositivo2.value = "" ;
-    output_MinimoMaximoPositivo2.style.cursor = 'text';
-    //__________________________________________
-    output_MinimoMaximoNegativo3.value = ""  ;
-    output_MinimoMaximoNegativo3.style.cursor = 'text';
-    
-    output_MinimoMaximoPositivo3.value = "" ;
-    output_MinimoMaximoPositivo3.style.cursor = 'text';
-    //__________________________________________
-    output_MinimoMaximoNegativo4.value = ""  ;
-    output_MinimoMaximoNegativo4.style.cursor = 'text';
-
-    output_MinimoMaximoNegativo5.value = ""  ;
-    output_MinimoMaximoNegativo5.style.cursor = 'text';
-
-    output_MinimoMaximoPositivo4.value = "" ;
-    output_MinimoMaximoPositivo4.style.cursor = 'text';
- 
-    output_MinimoMaximoPositivo5.value = "" ;
-    output_MinimoMaximoPositivo5.style.cursor = 'text';
-}
 //________________________________________________________________________________________
 function Decimal_Negativo(numero,nroBit,nroDecimal,nro_original){
     for (var i = ((numero.length)+1); i<nroBit; i++){
@@ -437,108 +313,7 @@ function Decimal_Negativo_Solo(decArr,numero,nroDecimal){
 
 }
 //________________________________________________________________________________________
-function SacarDatos(numero) {
-    const regEx = /^[0-1]+$/;
 
-    const regEx2 = /^[0-1-2-3-4-5-6-7-8-9]+$/;
-
-    if(INPUT_BINARIO.value.match(regEx)) {      //Pregunto si se ingreso un binario
-        
-        const binArr = INPUT_BINARIO.value.split('').reverse();
-        let Bss = INPUT_BINARIO.value.split('');
-        Bss = Bss.toString() ;
-        Bss = Bss.replace(/\s|[,]/g,''); 
-        Bss_original = Bss;
-        
-        if (Bss[0] == 1) {  //Si el binario es negativo
-            Binario_Negativo(binArr,Bss,Bss_original);
-        }
-        else{       //Si es positivo
-            Binario_Positivo(binArr,Bss,Bss_original);   
-        }
-        Rangos(Bss_original.length);
-    }
-    //_________________________________________________________________________________________________
-    else if ((INPUT_DECIMAL.value.match(regEx2))&&(INPUT_BIT.value.match(regEx2))){   //Cuando Restrinjo bits
-
-        decArr = numero.split('').reverse();
-        let nroDecimal = INPUT_DECIMAL.value.split('');
-        let nroBit = INPUT_BIT.value.split('');
- 
-        nroDecimal = nroDecimal.toString() ;
-        nroDecimal = nroDecimal.replace(/\s|[,]/g,''); 
-
-        nroBit = nroBit.toString() ;
-        nroBit = nroBit.replace(/\s|[,]/g,''); 
-        Number(nroBit);
-
-        Rangos(nroBit);
-        if (nroBit>0){  //Compruebo que se ingresaron bits mas grandes que 1
-            let decNo = 0;
-            let numero_original = numero;
-            decArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
-            //_______________________________________________________________Decimales Positivos
-            if (nroDecimal > 0){       //Si el decimal es positivo
-                
-                if (nroBit>=numero.length){ //Adapto mi numero a la cantidad de bits ingresados
-                    Decimal_Positivo(nroBit,numero,numero_original,decNo);
-                }
-                else
-                {
-                    Decimal_Error(numero, nroBit);
-                    
-                }
-            }
-            //_______________________________________________________________Decimales Positivos
-            
-            //_______________________________________________________________Decimales Negativos
-            
-            else //Para numeros negativos
-            {   
-                output_BSS.value = "BSS: No tiene Representacion :,("  ;
-                output_BSS.style.cursor = 'text';
-                numero=numero.slice(1);
-                let nro_original = numero;
-                if (nroBit>=(numero.length+1)){ //Si tengo bits para el numero + el bit de signo
-
-                    Decimal_Negativo(numero,nroBit,nroDecimal,nro_original);
-
-                }
-                else
-                {
-                    Decimal_Negativo_Error(decNo,nroBit);
-                }
-            }
-            //_______________________________________________________________Decimales Negativos
-        }
-        else
-        {
-            error.style.display = 'block';
-        }
-    }
-    //_________________________________________________________________________________________________
-    else if (INPUT_DECIMAL.value.match(regEx2)){        //Si no ingrese un binario miro si se ingreso un decimal
-        decArr = numero.split('').reverse();
-        let nroDecimal = INPUT_DECIMAL.value.split('');
-        nroDecimal = nroDecimal.toString() ;
-        nroDecimal = nroDecimal.replace(/\s|[,]/g,''); 
-        //nroDecimal = nroDecimal.toString(2); No me acuerdo para que puse esta linea pero funciona igual
-        let decNo = 0;
-        decArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
-        if (nroDecimal > 0){       //Si el decimal es positivo
-            Decimal_Positivo_Solo(decNo,numero);
-        }
-        else
-        {
-            Decimal_Negativo_Solo(decArr,numero,nroDecimal);
-            
-        }
-
-    }
-    else {
-        error.style.display = 'block';
-    }
-}
 
 //________________________________________________________________________________________
 function convertToBinary (number) {

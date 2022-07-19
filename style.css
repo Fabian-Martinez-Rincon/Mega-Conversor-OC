@@ -285,7 +285,7 @@ body {
   color: #7f00b2;
 }
 
-button#btn {
+button#BTN_PFB {
   padding: 10px;
   font-size: 20px;
   font-weight: 690;
@@ -297,7 +297,7 @@ button#btn {
   border: 1px solid ;
   margin-block:30px;
 }
-button#btn1 {
+button#BTN_PF {
   padding: 10px 20px;
   font-size: 20px;
   font-weight: 690;
@@ -350,11 +350,11 @@ button#btn4 {
   margin-block:30px;
   position: relative;
 }
-div#error-msg {
+div#ERROR_MSG_PF{
   color: red;
   display: none;
 }
-div#error-msg2 {
+div#ERROR_MSG_PFB {
   color: red;
   display: none;
 }
