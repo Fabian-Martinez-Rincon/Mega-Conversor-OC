@@ -3,8 +3,8 @@ function binaryAddition(nro){
     * Sumo un 1 en binario.
     */
     let myFunc = num => Number(num);
-    intArr = Array.from(nro, myFunc);
-    tamanio = intArr.length;
+    var intArr = Array.from(nro, myFunc);
+    var tamanio = intArr.length;
 
     while (true){
         if (intArr[tamanio-1] == 1){
@@ -22,25 +22,40 @@ function binaryAddition(nro){
     }
   }
 
-function toDecimal(nro){
+export function toDecimal(nro){
     var aux = 0;
     var binArr = nro.split('').reverse();
     binArr.forEach((item, index) => item === '1' ? aux += Math.pow(2, index) : void 0);
     return aux;
 }
 
-function toBss(nro){
+export function convertToBinary (number) {
+    if (number > 0) {
+        return convertToBinary( parseInt(number / 2) ) + (number % 2)
+    };
+    return '';
+}
+
+export function toBinario(nro){
+    if (nro[0] !== '-'){
+        return convertToBinary(nro);
+    }
+    
+    return '1' + convertToBinary(nro.slice(1));
+}
+
+export function toBss(nro){
     var aux = toDecimal(nro);
     return [nro,aux.toString()];
 }
 
-function toBcs(nro){
+export function toBcs(nro){
     var aux = toDecimal(nro.slice(1));
     aux = nro[0] === '1' ? aux*-1: aux;  
     return [nro,aux.toString()];
 }
 
-function toCa1(nro){
+export function toCa1(nro){
     if (nro[0] === '0'){
         return toBss(nro);
     }
@@ -53,7 +68,7 @@ function toCa1(nro){
     return [ca1,(aux*-1).toString()];
 }
 
-function toCa2(nro){
+export function toCa2(nro){
     if (nro[0] === '0') {
         return toBss(nro);
     }
@@ -64,18 +79,8 @@ function toCa2(nro){
     return [ca2,(aux*-1).toString()]; 
 }
 
-output_EX2.value = "Ex2: "+ Bss_original + "   Decimal: " + decNo.toString()  ;
-output_EX2.style.cursor = 'text';
-
-function toEx2(Bss_original){
-    let decNo = 0;
-
-    let binArr = Bss_original;
-    binArr=binArr.split('').reverse();
-
-    binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0); 
-
-    decNo=decNo - Math.pow(2, (binArr.length)-1);
-
-  
+export function toEx2(nro){
+    const aux = toDecimal(nro);
+    const result = aux - Math.pow(2, (nro.length)-1);
+    return [nro,result];
 }
