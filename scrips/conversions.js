@@ -21,7 +21,7 @@ function binaryAddition(nro){
         tamanio = tamanio -1;
     }
   }
-  
+
 function toDecimal(nro){
     var aux = 0;
     var binArr = nro.split('').reverse();
@@ -64,4 +64,18 @@ function toCa2(nro){
     return [ca2,(aux*-1).toString()]; 
 }
 
-console.log(toCa2('100'));
+output_EX2.value = "Ex2: "+ Bss_original + "   Decimal: " + decNo.toString()  ;
+output_EX2.style.cursor = 'text';
+
+function toEx2(Bss_original){
+    let decNo = 0;
+
+    let binArr = Bss_original;
+    binArr=binArr.split('').reverse();
+
+    binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0); 
+
+    decNo=decNo - Math.pow(2, (binArr.length)-1);
+
+  
+}
