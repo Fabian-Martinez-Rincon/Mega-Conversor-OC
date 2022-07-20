@@ -1,27 +1,67 @@
-function BSS(binArr,Bss){
-    let decNo = 0;
-    binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0); // Lo paso a Decimal
-    OUTPUT_BSS.value = "BSS: "+ Bss + " Decimal: " + decNo.toString() ;
+function binaryAddition(nro){ 
+    /** 
+    * Sumo un 1 en binario.
+    */
+    let myFunc = num => Number(num);
+    intArr = Array.from(nro, myFunc);
+    tamanio = intArr.length;
+
+    while (true){
+        if (intArr[tamanio-1] == 1){
+            intArr[tamanio-1] = 0;
+        }
+        else{
+            if (tamanio>0){
+                intArr[tamanio-1] = 1;
+                return intArr.join('');
+            }
+            intArr.unshift(1)
+            return intArr.join('');
+        }
+        tamanio = tamanio -1;
+    }
+  }
+  
+function toDecimal(nro){
+    var aux = 0;
+    var binArr = nro.split('').reverse();
+    binArr.forEach((item, index) => item === '1' ? aux += Math.pow(2, index) : void 0);
+    return aux;
 }
 
-function BCS(binArr,Bcs){
-    let decNo = 0;
-    binArr.pop();   //Elimino el primer bit ya que es BCS
-    binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
-    output_BCS.value = "BCS: "+ Bcs + " Decimal: -" + decNo.toString();
+function toBss(nro){
+    var aux = toDecimal(nro);
+    return [nro,aux.toString()];
 }
 
-function CA1(Bcs){
-    let decNo = 0;
-    Bcs = Bcs.replace(/\s|[1]/g,'2'); 
-    Bcs = Bcs.replace(/\s|[0]/g,'1');
-    Bcs = Bcs.replace(/\s|[2]/g,'0'); 
-    let Ca1_Mostrar = Bcs;
-
-    Bcs=Array.from(Bcs).reverse();
-    Bcs.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
-    output_CA1.value = "Ca1: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
-    output_CA1.style.cursor = 'text';
-    Number(Ca1_Mostrar);
-    return Ca1_Mostrar;
+function toBcs(nro){
+    var aux = toDecimal(nro.slice(1));
+    aux = nro[0] === '1' ? aux*-1: aux;  
+    return [nro,aux.toString()];
 }
+
+function toCa1(nro){
+    if (nro[0] === '0'){
+        return toBss(nro);
+    }
+    var ca1 = nro.
+        replace(/\s|[1]/g,'2').
+        replace(/\s|[0]/g,'1').
+        replace(/\s|[2]/g,'0'); 
+
+    var aux = toDecimal(ca1);
+    return [ca1,(aux*-1).toString()];
+}
+
+function toCa2(nro){
+    if (nro[0] === '0') {
+        return toBss(nro);
+    }
+    var ca1 = toCa1(nro);
+    var ca2 = binaryAddition(ca1[0]);
+    var aux = toDecimal(ca2);
+    
+    return [ca2,(aux*-1).toString()]; 
+}
+
+console.log(toCa2('100'));

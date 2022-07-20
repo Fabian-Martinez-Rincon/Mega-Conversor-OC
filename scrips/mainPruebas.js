@@ -8,42 +8,9 @@
 //________________________________________________________________________________________
 
 //________________________________________________________________________________________
-function binaryAddition(a){ //Le sumo un 1 en binario para el Ca2
-    let Sumo = false;
-    tamanio = a.length;
-    while (Sumo == false){
-        
-        if (a[tamanio-1] == 1){
-            a[tamanio-1] = 0;
-;
-        }
-        else{
-            a[tamanio-1] = 1;
-            Sumo = true;
-        }
-        tamanio = tamanio -1;
-    }
-    
-    return [a,tamanio];
-  }
+
 //________________________________________________________________________________________
-function CA2(Ca1){
-    let decNo = 0;
-    Number(Ca1);
-    var myInt = Ca1;
-    let myFunc = num => Number(num);
-    var intArr = Array.from(String(myInt), myFunc);
-    var valor = binaryAddition(intArr) ;
-    Ca1 = valor[0];
-    tamanio = valor[1];
-    Ca1_Mostrar = Ca1.toString();
-    Ca1_Mostrar = Ca1_Mostrar.replace(/\s|[,]/g,''); 
-    Ca1 = Array.from(Ca1_Mostrar).reverse();
-    Ca1.forEach((item, index) =>  item === '1' ? decNo += Math.pow(2, index) : void 0);
-    output_CA2.value = "Ca2: "+ Ca1_Mostrar + "   Decimal: -" + decNo.toString()  ;
-    output_CA2.style.cursor = 'text';
-    
-}
+
 //________________________________________________________________________________________
 function EX2(Bss_original){
     let decNo = 0;
@@ -81,48 +48,7 @@ function CA1(Bcs){
     return Ca1_Mostrar;
 }
 //________________________________________________________________________________________
-function Binario_Negativo(binArr,Bss,Bss_original){
-    let Ca1 = 0 ;
-    BSS(binArr,Bss);
-    BCS(binArr,Bss);
-    Ca1=CA1(Bss);
-    CA2(Ca1);
-    EX2(Bss_original);
 
-    output_BITS.value = "Bits: "+ Bss_original.length  ;
-    output_BITS.style.cursor = 'text';
-    TodosLosMinimosMaximos(Bss_original.length);
-}
-
-//________________________________________________________________________________________
-function Binario_Positivo(binArr,Bss,Bss_original){
-    let decNo = 0;
-    binArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
-    
-    OUTPUT_BSS.value = "BSS: "+ Bss + "   Decimal: " + decNo.toString()  ;
-    OUTPUT_BSS.style.cursor = 'text';
-
-    output_MinimoMaximoNegativo.value = "Minimo Negativo: No tiene "+ "      Maximo Negativo: No tiene  " ;
-    output_MinimoMaximoNegativo.style.cursor = 'text';
-    maximoPositivo=(Math.pow(2, Bss.length))-1;
-    output_MinimoMaximoPositivo.value = "Minimo Positivo: 0 "+ "                     Maximo Positivo: "+ maximoPositivo ;
-    output_MinimoMaximoPositivo.style.cursor = 'text';
-
-    output_BCS.value = "BCS: "+ Bss + "   Decimal: " + decNo.toString()  ;
-    output_BCS.style.cursor = 'text';
-    
-    output_CA1.value = "Ca1: "+ Bss + "   Decimal: " + decNo.toString()  ;
-    output_CA1.style.cursor = 'text';
-
-    output_CA2.value = "Ca2: "+ Bss + "   Decimal: " + decNo.toString()  ;
-    output_CA2.style.cursor = 'text';
-
-    EX2(Bss_original);
-    output_BITS.value = "Bits: "+ Bss_original.length  ;
-    output_BITS.style.cursor = 'text';
-
-    TodosLosMinimosMaximos(Bss_original.length);
-}
 //________________________________________________________________________________________
 function Decimal_Positivo(nroBit,numero,numero_original,decNo){
     for (var i = numero.length; i<nroBit; i++){
@@ -349,13 +275,7 @@ function DecimalABinario(nro){
     return nro;
 }
 //________________________________________________________________________________________
-function Rangos(nroBit){
-    rangoBss =(Math.pow(2, nroBit))-1;
-    rangoBcs = (Math.pow(2, (nroBit-1)))-1;
-    rangoCa2 =  Math.pow(2, (nroBit-1));
-    output_Rangos.value = "Bss: [0.."+rangoBss+"]"  + "  Bcs: [-"+rangoBcs+".."+"+"+rangoBcs+"]" + "  Ca1 :[-"+rangoBcs+".."+"+"+rangoBcs+"]" + "  Ca2: [-"+rangoCa2+"..+"+rangoBcs+"]"+"  Ex2: [-"+rangoCa2+"..+"+rangoBcs+"]";
-    output_EX2.style.cursor = 'text';
-}
+
 //________________________________________________________________________________________
 function Parte_Mantisa(opcion,numero){
     let resultado = 0;
