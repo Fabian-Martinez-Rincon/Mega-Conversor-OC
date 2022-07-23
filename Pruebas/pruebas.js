@@ -1,4 +1,4 @@
-export function binaryAddition(nro){ 
+function binaryAddition(nro){ 
     /** 
     * Sumo un 1 en binario.
     */
@@ -22,21 +22,21 @@ export function binaryAddition(nro){
     }
   }
   
-export function toDecimal(nro){
+function toDecimal(nro){
     var aux = 0;
     var binArr = nro.split('').reverse();
     binArr.forEach((item, index) => item === '1' ? aux += Math.pow(2, index) : void 0);
     return aux;
 }
 
-export function convertToBinary (number) {
+function convertToBinary (number) {
     if (number > 0) {
         return convertToBinary( parseInt(number / 2) ) + (number % 2)
     };
     return '';
 }
 
-export function toBinario(nro){
+function toBinario(nro){
     if (nro[0] !== '-'){
         return '0' + convertToBinary(nro);
     }
@@ -44,18 +44,18 @@ export function toBinario(nro){
     return '1' + convertToBinary(nro.slice(1));
 }
 
-export function toBss(nro){
+function toBss(nro){
     var aux = toDecimal(nro);
     return [nro,aux.toString()];
 }
 
-export function toBcs(nro){
+function toBcs(nro){
     var aux = toDecimal(nro.slice(1));
     aux = nro[0] === '1' ? aux*-1: aux;  
     return [nro,aux.toString()];
 }
 
-export function toCa1(nro){
+function toCa1(nro){
     if (nro[0] === '0'){
         return toBss(nro);
     }
@@ -68,7 +68,7 @@ export function toCa1(nro){
     return [ca1,(aux*-1).toString()];
 }
 
-export function toCa2(nro){
+function toCa2(nro){
     if (nro[0] === '0') {
         return toBss(nro);
     }
@@ -79,13 +79,13 @@ export function toCa2(nro){
     return [ca2,(aux*-1).toString()]; 
 }
 
-export function toEx2(nro){
+function toEx2(nro){
     const aux = toDecimal(nro);
     const result = aux - Math.pow(2, (nro.length)-1);
     return [nro,result];
 }
 
-export function puedeRepresentar(nro,bits){
+function puedeRepresentar(nro,bits){
     var aux = toBinario(nro);
     if (Number(bits)<aux.length){
         return false;
@@ -93,7 +93,7 @@ export function puedeRepresentar(nro,bits){
     return true;
 }
 
-export function toDecimalBit(nro,bits){
+function toDecimalBit(nro,bits){
     var aux = toBinario(nro);
     for (var i = aux.length; i<Number(bits); i++){
         aux = '0' + aux;
@@ -101,3 +101,42 @@ export function toDecimalBit(nro,bits){
     return aux;
 }
 
+
+
+function toBinarioBss(nro){
+    return toBinario(nro);
+}
+
+function toBinarioBcs(nro){
+    return toBinario(nro);
+}
+
+
+function toBinarioCa1(nro){
+    aux = toBinario(nro);
+    if (aux[0] === '0'){
+        return toBss(aux);
+    }
+    var ca1 = '1' + aux.substring(1).
+        replace(/\s|[1]/g,'2').
+        replace(/\s|[0]/g,'1').
+        replace(/\s|[2]/g,'0'); 
+    var dec = toDecimal(ca1.substring(1));
+    return [ca1,(dec*-1).toString()];
+}
+console.log(toBinarioCa1('-21'));
+
+function toBinarioCa2(nro){
+    if (Number(nro) > 0) {
+        return toBss(aux);
+    }
+    var ca1 = toBinarioCa1(nro);
+    var ca2 = binaryAddition(ca1[0]);
+    var aux = toDecimal(ca2.substring(1));
+    return [ca2,(aux*-1).toString()]; 
+}
+console.log(toBinarioCa2('-21'));
+
+function toBinarioEx2(){
+    
+}

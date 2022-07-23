@@ -33,6 +33,11 @@ function binarioProcesado(nro){
     allMaxMin(bits);
     rangos(bits);
     pf.OUTPUT_BITS.value = "Bits: " + bits;
+
+}
+
+function decimalBit(nro,bit){
+
 }
 
 pf.BTN.addEventListener('click', () => {
@@ -56,8 +61,12 @@ pf.BTN.addEventListener('click', () => {
         binarioProcesado(inputBinario);
     }
     else if (!(esBinario) && (esDecimal) && !(esBitImplicito)){  
-        var aux = conversion.toBinario(inputDecimal)
+        var aux = conversion.toBinario(inputDecimal);
+        console.log(aux);
         binarioProcesado(aux);
+        if (inputDecimal[0] ==='-'){
+            pf.OUTPUT_BSS.value = 'No tiene representación ';
+        }
     }
     else if (!(esBinario) && (esDecimal) && (esBitImplicito)){        
         decimalBit(inputDecimal,inputBit);
