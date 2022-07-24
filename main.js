@@ -36,6 +36,23 @@ function binarioProcesado(nro){
 
 }
 
+function decimalProcesado(nro){
+    const bss = conversion.toBinarioBss(nro);
+    const bcs = conversion.toBinarioBcs(nro);
+    const ca1 = conversion.toBinarioCa1(nro);
+    const ca2 = conversion.toBinarioCa2(nro);
+    const ex2 = conversion.toBinarioEx2(nro);
+    pf.OUTPUT_BSS.value = 'Bss: ' + bss + '  Decimal: ' + nro;
+    pf.OUTPUT_BCS.value = 'Bcs: ' + bcs + '  Decimal: ' + nro;
+    pf.OUTPUT_CA1.value = 'Ca1: ' + ca1[0] + '  Decimal: ' + ca1[1];
+    pf.OUTPUT_CA2.value = 'Ca2: ' + ca2[0] + '  Decimal: ' + ca2[1];
+    pf.OUTPUT_EX2.value = 'Ex2: ' + ex2[0] + '  Decimal: ' + ex2[1];
+
+    const bits = bss.length;
+    allMaxMin(bits);
+    rangos(bits);
+    pf.OUTPUT_BITS.value = "Bits: " + bits;
+}
 function decimalBit(nro,bit){
 
 }
@@ -61,9 +78,7 @@ pf.BTN.addEventListener('click', () => {
         binarioProcesado(inputBinario);
     }
     else if (!(esBinario) && (esDecimal) && !(esBitImplicito)){  
-        var aux = conversion.toBinario(inputDecimal);
-        console.log(aux);
-        binarioProcesado(aux);
+        decimalProcesado(inputDecimal);
         if (inputDecimal[0] ==='-'){
             pf.OUTPUT_BSS.value = 'No tiene representación ';
         }

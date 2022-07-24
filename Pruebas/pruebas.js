@@ -124,7 +124,7 @@ function toBinarioCa1(nro){
     var dec = toDecimal(ca1.substring(1));
     return [ca1,(dec*-1).toString()];
 }
-console.log(toBinarioCa1('-21'));
+
 
 function toBinarioCa2(nro){
     if (Number(nro) > 0) {
@@ -135,8 +135,16 @@ function toBinarioCa2(nro){
     var aux = toDecimal(ca2.substring(1));
     return [ca2,(aux*-1).toString()]; 
 }
-console.log(toBinarioCa2('-21'));
 
-function toBinarioEx2(){
-    
+
+function toBinarioEx2(nro){
+    var bits = (toBinario(nro).length)-1;
+    if (Number(nro)>0){
+        bits-=1;
+        const result = Number(nro) + Math.pow(2, bits);
+        return [toBinario(result).substring(1),result];
+    }
+    const result = Number(nro) + Math.pow(2, bits);
+    return [toBinario(result),result];
 }
+

@@ -40,7 +40,6 @@ export function toBinario(nro){
     if (nro[0] !== '-'){
         return '0' + convertToBinary(nro);
     }
-    
     return '1' + convertToBinary(nro.slice(1));
 }
 
@@ -101,3 +100,47 @@ export function toDecimalBit(nro,bits){
     return aux;
 }
 
+export function toBinarioBss(nro){
+    return toBinario(nro);
+}
+
+export function toBinarioBcs(nro){
+    return toBinario(nro);
+}
+
+
+export function toBinarioCa1(nro){
+    var aux = toBinario(nro);
+    if (aux[0] === '0'){
+        return toBss(aux);
+    }
+    var ca1 = '1' + aux.substring(1).
+        replace(/\s|[1]/g,'2').
+        replace(/\s|[0]/g,'1').
+        replace(/\s|[2]/g,'0'); 
+    var dec = toDecimal(ca1.substring(1));
+    return [ca1,(dec*-1).toString()];
+}
+
+
+export function toBinarioCa2(nro){
+    if (Number(nro) > 0) {
+        return toBss(aux);
+    }
+    var ca1 = toBinarioCa1(nro);
+    var ca2 = binaryAddition(ca1[0]);
+    var aux = toDecimal(ca2.substring(1));
+    return [ca2,(aux*-1).toString()]; 
+}
+
+
+export function toBinarioEx2(nro){
+    var bits = (toBinario(nro).length)-1;
+    if (Number(nro)>0){
+        bits-=1;
+        const result = Number(nro) + Math.pow(2, bits);
+        return [toBinario(result).substring(1),result];
+    }
+    const result = Number(nro) + Math.pow(2, bits);
+    return [toBinario(result),result];
+}
