@@ -85,6 +85,9 @@ pf.BTN.addEventListener('click', () => {
     }
     else if (!(esBinario) && (esDecimal) && (esBitImplicito)){        
         decimalBit(inputDecimal,inputBit);
+        if (inputDecimal[0] ==='-'){
+            pf.OUTPUT_BSS.value = 'No tiene representación ';
+        }
     }
     else {
         error.style.display = 'block';

@@ -1,150 +1,96 @@
-function binaryAddition(nro){ 
-    /** 
-    * Sumo un 1 en binario.
-    */
-    let myFunc = num => Number(num);
-    var intArr = Array.from(nro, myFunc);
-    var tamanio = intArr.length;
 
-    while (true){
-        if (intArr[tamanio-1] == 1){
-            intArr[tamanio-1] = 0;
-        }
-        else{
-            if (tamanio>0){
-                intArr[tamanio-1] = 1;
-                return intArr.join('');
-            }
-            intArr.unshift(1)
-            return intArr.join('');
-        }
-        tamanio = tamanio -1;
-    }
-  }
-  
-function toDecimal(nro){
-    var aux = 0;
-    var binArr = nro.split('').reverse();
-    binArr.forEach((item, index) => item === '1' ? aux += Math.pow(2, index) : void 0);
-    return aux;
-}
+import * as conversion from'./conversions.js';
 
-function convertToBinary (number) {
-    if (number > 0) {
-        return convertToBinary( parseInt(number / 2) ) + (number % 2)
-    };
-    return '';
-}
-
-function toBinario(nro){
-    if (nro[0] !== '-'){
-        return '0' + convertToBinary(nro);
-    }
+function decimalConvert(NRO){
     
-    return '1' + convertToBinary(nro.slice(1));
-}
-
-function toBss(nro){
-    var aux = toDecimal(nro);
-    return [nro,aux.toString()];
-}
-
-function toBcs(nro){
-    var aux = toDecimal(nro.slice(1));
-    aux = nro[0] === '1' ? aux*-1: aux;  
-    return [nro,aux.toString()];
-}
-
-function toCa1(nro){
-    if (nro[0] === '0'){
-        return toBss(nro);
-    }
-    var ca1 = nro.
-        replace(/\s|[1]/g,'2').
-        replace(/\s|[0]/g,'1').
-        replace(/\s|[2]/g,'0'); 
-
-    var aux = toDecimal(ca1);
-    return [ca1,(aux*-1).toString()];
-}
-
-function toCa2(nro){
-    if (nro[0] === '0') {
-        return toBss(nro);
-    }
-    var ca1 = toCa1(nro);
-    var ca2 = binaryAddition(ca1[0]);
-    var aux = toDecimal(ca2);
+    var dict = {};
+    const nroBinary = toBinario(NRO);
     
-    return [ca2,(aux*-1).toString()]; 
+    if ( NRO[0] !== '-' ){
+        dict['BSS'] = [nroBinary.substring(1), NRO];
+        dict['BCS'] = [nroBinary, NRO];
+        dict['CA1'] = [nroBinary, NRO];
+        dict['CA2'] = [nroBinary, NRO];
+        const result = Number(NRO) + Math.pow(2, nroBinary - 2);
+        dict['EX2'] = [toBinario(result).substring(1),result];
+        return dict;
+    }
+
+    dict['BSS'] = ['No tiene', 'No tiene'];
+    dict['BCS'] = [nroBinary, NRO];
+    dict['CA1'] = toBinarioCa1(nroBinary);
+    dict['CA2'] = toBinarioCa2(dict['CA1'][0]);
+    const result = Number(NRO) + Math.pow(2, nroBinary.length - 1);
+    dict['EX2'] = [toBinario(result),result]
+
+    return dict;
 }
 
-function toEx2(nro){
-    const aux = toDecimal(nro);
-    const result = aux - Math.pow(2, (nro.length)-1);
-    return [nro,result];
-}
-
-function puedeRepresentar(nro,bits){
-    var aux = toBinario(nro);
-    if (Number(bits)<aux.length){
+function decimalBitConvert(NRO,BITS){
+    
+    var dict = {};
+    const nroBinary = toBinarioBit(NRO,BITS);
+    const result = Number(NRO) + Math.pow(2, BITS - 1);
+    
+    if (nroBinary.length > BITS){
         return false;
     }
-    return true;
-}
-
-function toDecimalBit(nro,bits){
-    var aux = toBinario(nro);
-    for (var i = aux.length; i<Number(bits); i++){
-        aux = '0' + aux;
+    
+    if ( NRO[0] !== '-' ){
+        
+        dict['BSS'] = [nroBinary, NRO];
+        dict['BCS'] = [nroBinary, NRO];
+        dict['CA1'] = [nroBinary, NRO];
+        dict['CA2'] = [nroBinary, NRO];
+        dict['EX2'] = [toBinario(result).substring(1),result];
+        return dict;
     }
-    return aux;
-}
+    
+    dict['BSS'] = ['No tiene', 'No tiene'];
+    dict['BCS'] = [nroBinary, NRO];
+    dict['CA1'] = toBinarioCa1(nroBinary);
+    dict['CA2'] = toBinarioCa2(dict['CA1'][0]);
+    dict['EX2'] = [toBinario(result),result];
 
 
+    function toBinarioCa1(ca1){
+        ca1 = '1' + ca1.substring(1).
+            replace(/\s|[1]/g,'2').
+            replace(/\s|[0]/g,'1').
+            replace(/\s|[2]/g,'0'); 
 
-function toBinarioBss(nro){
-    return toBinario(nro);
-}
-
-function toBinarioBcs(nro){
-    return toBinario(nro);
-}
-
-
-function toBinarioCa1(nro){
-    aux = toBinario(nro);
-    if (aux[0] === '0'){
-        return toBss(aux);
+        return [ca1,'-' + toDecimal(ca1.substring(1))];
     }
-    var ca1 = '1' + aux.substring(1).
-        replace(/\s|[1]/g,'2').
-        replace(/\s|[0]/g,'1').
-        replace(/\s|[2]/g,'0'); 
-    var dec = toDecimal(ca1.substring(1));
-    return [ca1,(dec*-1).toString()];
+    
+    function toBinarioCa2(ca2){
+        ca2 = binaryAddition(ca2);
+        return [ca2, '-' + toDecimal(ca2.substring(1))]; 
+    }    
+    
+    return dict;
 }
 
+function Binario(NRO){
+    var dict = {};
+    const nroDecimal = toDecimal(NRO);
 
-function toBinarioCa2(nro){
-    if (Number(nro) > 0) {
-        return toBss(aux);
+    if ( NRO[0] === '0' ){
+
+        dict['BSS'] = [NRO, nroDecimal];
+        dict['BCS'] = [NRO, nroDecimal];
+        dict['CA1'] = [NRO, nroDecimal];
+        dict['CA2'] = [NRO, nroDecimal];
+        dict['EX2'] = toEx2(NRO);
+
+        return dict;
     }
-    var ca1 = toBinarioCa1(nro);
-    var ca2 = binaryAddition(ca1[0]);
-    var aux = toDecimal(ca2.substring(1));
-    return [ca2,(aux*-1).toString()]; 
+
+    dict['BSS'] = [NRO, nroDecimal];
+    dict['BCS'] = [NRO,'-' + toDecimal(NRO.slice(1))];
+    dict['CA1'] = toCa1(NRO);
+    dict['CA2'] = toCa2(NRO);
+    dict['EX2'] = [NRO, nroDecimal - Math.pow(2, (NRO.length)-1)];
+
+
+    return dict;
 }
-
-
-function toBinarioEx2(nro){
-    var bits = (toBinario(nro).length)-1;
-    if (Number(nro)>0){
-        bits-=1;
-        const result = Number(nro) + Math.pow(2, bits);
-        return [toBinario(result).substring(1),result];
-    }
-    const result = Number(nro) + Math.pow(2, bits);
-    return [toBinario(result),result];
-}
-
