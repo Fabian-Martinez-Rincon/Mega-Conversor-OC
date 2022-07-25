@@ -1,134 +1,108 @@
-const conversion = require("./conversion.js");
+import * as pf from'./constans.js'; //pf: punto flotante
+import {Binario, Decimal, DecimalBit} from'./set.js'; 
 
-/**
-    * Recibe un binario y convierte a sus respestivos tipos.
-    * @param  {'1101'} BIN  Binario recibido como ejemplo.
-    * @return {{
-    * BSS: [ '1101', 13 ], 
-    * BCS: [ '1101', '-5' ],
-    * CA1: [ '0010', '-2' ],
-    * CA2: [ '0011', '-3' ],
-    * EX2: [ '1101', 5 ] 
-    * }} Conversiones a  BSS, BCS, CA1, CA2, EX2 
-*/
-function Binario(BIN){
+export function binarioProcesado(nro){
+    const binario = Binario(nro);
 
-    var dict = {};
-    const DEC = conversion.toDecimal(BIN);
-    const BSS = conversion.toBss(BIN, DEC);
-    const EX2 = conversion.toEx2(BIN, DEC);
+    pf.OUTPUT_BSS.value = 'Bss: ' + binario['BSS'][0] + '  Decimal: ' + binario['BSS'][1];
+    pf.OUTPUT_BCS.value = 'Bcs: ' + binario['BCS'][0] + '  Decimal: ' + binario['BCS'][1];
+    pf.OUTPUT_CA1.value = 'Ca1: ' + binario['CA1'][0] + '  Decimal: ' + binario['CA1'][1];
+    pf.OUTPUT_CA2.value = 'Ca2: ' + binario['CA2'][0] + '  Decimal: ' + binario['CA2'][1];
+    pf.OUTPUT_EX2.value = 'Ex2: ' + binario['EX2'][0] + '  Decimal: ' + binario['EX2'][1];
 
-    if ( BIN[0] === '0' ){
-
-        dict['BSS'] = BSS;
-        dict['BCS'] = BSS;
-        dict['CA1'] = BSS;
-        dict['CA2'] = BSS;
-        dict['EX2'] = EX2;
-
-        return dict;
-    }
-
-    dict['BSS'] = BSS;
-    dict['BCS'] = conversion.toBcs(BIN);
-    dict['CA1'] = conversion.toCa1(BIN);
-    dict['CA2'] = conversion.toCa2(BIN);
-    dict['EX2'] = EX2;
-
-    return dict;
+    const bits = nro.length;
+    allMaxMin(bits);
+    rangos(bits);
+    pf.OUTPUT_BITS.value = "Bits: " + bits;
+  
 }
 
-/**
-    * Recibe un decimal y convierte a sus respestivos tipos.
-    * @param  {'-9'} DEC  Decimal recibido como ejemplo.
-    * @return {{
-    * BSS: [ 'No tiene', 'No tiene' ],
-    * BCS: [ '11001', '-9' ],
-    * CA1: [ '10110', '-6' ],
-    * CA2: [ '10111', '-7' ],
-    * EX2: [ '0111', 7 ]
-    * }} Conversiones a  BSS, BCS, CA1, CA2, EX2 
-*/
-function Decimal(DEC){
+export function decimalProcesado(nro){
+    const decimal = Decimal(nro);
     
-    var dict = {};
-    const BIN = conversion.toBinario(DEC);
-    var bin = BIN.substring(1)
+    pf.OUTPUT_BSS.value = 'Bss: ' + decimal['BSS'][0] + '  Decimal: ' + decimal['BSS'][1];
+    pf.OUTPUT_BCS.value = 'Bcs: ' + decimal['BCS'][0] + '  Decimal: ' + decimal['BCS'][1];
+    pf.OUTPUT_CA1.value = 'Ca1: ' + decimal['CA1'][0] + '  Decimal: ' + decimal['CA1'][1];
+    pf.OUTPUT_CA2.value = 'Ca2: ' + decimal['CA2'][0] + '  Decimal: ' + decimal['CA2'][1];
+    pf.OUTPUT_EX2.value = 'Ex2: ' + decimal['EX2'][0] + '  Decimal: ' + decimal['EX2'][1];
+    
+    const bits = decimal['BSS'][0].length;
+    allMaxMin(bits);
+    rangos(bits);
+    pf.OUTPUT_BITS.value = "Bits: " + bits;
+}
 
-    const BITS = BIN.length - 1;
-    const BCS = conversion.toBss(BIN, DEC);
-    const BSS = conversion.toBss(bin, DEC);
-    const EX2 = conversion.toBinarioEx2(DEC, BITS); 
-
-    if ( DEC[0] !== '-' ){
-
-        dict['BSS'] = BSS;
-        dict['BCS'] = BCS;
-        dict['CA1'] = BCS;
-        dict['CA2'] = BCS;
-        dict['EX2'] = EX2;
-
-        return dict;
+export function decimalBitProcesado(nro, bits){
+    const decimal = DecimalBit(nro, bits);
+    if (decimal['BCS'][0].length > bits){
+        decimalError(nro, bits);
+        return;
     }
-    
-    const CA1 = conversion.toBinarioCa1(BIN);
-    const CA2 = conversion.toBinarioCa2(CA1[0]);
 
-    dict['BSS'] = ['No tiene', 'No tiene'];
-    dict['BCS'] = BCS;
-    dict['CA1'] = CA1;
-    dict['CA2'] = CA2;
-    dict['EX2'] = EX2;
+    pf.OUTPUT_BSS.value = 'Bss: ' + decimal['BSS'][0] + '  Decimal: ' + decimal['BSS'][1];
+    pf.OUTPUT_BCS.value = 'Bcs: ' + decimal['BCS'][0] + '  Decimal: ' + decimal['BCS'][1];
+    pf.OUTPUT_CA1.value = 'Ca1: ' + decimal['CA1'][0] + '  Decimal: ' + decimal['CA1'][1];
+    pf.OUTPUT_CA2.value = 'Ca2: ' + decimal['CA2'][0] + '  Decimal: ' + decimal['CA2'][1];
+    pf.OUTPUT_EX2.value = 'Ex2: ' + decimal['EX2'][0] + '  Decimal: ' + decimal['EX2'][1];
     
-    return dict;
+    
+    allMaxMin(bits);
+    rangos(bits);
+    pf.OUTPUT_BITS.value = "Bits: " + bits;
 }
 
 
-/**
-    * Recibe un decimal y los bits para convertirlo a sus respestivos tipos.
-    * @param  {'-9'} DEC  Decimal recibido .
-    * @param  {'6'} BITS  Bits recibido .
-    * @return {{
-    * BSS: [ 'No tiene', 'No tiene' ],
-    * BCS: [ '101001', '-9' ],        
-    * CA1: [ '110110', '-22' ],       
-    * CA2: [ '110111', '-23' ],       
-    * EX2: [ '010111', 23 ]
- * }} Conversiones a  BSS, BCS, CA1, CA2, EX2 
-*/
-function DecimalBit(DEC, BITS){
-    
-    var dict = {};
-    const BIN = conversion.toBinarioBit(DEC, BITS);
-    
-    const BSS = conversion.toBss(BIN, DEC);
-    const EX2 = conversion.toBinarioBitEx2(DEC, BITS);
-    
-    if ( DEC[0] !== '-' ){
-        
-        dict['BSS'] = BSS;
-        dict['BCS'] = BSS;
-        dict['CA1'] = BSS;
-        dict['CA2'] = BSS;
-        dict['EX2'] = EX2;
-        
-        return dict;
-    }
-    
-    const CA1 = conversion.toBinarioCa1(BIN);
-    const CA2 = conversion.toBinarioCa2(CA1[0]);
 
-    dict['BSS'] = ['No tiene', 'No tiene'];
-    dict['BCS'] = BSS;
-    dict['CA1'] = CA1;
-    dict['CA2'] = CA2;
-    dict['EX2'] = EX2;
+function allMaxMin(bits){
+    const max_bss = (Math.pow(2, bits)) - 1;
+    const max = (Math.pow(2, (bits - 1))) - 1;
+    const min = Math.pow(2, (bits - 1));
+    
+    pf.OUTPUT_MIN_MAX_NEG_BSS.value = "Minimo Negativo: No tiene " +    "    Maximo Negativo: No tiene  ";
+    pf.OUTPUT_MIN_MAX_POS_BSS.value = "Minimo Positivo: 0 "        +    "    Maximo Positivo: " + max_bss;
+    
+    pf.OUTPUT_MIN_MAX_NEG_BCS.value = "Minimo Negativo: -" + max   +    "    Maximo Negativo: -0 "  ;
+    pf.OUTPUT_MIN_MAX_POS_BCS.value = "Minimo Positivo: +0 "       +    "    Maximo Positivo: " + max;
 
-    return dict;
+    pf.OUTPUT_MIN_MAX_NEG_CA1.value = "Minimo Negativo: -" + max   +    "    Maximo Negativo: -0 ";
+    pf.OUTPUT_MIN_MAX_POS_CA1.value = "Minimo Positivo: +0 "       +    "    Maximo Positivo: +" + max;
+ 
+    pf.OUTPUT_MIN_MAX_NEG_CA2.value = "Minimo Negativo: -" + min   +    "    Maximo Negativo: -1 ";
+    pf.OUTPUT_MIN_MAX_NEG_EX2.value = "Minimo Negativo: -" + min   +    "    Maximo Negativo: -1 ";
+
+    pf.OUTPUT_MIN_MAX_POS_CA2.value = "Minimo Positivo: 0 "        +    "    Maximo Positivo: +" + max;
+    pf.OUTPUT_MIN_MAX_POS_EX2.value = "Minimo Positivo: 0 "        +    "    Maximo Positivo: +" + max;
 }
 
-module.exports = {
-    Binario,
-    Decimal,
-    DecimalBit
-};
+function rangos(nroBit){
+    const rangoBss = (Math.pow(2, nroBit)) - 1;
+    const rangoBcs = (Math.pow(2, (nroBit-1))) - 1;
+    const rangoCa2 =  Math.pow(2, (nroBit-1));
+    pf.OUTPUT_RANGO.value = 
+        "Bss: [0.." + rangoBss  + "] " + 
+        "Bcs: [-" + rangoBcs + ".."   + "+" + rangoBcs + "]  "+ 
+        "Ca1 :[-" + rangoBcs + ".." + "+" + rangoBcs+"]  "+ 
+        "Ca2: [-" + rangoCa2 + "..+" + rangoBcs+"]  "+
+        "Ex2: [-" + rangoCa2 + "..+" + rangoBcs+"]";
+}
+
+function decimalError(numero, nroBit){
+    
+    pf.OUTPUT_BSS.value = "El numero: " + numero + " No se puede representar con : " + nroBit + ' bits'   ;
+    pf.OUTPUT_BCS.value = "El numero: " + numero + " No se puede representar con : " + nroBit + ' bits'    ;
+    pf.OUTPUT_CA1.value = "El numero: " + numero + " No se puede representar con : " + nroBit + ' bits'    ;
+    pf.OUTPUT_CA2.value = "El numero: " + numero + " No se puede representar con : " + nroBit + ' bits'    ;
+    pf.OUTPUT_EX2.value = "El numero: " + numero + " No se puede representar con : " + nroBit + ' bits'    ;
+    pf.OUTPUT_BITS.value = "Bits: "+ nroBit ;
+
+    pf.OUTPUT_MIN_MAX_NEG_BSS.value = "";
+    pf.OUTPUT_MIN_MAX_POS_BSS.value = "";
+    pf.OUTPUT_MIN_MAX_NEG_BCS.value = "";
+    pf.OUTPUT_MIN_MAX_POS_BCS.value = "";
+    pf.OUTPUT_MIN_MAX_NEG_CA1.value = "";
+    pf.OUTPUT_MIN_MAX_POS_CA1.value = "";
+    pf.OUTPUT_MIN_MAX_NEG_CA2.value = "";
+    pf.OUTPUT_MIN_MAX_POS_CA2.value = "";
+    pf.OUTPUT_MIN_MAX_NEG_EX2.value = "";
+    pf.OUTPUT_MIN_MAX_POS_EX2.value = "";
+}
