@@ -1,4 +1,3 @@
-//const conversion = require("./conversion.js");
 import * as conversion from'./conversion.js'; 
 
 /**
