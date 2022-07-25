@@ -1,5 +1,5 @@
 import * as pf from'./constans.js'; //pf: punto flotante
-import {Binario, Decimal, DecimalBit} from'./set.js'; 
+import {Binario, Decimal, DecimalBit} from'../set.js'; 
 
 export function binarioProcesado(nro){
     const binario = Binario(nro);

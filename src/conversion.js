@@ -38,6 +38,18 @@ export function toDecimal(BIN){
     return aux;
 }
 
+export function toDecimalFraccionario(BIN){
+    var aux = 0;
+    var binArr = BIN.split('');
+    binArr.unshift(0);
+    binArr.forEach((item, index) => item === '1' ? aux += Math.pow(2, (-1 * index)) : void 0);
+    return aux;
+}
+
+export function toBcsFraccionario(BIN){
+    return ['0,' + BIN, -1 * toDecimalFraccionario(BIN.substring(1))]
+}
+
 /**
  * Retorna una lista con los datos recibidos por parametro:
  * @param {string} BIN

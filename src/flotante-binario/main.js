@@ -1,96 +1,33 @@
-import * as pf from'./constans.js'; //pf: punto flotante
+import * as PFB from'./constans.js'; 
 
+import {Binario, BinarioFraccionario} from'../set.js'; 
 
-function entera(){
-    const indice = $select_Entera.selectedIndex;
-    const opcionSeleccionada = $select_Entera.options[indice];    
-    numero1 = input_binario_entero;
-    
+export function entera (MANTISA, MANTISA_VALOR, EXPONENTE, EXPONENTE_VALOR){
 
-    const indice2 = $select_fraccionaria.selectedIndex;
-    const opcionSeleccionada2 = $select_fraccionaria.options[indice2];
-    
-    numero2 = input_binario_fraccionaria;
+    const BASE = Binario(MANTISA_VALOR)[MANTISA][1];
+    const EXP =  Binario(EXPONENTE_VALOR)[EXPONENTE][1];
+    const RES = BASE * Math.pow(2, EXP);
 
-    base = Parte_Mantisa(opcionSeleccionada.text,numero1);
-    Number(base);
-    exponente = Parte_Mantisa(opcionSeleccionada2.text,numero2);
-    Number(exponente);
-    resultado = base*Math.pow(2, exponente);
-    output_decimal_Fraccionario.value =  base + ' * (2 ^ ' + exponente +') = '+ resultado;
-    output_decimal_Fraccionario.style.cursor = 'text';
-
-
-    Calculo_Maximo_Minimos_Mantisa_entera(opcionSeleccionada.text,numero1,opcionSeleccionada2.text,numero2);
-
+    PFB.OUTPUT_RESULTADO.value = BASE + ' * (2 ^ ' + EXP +') = '+ RES 
+    //maxMinEntera(MANTISA, MANTISA_VALOR, EXPONENTE, EXPONENTE_VALOR);
 }
 
-function fraccionaria(){
-    const indice = $select_Entera.selectedIndex;
-    const opcionSeleccionada = $select_Entera.options[indice];
+export function fraccionaria (MANTISA, MANTISA_VALOR, EXPONENTE, EXPONENTE_VALOR){
     
-    numero1 = input_binario_entero;
-    const indice2 = $select_fraccionaria.selectedIndex;
-    const opcionSeleccionada2 = $select_fraccionaria.options[indice2];
+    const BASE = BinarioFraccionario(MANTISA_VALOR)[MANTISA][1];
+    const EXP =  Binario(EXPONENTE_VALOR)[EXPONENTE][1];
+    const RES = BASE * Math.pow(2, EXP);
     
-    numero2 = input_binario_fraccionaria;
-
-    base = Parte_Mantisa_Fraccionaria(opcionSeleccionada.text,numero1);
-    Number(base);
-    exponente = Parte_Mantisa(opcionSeleccionada2.text,numero2);
-    Number(exponente);
-    resultado = base*Math.pow(2, exponente);
-
-    output_decimal_Fraccionario.value =  base + ' * (2 ^ ' + exponente +') = '+ resultado;
-    output_decimal_Fraccionario.style.cursor = 'text';
-
-
-    Calculo_Maximo_Minimos_Mantisa_Fraccionaria(opcionSeleccionada.text,numero1,opcionSeleccionada2.text,numero2);
+    PFB.OUTPUT_RESULTADO = BASE + ' * (2 ^ ' + EXP +') = '+ RES;
+    //maxMinFraccionaria(MANTISA, MANTISA_VALOR, EXPONENTE, EXPONENTE_VALOR);
 }
 
-function fraccionariaBitImplicito(){
-    Numeros1.value = "ME CAGO EN TU PUTA madre";
-    const indice = $select_Entera.selectedIndex;
-    const opcionSeleccionada = $select_Entera.options[indice];
+export function fraccionariaBitImplicito (MANTISA, MANTISA_VALOR, EXPONENTE, EXPONENTE_VALOR){
     
-    numero1 = input_binario_entero;
-    const indice2 = $select_fraccionaria.selectedIndex;
-    const opcionSeleccionada2 = $select_fraccionaria.options[indice2];
+    const BASE = BinarioFraccionario('1' + MANTISA_VALOR)[MANTISA][1];
+    const EXP =  Binario(EXPONENTE_VALOR)[EXPONENTE][1];
+    const RES = BASE * Math.pow(2, EXP);
     
-    numero2 = input_binario_fraccionaria;
-
-    base = Parte_Mantisa_Fraccionaria2(opcionSeleccionada.text,numero1);
-    Number(base);
-    exponente = Parte_Mantisa(opcionSeleccionada2.text,numero2);
-    Number(exponente);
-    resultado = base*Math.pow(2, exponente);
-
-    output_decimal_Fraccionario.value = base + ' * (2 ^ ' + exponente +') = '+ resultado;
-    output_decimal_Fraccionario.style.cursor = 'text';
-
-    Calculo_Maximo_Minimos_Mantisa_Fraccionaria2(opcionSeleccionada.text,numero1,opcionSeleccionada2.text,numero2);
+    PFB.OUTPUT_RESULTADO.value = BASE + ' * (2 ^ ' + EXP +') = '+ RES;
+    //maxMinFraccionariaBit(MANTISA, MANTISA_VALOR, EXPONENTE, EXPONENTE_VALOR);
 }
-
-/*
-//Para ocultar html que no voy a usar con mantisa fraccionaria y con bit implicito
-const ocultar = document.querySelector("#OCULTAR");
-const ocultar1 = document.querySelector("#OCULTAR1");
-const ocultar2 = document.querySelector("#OCULTAR2");
-
-const selectElement = document.querySelector('#tipo_mantisa');
-
-selectElement.addEventListener('change', (event) => {
-    //const resultado = document.querySelector('.resultado');
-    if ((`${event.target.value}` == "FRACCIONARIA")||(`${event.target.value}` == "FRACCIONARIA BIT IMPLICITO")){
-        document.getElementById('OCULTAR').style.visibility = 'hidden';
-        document.getElementById('OCULTAR1').style.visibility = 'hidden';
-        document.getElementById('OCULTAR2').style.visibility = 'hidden';
-    }
-    else{
-        document.getElementById('OCULTAR').style.visibility = 'visible';
-        document.getElementById('OCULTAR1').style.visibility = 'visible';
-        document.getElementById('OCULTAR2').style.visibility = 'visible';
-    }
-    
-});
-*/

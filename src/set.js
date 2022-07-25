@@ -12,7 +12,7 @@ import * as conversion from'./conversion.js';
     * }} Conversiones a  BSS, BCS, CA1, CA2, EX2 
 */
 export function Binario(BIN){
-
+    
     var dict = {};
     const DEC = conversion.toDecimal(BIN);
     const BSS = conversion.toBss(BIN, DEC);
@@ -37,6 +37,38 @@ export function Binario(BIN){
 
     return dict;
 }
+
+/**
+    * Recibe un binario y convierte a sus respestivos tipos.
+    * @param  {'11'} BIN  Binario recibido como ejemplo.
+    * @return {{
+    * BSS: [ '0.11', 0.75 ], 
+    * BCS: [ '0.11', -0.5 ]
+    * }} Conversiones a  BSS, BCS
+*/
+export function BinarioFraccionario(BIN){
+
+    var dict = {};
+    const DEC = conversion.toDecimalFraccionario(BIN);
+    const BIN_CONVERT = '0, ' + BIN;
+    const BSS = conversion.toBss(BIN_CONVERT, DEC);
+
+    if ( BIN[0] === '0' ){
+        
+        dict['BSS'] = BSS;
+        dict['BCS'] = BSS;
+        
+        return dict;
+    }
+    
+    const BCS = conversion.toBcsFraccionario(BIN);
+    
+    dict['BSS'] = BSS;
+    dict['BCS'] = BCS;
+
+    return dict;
+}
+
 
 /**
     * Recibe un decimal y convierte a sus respestivos tipos.
