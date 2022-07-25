@@ -1,4 +1,5 @@
 function DecimalError(numero, nroBit){
+    
     OUTPUT_BSS.value = "El numero: " + numero + " No se puede representar con : " + nroBit + ' bits'   ;
     OUTPUT_BCS.value = "El numero: " + numero + " No se puede representar con : " + nroBit + ' bits'    ;
     OUTPUT_CA1.value = "El numero: " + numero + " No se puede representar con : " + nroBit + ' bits'    ;

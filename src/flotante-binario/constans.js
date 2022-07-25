@@ -1,4 +1,3 @@
-//Punto Flotante Binario
 export const $TIPO_MANTISA = document.querySelector("#TIPO_MANTISA_PFB");
 
 export const INPUT_MANTISA = document.querySelector("#INPUT_MANTISA_PFB");

@@ -1,6 +1,33 @@
+import * as conversion from'/conversions.js';
 
-import * as conversion from'./conversions.js';
+function Binario(NRO){
+    var dict = {};
+    const nroDecimal = conversion.toDecimal(NRO);
 
+    //if ( NRO[0] === '0' ){
+//
+    //    dict['BSS'] = [NRO, nroDecimal];
+    //    dict['BCS'] = [NRO, nroDecimal];
+    //    dict['CA1'] = [NRO, nroDecimal];
+    //    dict['CA2'] = [NRO, nroDecimal];
+    //    dict['EX2'] = [NRO, nroDecimal - Math.pow(2, (NRO.length)-1)];
+//
+    //    return dict;
+    //}
+//
+    //dict['BSS'] = [NRO, nroDecimal];
+    //dict['BCS'] = [NRO,'-' + conversion.toDecimal(NRO.slice(1))];
+    //dict['CA1'] = conversion.toCa1(NRO);
+    //dict['CA2'] = conversion.toCa2(NRO);
+    //dict['EX2'] = [NRO, nroDecimal - Math.pow(2, (NRO.length)-1)];
+
+
+    return dict;
+}
+
+console.log(Binario('011'));
+
+/*
 function decimalConvert(NRO){
     
     var dict = {};
@@ -25,6 +52,8 @@ function decimalConvert(NRO){
 
     return dict;
 }
+
+
 
 function decimalBitConvert(NRO,BITS){
     
@@ -70,27 +99,4 @@ function decimalBitConvert(NRO,BITS){
     return dict;
 }
 
-function Binario(NRO){
-    var dict = {};
-    const nroDecimal = toDecimal(NRO);
-
-    if ( NRO[0] === '0' ){
-
-        dict['BSS'] = [NRO, nroDecimal];
-        dict['BCS'] = [NRO, nroDecimal];
-        dict['CA1'] = [NRO, nroDecimal];
-        dict['CA2'] = [NRO, nroDecimal];
-        dict['EX2'] = toEx2(NRO);
-
-        return dict;
-    }
-
-    dict['BSS'] = [NRO, nroDecimal];
-    dict['BCS'] = [NRO,'-' + toDecimal(NRO.slice(1))];
-    dict['CA1'] = toCa1(NRO);
-    dict['CA2'] = toCa2(NRO);
-    dict['EX2'] = [NRO, nroDecimal - Math.pow(2, (NRO.length)-1)];
-
-
-    return dict;
-}
+*/

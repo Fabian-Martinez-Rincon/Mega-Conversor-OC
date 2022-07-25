@@ -1,4 +1,3 @@
-//Punto Fijo
 export const INPUT_BINARIO = document.querySelector("#INPUT_BINARIO_PF");
 export const INPUT_DECIMAL = document.querySelector("#INPUT_DECIMAL_PF");
 export const INPUT_BIT = document.querySelector("#INPUT_BIT_PF");

@@ -4,17 +4,7 @@ import * as conversion from'./scrips/conversion.js';
 const REGEX_BINARY = /^[0-1]+$/;
 const REGEX_DECIMAL = /^[0-1-2-3-4-5-6-7-8-9]+$/;
 
-function rangos(nroBit){
-    const rangoBss = (Math.pow(2, nroBit)) - 1;
-    const rangoBcs = (Math.pow(2, (nroBit-1))) - 1;
-    const rangoCa2 =  Math.pow(2, (nroBit-1));
-    pf.OUTPUT_RANGO.value = 
-        "Bss: [0.." + rangoBss  + "] " + 
-        "Bcs: [-" + rangoBcs + ".."   + "+" + rangoBcs + "]  "+ 
-        "Ca1 :[-" + rangoBcs + ".." + "+" + rangoBcs+"]  "+ 
-        "Ca2: [-" + rangoCa2 + "..+" + rangoBcs+"]  "+
-        "Ex2: [-" + rangoCa2 + "..+" + rangoBcs+"]";
-}
+
 
 function binarioProcesado(nro){
     const bss = conversion.toBss(nro);
@@ -42,6 +32,7 @@ function decimalProcesado(nro){
     const ca1 = conversion.toBinarioCa1(nro);
     const ca2 = conversion.toBinarioCa2(nro);
     const ex2 = conversion.toBinarioEx2(nro);
+    
     pf.OUTPUT_BSS.value = 'Bss: ' + bss + '  Decimal: ' + nro;
     pf.OUTPUT_BCS.value = 'Bcs: ' + bcs + '  Decimal: ' + nro;
     pf.OUTPUT_CA1.value = 'Ca1: ' + ca1[0] + '  Decimal: ' + ca1[1];
@@ -115,64 +106,14 @@ function allMaxMin(bits){
     pf.OUTPUT_MIN_MAX_POS_EX2.value = "Minimo Positivo: 0 "        +    "    Maximo Positivo: +" + max;
 }
 
-function decimalAndBit(){
-    decArr = numero.split('').reverse();
-    let nroDecimal = INPUT_DECIMAL.value.split('');
-    let nroBit = INPUT_BIT.value.split('');
-
-    nroDecimal = nroDecimal.toString() ;
-    nroDecimal = nroDecimal.replace(/\s|[,]/g,''); 
-
-    nroBit = nroBit.toString() ;
-    nroBit = nroBit.replace(/\s|[,]/g,''); 
-    Number(nroBit);
-
-    Rangos(nroBit);
-    //Compruebo que se ingresaron bits mas grandes que 1
-    if (nroBit>0){  
-        let decNo = 0;
-        let numero_original = numero;
-        decArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
-        if (nroDecimal > 0){       
-            //Adapto mi numero a la cantidad de bits ingresados
-            if (nroBit>=numero.length){ 
-                Decimal_Positivo(nroBit,numero,numero_original,decNo);
-            }
-            else{
-                Decimal_Error(numero, nroBit);
-            }
-        }
-        //Para numeros negativos
-        else {   
-            output_BSS.value = "BSS: No tiene Representacion :,("  ;
-            output_BSS.style.cursor = 'text';
-            numero=numero.slice(1);
-            let nro_original = numero;
-            //Si tengo bits para el numero + el bit de signo
-            if (nroBit>=(numero.length+1)){ 
-                Decimal_Negativo(numero,nroBit,nroDecimal,nro_original);
-            }
-            else{
-                Decimal_Negativo_Error(decNo,nroBit);
-            }
-        }
-    }
-    else{
-        error.style.display = 'block';
-    }
+function rangos(nroBit){
+    const rangoBss = (Math.pow(2, nroBit)) - 1;
+    const rangoBcs = (Math.pow(2, (nroBit-1))) - 1;
+    const rangoCa2 =  Math.pow(2, (nroBit-1));
+    pf.OUTPUT_RANGO.value = 
+        "Bss: [0.." + rangoBss  + "] " + 
+        "Bcs: [-" + rangoBcs + ".."   + "+" + rangoBcs + "]  "+ 
+        "Ca1 :[-" + rangoBcs + ".." + "+" + rangoBcs+"]  "+ 
+        "Ca2: [-" + rangoCa2 + "..+" + rangoBcs+"]  "+
+        "Ex2: [-" + rangoCa2 + "..+" + rangoBcs+"]";
 }
-function decimal(){
-    decArr = numero.split('').reverse();
-    let nroDecimal = INPUT_DECIMAL.value.split('');
-    nroDecimal = nroDecimal.toString() ;
-    nroDecimal = nroDecimal.replace(/\s|[,]/g,''); 
-    let decNo = 0;
-    decArr.forEach((item, index) => item === '1' ? decNo += Math.pow(2, index) : void 0);
-    if (nroDecimal > 0){
-        Decimal_Positivo_Solo(decNo,numero);
-    }
-    else{
-        Decimal_Negativo_Solo(decArr,numero,nroDecimal);
-    }
-}
-
