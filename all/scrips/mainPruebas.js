@@ -1,62 +1,4 @@
-function BSS_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
-    Numeros1.value = "Minimo Negativo: No tiene representacion";
-    Numeros2.value = "Maximo Negativo: No tiene representacion";
-    Numeros3.value = "Minimo Positivo: 0";   //Numero Minimo Positivo
 
-    //Numeros4.value =  * Math.pow(2, ((Math.pow(2,bitsExponente))-1));     //Numero Maximo Positivo
-
-    Resoluciones1.value = "No tiene representacion";
-    Resoluciones2.value = "No tiene representacion";
-
-    if (ExponenteElegido == "BSS"){
-        base = ((Math.pow(2,bitsMantisa))-1);
-        exponente = ((Math.pow(2,bitsExponente))-1);
-        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
-        Resoluciones3.value = "Minimo Positivo: 1";    //Resolucion Minima Positiva
-
-        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
-    }
-    else if(ExponenteElegido == "BCS"){
-        base = ((Math.pow(2,bitsMantisa))-1);
-        exponente = ((Math.pow(2,(bitsExponente-1)))-1);
-        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
-        
-
-        Resoluciones3.value = "Minimo Positivo: "+ Math.pow(2,(exponente*-1));    //Resolucion Minima Positiva
-        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
-    }
-    else if(ExponenteElegido == "Ca1"){
-        base = ((Math.pow(2,bitsMantisa))-1);
-        exponente = ((Math.pow(2,(bitsExponente-1)))-1);
-        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
-
-
-        Resoluciones3.value = "Minimo Positivo: "+  Math.pow(2,(exponente*-1)); ;    //Resolucion Minima Positiva
-        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
-    }
-    else if(ExponenteElegido == "Ca2"){
-        base = ((Math.pow(2,bitsMantisa))-1);
-        exponente = ((Math.pow(2,(bitsExponente-1)))-1);
-        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
-
-
-        
-        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
-        exponente = ((Math.pow(2,(bitsExponente-1))));
-        Resoluciones3.value = "Minimo Positivo: "+ Math.pow(2,(exponente*-1)); ;    //Resolucion Minima Positiva
-    }
-    else if(ExponenteElegido == "Ex2"){
-        base = ((Math.pow(2,bitsMantisa))-1);
-        exponente = ((Math.pow(2,(bitsExponente-1)))-1);
-        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
-
-
-        
-        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
-        exponente = ((Math.pow(2,(bitsExponente-1))));
-        Resoluciones3.value = "Minimo Positivo: " +  Math.pow(2,(exponente*-1)); ;    //Resolucion Minima Positiva
-    }
-}
 //________________________________________________________________________________________
 function BCS_Ca1MaximosResoluciones(bitsMantisa,bitsExponente){
     base = ((Math.pow(2,(bitsMantisa-1)))-1);
@@ -189,32 +131,7 @@ function Ca2_NUMEROS_RESOLUCIONES(bitsMantisa,ExponenteElegido,bitsExponente){
     }
 }
 //________________________________________________________________________________________
-function Calculo_Maximo_Minimos_Mantisa_entera(MantisaElegida,mantisa,ExponenteElegido,exponete)
-{
-    const regEx = /^[0-1]+$/;
-    if((mantisa.value.match(regEx))&&(exponete.value.match(regEx))){
-        if(MantisaElegida == "BSS"){
-            BSS_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
-        }
-        else if(MantisaElegida == "BCS"){
-            BCS_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
-        }
-        else if(MantisaElegida == "Ca1"){
-            BCS_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
-        }
-        else if (MantisaElegida == "Ca2"){
-            Ca2_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
-        }
-        else if(MantisaElegida == "Ex2"){
-            Ca2_NUMEROS_RESOLUCIONES(mantisa.value.length,ExponenteElegido,exponete.value.length);
-        }
-    }
-    else{
-        error2.style.display = 'block';
-    }
-    
 
-}
 //________________________________________________________________________________________
 
 //________________________________________________________________________________________
@@ -375,9 +292,7 @@ function Calculo_Maximo_Minimos_Mantisa_Fraccionaria(MantisaElegida,mantisa,Expo
         error2.style.display = 'block';
     }
 }
-//________________________________________________________________________________________
 
-//________________________________________________________________________________________
 function Parte_Mantisa_Fraccionaria2(opcion,numero){
     let resultado = 0;
     const regEx = /^[0-1]+$/;

@@ -1,0 +1,55 @@
+/*
+function BSS_RESOLUCIONES (BITS_MANTISA, EXPONENTE, BITS_EXPONENTE){
+    Numeros1.value = "Minimo Negativo: No tiene representacion";
+    Numeros2.value = "Maximo Negativo: No tiene representacion";
+    Numeros3.value = "Minimo Positivo: 0";   //Numero Minimo Positivo
+
+    //Numeros4.value =  * Math.pow(2, ((Math.pow(2,BITS_EXPONENTE))-1));     //Numero Maximo Positivo
+
+    Resoluciones1.value = "No tiene representacion";
+    Resoluciones2.value = "No tiene representacion";
+
+    if (EXPONENTE == "BSS"){
+        base = ((Math.pow(2,BITS_MANTISA))-1);
+        exponente = ((Math.pow(2,BITS_EXPONENTE))-1);
+        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
+        Resoluciones3.value = "Minimo Positivo: 1";    //Resolucion Minima Positiva
+
+        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
+    }
+    else if(EXPONENTE == "BCS"){
+        base = ((Math.pow(2,BITS_MANTISA))-1);
+        exponente = ((Math.pow(2,(BITS_EXPONENTE-1)))-1);
+        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
+        Resoluciones3.value = "Minimo Positivo: "+ Math.pow(2,(exponente*-1));    //Resolucion Minima Positiva
+        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
+    }
+    else if(EXPONENTE == "Ca1"){
+        base = ((Math.pow(2,BITS_MANTISA))-1);
+        exponente = ((Math.pow(2,(BITS_EXPONENTE-1)))-1);
+        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
+
+
+        Resoluciones3.value = "Minimo Positivo: "+  Math.pow(2,(exponente*-1)); ;    //Resolucion Minima Positiva
+        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
+    }
+    else if(EXPONENTE == "Ca2"){
+        base = ((Math.pow(2,BITS_MANTISA))-1);
+        exponente = ((Math.pow(2,(BITS_EXPONENTE-1)))-1);
+        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
+        
+        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
+        exponente = ((Math.pow(2,(BITS_EXPONENTE-1))));
+        Resoluciones3.value = "Minimo Positivo: "+ Math.pow(2,(exponente*-1)); ;    //Resolucion Minima Positiva
+    }
+    else if(EXPONENTE == "Ex2"){
+        base = ((Math.pow(2,BITS_MANTISA))-1);
+        exponente = ((Math.pow(2,(BITS_EXPONENTE-1)))-1);
+        Numeros4.value = "Maximo Positivo: "+(base * (Math.pow(2,exponente)));
+        
+        Resoluciones4.value = "Maximo Positivo: "+ (Math.pow(2,exponente));    //Resolucion Maxima Positiva
+        exponente = ((Math.pow(2,(BITS_EXPONENTE-1))));
+        Resoluciones3.value = "Minimo Positivo: " +  Math.pow(2,(exponente*-1)); ;    //Resolucion Minima Positiva
+    }
+}
+*/
